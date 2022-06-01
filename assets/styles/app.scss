@@ -1,7 +1,6 @@
-body {
-    background-color: #002B4C;
-}
+// assets/styles/global.scss
 
-h1 {
-    color: #F4F4F5;
-}
+// import the variables scss
+@import "variables";
+@import "~bootstrap/scss/bootstrap";
+@import "home";
