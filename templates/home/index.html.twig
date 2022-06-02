@@ -1,8 +1,14 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}OSSO{% endblock %}
+{% block title %}{{ parent() }} - Accueil{% endblock %}
 
 {% block body %}
-    <img src="{{ asset('build/pic-du-midi-dossau.jpg') }}" alt="pic du midi d'ossau">
-    <h1>Bienvenue sur le site de l'Orchestre symphonique du Sud Ouest</h1>
+    <div class="banner-picture"
+         style="background-image: url('{{ asset('build/pic-du-midi-dossau.jpg') }}')">
+    </div>
+
+    <section class="main-title d-flex flex-column min-vh-100 justify-content-center align-items-center">
+        <h1>Bienvenue sur le site de l'Orchestre symphonique du Sud Ouest</h1>
+    </section>
+
 {% endblock %}

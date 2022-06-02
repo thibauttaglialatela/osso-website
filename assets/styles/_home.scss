@@ -2,7 +2,10 @@ body {
   background-color: $primary;
 }
 
-h1 {
+.main-title h1 {
   font-family: $font-family-sans-serif;
   color: $white;
+  font-size: 6rem;
+  text-align: center;
 }
+
