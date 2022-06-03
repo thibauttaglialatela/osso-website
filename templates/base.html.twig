@@ -14,7 +14,11 @@
         {{ encore_entry_script_tags('app') }}
     {% endblock %}
 </head>
-<body>
-{% block body %}{% endblock %}
+<body class="d-flex flex-row">
+{{ include("_sidebar.html.twig") }}
+<main>
+    {% block body %}{% endblock %}
+</main>
+
 </body>
 </html>
