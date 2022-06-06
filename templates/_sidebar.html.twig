@@ -11,25 +11,25 @@
             </a>
         </li>
         <li class="mb-1">
-            <a href="#"
+            <a
                class="btn btn-primary btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed"
                data-bs-toggle="collapse"
-               data-bs-target="#home-collapse"
+               data-bs-target="#orchestra-collapse"
                id="navbarDropdown"
                aria-expanded="false"
                role="button"
             >
                 Orchestre
             </a>
-            <div class="collapse" id="home-collapse" style>
-                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <li class="dropdown-item {{ app.request.pathinfo == "#" ? 'active' }}" {{ app.request.pathinfo == "#" ? 'aria-current = "page"' }}
+            <div class="collapse" id="orchestra-collapse" style>
+                <ul class="btn-toggle-nav">
+                    <li class=" btn btn-primary rounded border-0 {{ app.request.pathinfo == "#" ? 'active' }}" {{ app.request.pathinfo == "#" ? 'aria-current = "page"' }}
                         href="#">Présentation
                     </li>
-                    <li class="dropdown-item {{ app.request.pathinfo == "#" ? 'active' }}" {{ app.request.pathinfo == "#" ? 'aria-current = "page"' }}
+                    <li class="btn btn-primary rounded border-0 {{ app.request.pathinfo == "#" ? 'active' }}" {{ app.request.pathinfo == "#" ? 'aria-current = "page"' }}
                         href="#">Musiciens
                     </li>
-                    <li class="dropdown-item {{ app.request.pathinfo == "#" ? 'active' }}" {{ app.request.pathinfo == "#" ? 'aria-current = "page"' }}
+                    <li class="btn btn-primary rounded border-0 {{ app.request.pathinfo == "#" ? 'active' }}" {{ app.request.pathinfo == "#" ? 'aria-current = "page"' }}
                         href="#">Le répertoire
                     </li>
                 </ul>
