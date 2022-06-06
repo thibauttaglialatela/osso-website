@@ -5,3 +5,29 @@
 .bg-sidebar {
   background-color: $blue-600;
 }
+
+.btn-primary {
+  text-transform: uppercase;
+  color: $white;
+  background-color: $blue-800;
+
+  &:active {
+    background-color: $white;
+    color: $dark;
+  }
+}
+
+.btn-primary.active {
+  background-color: $white;
+  color: $dark;
+}
+
+/*
+.nav-pills .active, .nav-pills .show > .nav-link {
+  color: $white;
+  background-color: $primary;
+}
+
+.dropdown-item {
+  text-transform: uppercase;
+}*/

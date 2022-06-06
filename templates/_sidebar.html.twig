@@ -1,65 +1,66 @@
 <div class="d-flex flex-column flex-shrink-0 p-3 text-white bg-sidebar sidebar">
-    {% set links = [
-        {'title': 'Accueil', 'path': 'app_index'},
-        {'title': 'Orchestre', 'path': '#'},
-        {'title': 'Calendrier', 'path': '#'},
-        {'title': 'Médias', 'path': '#'},
-        {'title': 'Contact', 'path': '#'},
-    ] %}
-    <ul class="nav nav-pills flex-column mb-auto">
-        <li class="nav-item">
+
+    <ul class="nav nav-pills flex-column mb-auto align-items-center justify-content-around h-100">
+        <li class="mb-1">
             <a href="{{ path('app_index') }}"
-               class="nav-link {{ app.request.pathinfo == path('app_index') ? 'active' }}"
-                    {{ app.request.pathinfo == path('app_index') ? 'aria-current = "page"' }}
+               class="btn btn-primary  d-inline-flex align-items-center rounded border-0  {{ app.request.pathinfo == path("app_index") ? 'active' }}"
+               role="button"
+                    {{ app.request.pathinfo == path("app_index") ? 'aria-current = "page"' }}
             >
                 Accueil
             </a>
         </li>
-        <li class="nav-item dropdown">
+        <li class="mb-1">
             <a href="#"
-               class="nav-link dropdown-toggle {{ app.request.pathinfo == '#' ? 'active' }}"
+               class="btn btn-primary btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed"
+               data-bs-toggle="collapse"
+               data-bs-target="#home-collapse"
                id="navbarDropdown"
-               role="button"
-               data-bs-toggle="dropdown"
                aria-expanded="false"
-                    {{ app.request.pathinfo == '#' ? 'aria-current = "page"' }}
+               role="button"
             >
                 Orchestre
             </a>
-            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <li class="dropdown-item {{ app.request.pathinfo == path('app_index') ? 'active' }}" {{ app.request.pathinfo == path('app_index') ? 'aria-current = "page"' }}
-                    href="#">Présentation
-                </li>
-                <li class="dropdown-item {{ app.request.pathinfo == path('app_index') ? 'active' }}" {{ app.request.pathinfo == path('app_index') ? 'aria-current = "page"' }}
-                    href="#">Musiciens
-                </li>
-                <li class="dropdown-item {{ app.request.pathinfo == path('app_index') ? 'active' }}" {{ app.request.pathinfo == path('app_index') ? 'aria-current = "page"' }}
-                    href="#">Le répertoire
-                </li>
-            </ul>
+            <div class="collapse" id="home-collapse" style>
+                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <li class="dropdown-item {{ app.request.pathinfo == "#" ? 'active' }}" {{ app.request.pathinfo == "#" ? 'aria-current = "page"' }}
+                        href="#">Présentation
+                    </li>
+                    <li class="dropdown-item {{ app.request.pathinfo == "#" ? 'active' }}" {{ app.request.pathinfo == "#" ? 'aria-current = "page"' }}
+                        href="#">Musiciens
+                    </li>
+                    <li class="dropdown-item {{ app.request.pathinfo == "#" ? 'active' }}" {{ app.request.pathinfo == "#" ? 'aria-current = "page"' }}
+                        href="#">Le répertoire
+                    </li>
+                </ul>
+            </div>
+
         </li>
-        <li class="nav-item">
-            <a href="#"
-               class="nav-link {{ app.request.pathinfo == '#' ? 'active' }}"
+        <li class="mb-1">
+            <a href="{{ path('app_index') }}"
+               class="btn btn-primary  d-inline-flex align-items-center rounded border-0  {{ app.request.pathinfo == '#' ? 'active' }}"
+               role="button"
                     {{ app.request.pathinfo == '#' ? 'aria-current = "page"' }}
             >
                 Calendrier
             </a>
         </li>
-        <li class="nav-item">
-            <a href="#"
-               class="nav-link {{ app.request.pathinfo == '#' ? 'active' }}"
-                    {{ app.request.pathinfo == '#' ? 'aria-current = "page"' }}
+        <li class="mb-1">
+            <a href="{{ path('app_index') }}"
+               class="btn btn-primary  d-inline-flex align-items-center rounded border-0  {{ app.request.pathinfo == '#' ? 'active' }}"
+               role="button"
+                    {{ app.request.pathinfo == "#" ? 'aria-current = "page"' }}
             >
                 Médias
             </a>
         </li>
-        <li class="nav-item">
-            <a href="#"
-               class="nav-link {{ app.request.pathinfo == '#' ? 'active' }}"
+        <li class="mb-1">
+            <a href="{{ path('app_index') }}"
+               class="btn btn-primary  d-inline-flex align-items-center rounded border-0  {{ app.request.pathinfo == '#' ? 'active' }}"
+               role="button"
                     {{ app.request.pathinfo == '#' ? 'aria-current = "page"' }}
             >
-                Contact
+                Contactez nous
             </a>
         </li>
     </ul>
