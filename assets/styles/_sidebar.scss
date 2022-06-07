@@ -1,39 +1,13 @@
 .sidebar {
   width: 15vw;
 }
-
-.bg-sidebar {
-  background-color: $blue-600;
+.offcanvas-lg {
+  background-color: $blue-600 !important;
 }
 
-.btn-primary {
-  text-transform: uppercase;
-  color: $white;
-  background-color: $blue-800;
-
-  &:active {
-    background-color: $white;
-    color: $dark;
-  }
+.offcanvas-body {
+  height: 100vh;
 }
 
-.btn-primary.active {
-  background-color: $white;
-  color: $dark;
-}
 
-.btn-toggle[aria-expanded="true"]::before {
-  transform: rotate(90deg);
-}
 
-.btn-toggle::before {
-  width: 1.25em;
-  line-height: 0;
-  content: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 16 16'%3e%3cpath fill='white' stroke='rgba%280,0,0,.5%29' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M5 14l6-6-6-6'/%3e%3c/svg%3e");
-  transition: transform .35s ease;
-  transform-origin: .5em 50%;
-}
-
-/*.btn-toggle-nav {
-  margin-left: -1.94rem;
-}*/
