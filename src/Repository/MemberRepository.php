@@ -2,26 +2,26 @@
 
 namespace App\Repository;
 
-use App\Entity\Member;
+use App\Entity\Musician;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
 
 /**
- * @extends ServiceEntityRepository<Member>
+ * @extends ServiceEntityRepository<Musician>
  *
- * @method Member|null find($id, $lockMode = null, $lockVersion = null)
- * @method Member|null findOneBy(array $criteria, array $orderBy = null)
- * @method Member[]    findAll()
- * @method Member[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
+ * @method Musician|null find($id, $lockMode = null, $lockVersion = null)
+ * @method Musician|null findOneBy(array $criteria, array $orderBy = null)
+ * @method Musician[]    findAll()
+ * @method Musician[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
  */
 class MemberRepository extends ServiceEntityRepository
 {
     public function __construct(ManagerRegistry $registry)
     {
-        parent::__construct($registry, Member::class);
+        parent::__construct($registry, Musician::class);
     }
 
-    public function add(Member $entity, bool $flush = false): void
+    public function add(Musician $entity, bool $flush = false): void
     {
         $this->getEntityManager()->persist($entity);
 
@@ -30,7 +30,7 @@ class MemberRepository extends ServiceEntityRepository
         }
     }
 
-    public function remove(Member $entity, bool $flush = false): void
+    public function remove(Musician $entity, bool $flush = false): void
     {
         $this->getEntityManager()->remove($entity);
 
@@ -40,7 +40,7 @@ class MemberRepository extends ServiceEntityRepository
     }
 
 //    /**
-//     * @return Member[] Returns an array of Member objects
+//     * @return Musician[] Returns an array of Musician objects
 //     */
 //    public function findByExampleField($value): array
 //    {
@@ -54,7 +54,7 @@ class MemberRepository extends ServiceEntityRepository
 //        ;
 //    }
 
-//    public function findOneBySomeField($value): ?Member
+//    public function findOneBySomeField($value): ?Musician
 //    {
 //        return $this->createQueryBuilder('m')
 //            ->andWhere('m.exampleField = :val')

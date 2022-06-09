@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\PosterRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Entity(repositoryClass: PosterRepository::class)]
@@ -27,6 +29,19 @@ class Poster
 
     #[ORM\Column(type: 'string', length: 255)]
     private $alt;
+
+    #[ORM\ManyToOne(targetEntity: Gallery::class, inversedBy: 'posters')]
+    #[ORM\JoinColumn(nullable: false)]
+    private $gallery;
+
+    #[ORM\OneToMany(mappedBy: 'poster', targetEntity: Event::class)]
+    private $events;
+
+    public function __construct()
+    {
+        $this->events = new ArrayCollection();
+    }
+
 
     public function getId(): ?int
     {
@@ -92,4 +107,47 @@ class Poster
 
         return $this;
     }
+
+    public function getGallery(): ?Gallery
+    {
+        return $this->gallery;
+    }
+
+    public function setGallery(?Gallery $gallery): self
+    {
+        $this->gallery = $gallery;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Event>
+     */
+    public function getEvents(): Collection
+    {
+        return $this->events;
+    }
+
+    public function addEvent(Event $event): self
+    {
+        if (!$this->events->contains($event)) {
+            $this->events[] = $event;
+            $event->setPoster($this);
+        }
+
+        return $this;
+    }
+
+    public function removeEvent(Event $event): self
+    {
+        if ($this->events->removeElement($event)) {
+            // set the owning side to null (unless already changed)
+            if ($event->getPoster() === $this) {
+                $event->setPoster(null);
+            }
+        }
+
+        return $this;
+    }
+
 }

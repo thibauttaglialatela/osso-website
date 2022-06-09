@@ -29,6 +29,10 @@ class Content
     #[Assert\Unique]
     private $fct_id;
 
+    #[ORM\ManyToOne(targetEntity: CategoryContent::class, inversedBy: 'contents')]
+    #[ORM\JoinColumn(nullable: false)]
+    private $category_content;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -78,6 +82,18 @@ class Content
     public function setFctId(string $fct_id): self
     {
         $this->fct_id = $fct_id;
+
+        return $this;
+    }
+
+    public function getCategoryContent(): ?CategoryContent
+    {
+        return $this->category_content;
+    }
+
+    public function setCategoryContent(?CategoryContent $category_content): self
+    {
+        $this->category_content = $category_content;
 
         return $this;
     }

@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\InstrumentRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
@@ -22,6 +24,17 @@ class Instrument
     #[ORM\Column(type: 'string', length: 10, unique: true)]
     #[Assert\Unique]
     private $fct_id;
+
+    #[ORM\ManyToMany(targetEntity: Musician::class, mappedBy: 'instruments')]
+    private $musicians;
+
+
+    public function __construct()
+    {
+        $this->musician = new ArrayCollection();
+        $this->instruments = new ArrayCollection();
+        $this->musicians = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -51,4 +64,50 @@ class Instrument
 
         return $this;
     }
+
+    /**
+     * @return Collection<int, self>
+     */
+    public function getMusician(): Collection
+    {
+        return $this->musician;
+    }
+
+
+    /**
+     * @return Collection<int, self>
+     */
+    public function getInstruments(): Collection
+    {
+        return $this->instruments;
+    }
+
+    /**
+     * @return Collection<int, Musician>
+     */
+    public function getMusicians(): Collection
+    {
+        return $this->musicians;
+    }
+
+    public function addMusician(Musician $musician): self
+    {
+        if (!$this->musicians->contains($musician)) {
+            $this->musicians[] = $musician;
+            $musician->addInstrument($this);
+        }
+
+        return $this;
+    }
+
+    public function removeMusician(Musician $musician): self
+    {
+        if ($this->musicians->removeElement($musician)) {
+            $musician->removeInstrument($this);
+        }
+
+        return $this;
+    }
+
+
 }

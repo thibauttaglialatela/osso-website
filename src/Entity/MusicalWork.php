@@ -21,6 +21,12 @@ class MusicalWork
     #[ORM\Column(type: 'string', length: 255)]
     private $status;
 
+    #[ORM\ManyToOne(targetEntity: Compositor::class, inversedBy: 'musicalWorks')]
+    private $compositor;
+
+    #[ORM\ManyToOne(targetEntity: Event::class, inversedBy: 'musical_work')]
+    private $event;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -47,6 +53,30 @@ class MusicalWork
     public function setStatus(string $status): self
     {
         $this->status = $status;
+
+        return $this;
+    }
+
+    public function getCompositor(): ?Compositor
+    {
+        return $this->compositor;
+    }
+
+    public function setCompositor(?Compositor $compositor): self
+    {
+        $this->compositor = $compositor;
+
+        return $this;
+    }
+
+    public function getEvent(): ?Event
+    {
+        return $this->event;
+    }
+
+    public function setEvent(?Event $event): self
+    {
+        $this->event = $event;
 
         return $this;
     }
