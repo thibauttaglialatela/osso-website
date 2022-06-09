@@ -4,9 +4,11 @@ namespace App\Entity;
 
 use App\Repository\ContentRepository;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\Validator\Constraints as Assert;
 
 #[ORM\Entity(repositoryClass: ContentRepository::class)]
+#[UniqueEntity('fct_id')]
 class Content
 {
     #[ORM\Id]
@@ -23,7 +25,7 @@ class Content
     #[ORM\Column(type: 'string', length: 255)]
     private $identifier;
 
-    #[ORM\Column(type: 'string', length: 10)]
+    #[ORM\Column(type: 'string', length: 10, unique: true)]
     #[Assert\Unique]
     private $fct_id;
 
