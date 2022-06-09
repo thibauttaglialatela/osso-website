@@ -14,3 +14,19 @@
   background-color: $blue-800;
   color: $white;
 }
+
+.btn-primary {
+  text-transform: uppercase;
+  color: $white;
+  background-color: $blue-800;
+
+  &:active {
+    background-color: $white;
+    color: $dark;
+  }
+}
+
+.btn-primary.active {
+  background-color: $white;
+  color: $dark;
+}
