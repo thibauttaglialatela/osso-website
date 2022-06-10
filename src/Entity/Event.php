@@ -31,8 +31,7 @@ class Event
     #[ORM\JoinColumn(nullable: false)]
     private $event_type;
 
-    #[ORM\ManyToOne(targetEntity: Poster::class, inversedBy: 'events')]
-    private $poster;
+
 
     #[ORM\OneToMany(mappedBy: 'event', targetEntity: MusicalWork::class)]
     private $musical_work;
@@ -107,17 +106,6 @@ class Event
         return $this;
     }
 
-    public function getPoster(): ?Poster
-    {
-        return $this->poster;
-    }
-
-    public function setPoster(?Poster $poster): self
-    {
-        $this->poster = $poster;
-
-        return $this;
-    }
 
     /**
      * @return Collection<int, MusicalWork>

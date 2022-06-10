@@ -25,8 +25,7 @@ class Musician
     #[ORM\Column(type: 'string', length: 45, nullable: true)]
     private $status;
 
-    #[ORM\OneToOne(targetEntity: Poster::class, cascade: ['persist', 'remove'])]
-    private $poster;
+
 
     #[ORM\ManyToMany(targetEntity: Instrument::class, inversedBy: 'musicians')]
     private $instruments;
@@ -77,17 +76,6 @@ class Musician
         return $this;
     }
 
-    public function getPoster(): ?Poster
-    {
-        return $this->poster;
-    }
-
-    public function setPoster(?Poster $poster): self
-    {
-        $this->poster = $poster;
-
-        return $this;
-    }
 
     /**
      * @return Collection<int, Instrument>

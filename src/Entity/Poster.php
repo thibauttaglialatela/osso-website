@@ -34,8 +34,7 @@ class Poster
     #[ORM\JoinColumn(nullable: false)]
     private $gallery;
 
-    #[ORM\OneToMany(mappedBy: 'poster', targetEntity: Event::class)]
-    private $events;
+
 
     public function __construct()
     {
@@ -120,34 +119,5 @@ class Poster
         return $this;
     }
 
-    /**
-     * @return Collection<int, Event>
-     */
-    public function getEvents(): Collection
-    {
-        return $this->events;
-    }
-
-    public function addEvent(Event $event): self
-    {
-        if (!$this->events->contains($event)) {
-            $this->events[] = $event;
-            $event->setPoster($this);
-        }
-
-        return $this;
-    }
-
-    public function removeEvent(Event $event): self
-    {
-        if ($this->events->removeElement($event)) {
-            // set the owning side to null (unless already changed)
-            if ($event->getPoster() === $this) {
-                $event->setPoster(null);
-            }
-        }
-
-        return $this;
-    }
 
 }
