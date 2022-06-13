@@ -15,11 +15,10 @@ class Poster
     #[ORM\Column(type: 'integer')]
     private $id;
 
-    #[ORM\Column(type: 'string', length: 255)]
-    private $image_file;
+
 
     #[ORM\Column(type: 'string', length: 255)]
-    private $image_name;
+    private $image;
 
     #[ORM\Column(type: 'date')]
     private $updated_at;
@@ -47,26 +46,14 @@ class Poster
         return $this->id;
     }
 
-    public function getImageFile(): ?string
+    public function getImage(): ?string
     {
-        return $this->image_file;
+        return $this->image;
     }
 
-    public function setImageFile(string $image_file): self
+    public function setImage(string $image): self
     {
-        $this->image_file = $image_file;
-
-        return $this;
-    }
-
-    public function getImageName(): ?string
-    {
-        return $this->image_name;
-    }
-
-    public function setImageName(string $image_name): self
-    {
-        $this->image_name = $image_name;
+        $this->image = $image;
 
         return $this;
     }
