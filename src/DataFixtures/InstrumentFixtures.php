@@ -5,6 +5,7 @@ namespace App\DataFixtures;
 use Doctrine\Persistence\ObjectManager;
 use App\Entity\Instrument;
 use Doctrine\Bundle\FixturesBundle\Fixture;
+use League\Csv\Exception;
 use League\Csv\Reader;
 
 class InstrumentFixtures extends Fixture
@@ -12,19 +13,20 @@ class InstrumentFixtures extends Fixture
 
     /**
      * @inheritDoc
+     * @throws Exception
      */
     public function load(ObjectManager $manager)
     {
         $fileHandler = Reader::createFromPath('assets/images/Instrument.csv');
         $fileHandler->setHeaderOffset(0);
-        $i = 0;
         foreach ($fileHandler as $record) {
+            $instrumentId = $record['fct_id'];
             $instrument = new Instrument();
             $instrument->setName($record['name']);
             $instrument->setFctId($record['fct_id']);
 
             $manager->persist($instrument);
-            $this->addReference('Instrument_' . $i, $instrument);
+            $this->addReference('Instrument_' . $instrumentId, $instrument);
         }
         $manager->flush();
 
