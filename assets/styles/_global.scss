@@ -1,11 +1,13 @@
 .banner-picture {
   background-size: cover;
-  min-height: 30vh;
+  min-height: 25vh;
   background-repeat: no-repeat;
   background-position: center;
 }
 
-
+h1 {
+  font-size: 4.5rem;
+}
 
 body {
   display: grid;
