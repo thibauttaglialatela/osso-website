@@ -25,6 +25,7 @@ class EventFixtures extends Fixture
             $event->setCategory('concert');
             $event->setPoster('https://picsum.photos/200/300');
             $manager->persist($event);
+            $this->addReference('event_' . $i, $event);
 
         }
 

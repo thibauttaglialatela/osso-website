@@ -20,7 +20,7 @@ class CompositorFixtures extends Fixture
                 $compositor = new Compositor();
                 $compositor->setName($line[0]);
                 $manager->persist($compositor);
-                $this->addReference($line[0], $compositor);
+                $this->addReference('compositor_' . $line[0], $compositor);
             }
             fclose($handle);
         }

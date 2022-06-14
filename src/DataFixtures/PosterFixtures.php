@@ -15,8 +15,7 @@ class PosterFixtures extends Fixture implements DependentFixtureInterface
 
     public function load(ObjectManager $manager): void
     {
-        // $product = new Product();
-        // $manager->persist($product);
+
         $faker = Factory::create('fr_FR');
 
         for ($i = 0; $i < self::PICTURE_NB; $i++) {
@@ -25,7 +24,7 @@ class PosterFixtures extends Fixture implements DependentFixtureInterface
             $poster->setAlt($faker->sentence(3));
             $poster->setUpdatedAt($faker->dateTimeBetween('-1 year'));
             $poster->setAuthor($faker->name);
-            $poster->setGallery($this->addReference('gallery_0'));
+            $poster->setGallery($this->getReference('gallery_0'));
             $manager->persist($poster);
 
         }
@@ -36,7 +35,7 @@ class PosterFixtures extends Fixture implements DependentFixtureInterface
             $poster->setAlt($faker->sentence(3));
             $poster->setUpdatedAt($faker->dateTimeBetween('-1 year'));
             $poster->setAuthor($faker->name);
-            $poster->setGallery($this->addReference('gallery_1'));
+            $poster->setGallery($this->getReference('gallery_1'));
             $manager->persist($poster);
 
         }
@@ -47,7 +46,7 @@ class PosterFixtures extends Fixture implements DependentFixtureInterface
             $poster->setAlt($faker->sentence(3));
             $poster->setUpdatedAt($faker->dateTimeBetween('-1 year'));
             $poster->setAuthor($faker->name);
-            $poster->setGallery($this->addReference('gallery_2'));
+            $poster->setGallery($this->getReference('gallery_2'));
             $manager->persist($poster);
 
         }
@@ -55,10 +54,13 @@ class PosterFixtures extends Fixture implements DependentFixtureInterface
         $manager->flush();
     }
 
-    public function getDependencies()
+    /**
+     * @return string[]
+     */
+    public function getDependencies(): array
     {
         return [
-            Gallery::class,
+            GalleryFixtures::class,
         ];
     }
 }
