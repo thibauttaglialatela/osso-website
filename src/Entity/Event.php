@@ -27,14 +27,15 @@ class Event
     #[ORM\Column(type: 'date')]
     private $date;
 
-    #[ORM\ManyToOne(targetEntity: EventType::class, inversedBy: 'events')]
-    #[ORM\JoinColumn(nullable: false)]
-    private $event_type;
-
-
 
     #[ORM\OneToMany(mappedBy: 'event', targetEntity: MusicalWork::class)]
     private $musical_work;
+
+    #[ORM\Column(type: 'string', length: 50)]
+    private $category;
+
+    #[ORM\Column(type: 'string', length: 255, nullable: true)]
+    private $poster;
 
     public function __construct()
     {
@@ -94,18 +95,6 @@ class Event
         return $this;
     }
 
-    public function getEventType(): ?EventType
-    {
-        return $this->event_type;
-    }
-
-    public function setEventType(?EventType $event_type): self
-    {
-        $this->event_type = $event_type;
-
-        return $this;
-    }
-
 
     /**
      * @return Collection<int, MusicalWork>
@@ -133,6 +122,30 @@ class Event
                 $musicalWork->setEvent(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getCategory(): ?string
+    {
+        return $this->category;
+    }
+
+    public function setCategory(string $category): self
+    {
+        $this->category = $category;
+
+        return $this;
+    }
+
+    public function getPoster(): ?string
+    {
+        return $this->poster;
+    }
+
+    public function setPoster(?string $poster): self
+    {
+        $this->poster = $poster;
 
         return $this;
     }
