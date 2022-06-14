@@ -36,22 +36,22 @@
                     Orchestre
                 </a>
                 <div class="collapse" id="orchestra-collapse" style>
-                    <ul class="btn-toggle-nav list-group">
-                        <li class="list-group-item btn btn-primary rounded border-0 {{ app.request.pathinfo == "#" ? 'active' }}" {{ app.request.pathinfo == "#" ? 'aria-current = "page"' }}
-                            href="#">Présentation
-                        </li>
-                        <li class="list-group-item btn btn-primary rounded border-0 {{ app.request.pathinfo == "#" ? 'active' }}" {{ app.request.pathinfo == "#" ? 'aria-current = "page"' }}
+                    <div class="btn-toggle-nav list-group-flush">
+                        <a class="list-group-item btn btn-primary rounded border-0 {{ app.request.pathinfo == path('orchestra_presentation') ? 'active' }}" {{ app.request.pathinfo == path('orchestra_presentation') ? 'aria-current = "page"' }}
+                            href="{{ path('orchestra_presentation') }}">Présentation
+                        </a>
+                        <a class="list-group-item btn btn-primary rounded border-0 {{ app.request.pathinfo == "#" ? 'active' }}" {{ app.request.pathinfo == "#" ? 'aria-current = "page"' }}
                             href="#">Musiciens
-                        </li>
-                        <li class="list-group-item btn btn-primary rounded border-0 {{ app.request.pathinfo == "#" ? 'active' }}" {{ app.request.pathinfo == "#" ? 'aria-current = "page"' }}
+                        </a>
+                        <a class="list-group-item btn btn-primary rounded border-0 {{ app.request.pathinfo == "#" ? 'active' }}" {{ app.request.pathinfo == "#" ? 'aria-current = "page"' }}
                             href="#">Le répertoire
-                        </li>
-                    </ul>
+                        </a>
+                    </div>
                 </div>
 
             </li>
             <li class="mb-1">
-                <a href="{{ path('app_index') }}"
+                <a href="{{ path('orchestra_presentation') }}"
                    class="btn btn-primary btn-lg d-inline-flex align-items-center rounded border-0  {{ app.request.pathinfo == '#' ? 'active' }}"
                    role="button"
                         {{ app.request.pathinfo == '#' ? 'aria-current = "page"' }}
