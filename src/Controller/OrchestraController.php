@@ -12,8 +12,6 @@ class OrchestraController extends AbstractController
     #[Route('presentation/', name: 'presentation')]
     public function index(): Response
     {
-        return $this->render('orchestra_presentation/index.html.twig', [
-            'controller_name' => 'OrchestraController',
-        ]);
+        return $this->render('orchestra_presentation/index.html.twig');
     }
 }
