@@ -37,8 +37,8 @@
                                 </a>
                             </li>
                             <li>
-                                <a class="list-group-item btn btn-primary rounded border-0 {{ app.request.pathinfo == "#" ? 'active' }}" {{ app.request.pathinfo == "#" ? 'aria-current = "page"' }}
-                                   href="#">Musiciens
+                                <a class="list-group-item btn btn-primary rounded border-0 {{ app.request.pathinfo == path('orchestra_instrument') ? 'active' }}" {{ app.request.pathinfo == path('orchestra_instrument') ? 'aria-current = "page"' }}
+                                   href="{{ path('orchestra_instrument') }}">Musiciens
                                 </a></li>
                             <li>
                                 <a class="list-group-item btn btn-primary rounded border-0 {{ app.request.pathinfo == "#" ? 'active' }}" {{ app.request.pathinfo == "#" ? 'aria-current = "page"' }}

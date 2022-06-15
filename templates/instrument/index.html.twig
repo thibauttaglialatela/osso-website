@@ -1,0 +1,30 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ parent() }} - Instruments{% endblock %}
+
+{% block body %}
+    <div class="banner-picture"
+         style="background-image: url('{{ asset('build/musicians_banner.jpg') }}')">
+    </div>
+
+    <h1 class="text-light text-center fs-1 my-lg-4">Les musiciens</h1>
+
+    {{ dump(instruments) }}
+<section class="container">
+    <div  class="row row-cols-1 row-cols-sm-2 row-cols-lg-4 g-3 mb-lg-5">
+        {% for instrument in instruments %}
+            <div class="col">
+                <div class="card shadow-sm">
+                    <div class="card-body">
+                        <h3 class="card-title">{{ instrument.name|upper }}</h3>
+                        <div class="d-flex justify-content-center align-items-center">
+                            <a href="#" class="btn btn-info">Découvrir les musiciens</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+</section>
+
+{% endblock %}
