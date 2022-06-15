@@ -1,11 +1,15 @@
 // import the variables scss
-@import "variables";
-// import bootstrap
-@import "~bootstrap/scss/bootstrap";
 
+@import "variables";
+
+// import bootstrap
+
+@import "~bootstrap/scss/bootstrap";
 @import "home";
 @import "global";
-@import "sidebar";
+@import "navbar";
 @import "button";
 @import "footer";
+
 @import "card";
+
