@@ -31,15 +31,19 @@
                     </a>
                     <div class="collapse" id="orchestra-collapse" style>
                         <ul class="btn-toggle-nav list-group">
-                            <li class="list-group-item btn btn-primary rounded border-0 {{ app.request.pathinfo == {{ path(orchestra_presentation) }} ? 'active' }}" {{ app.request.pathinfo == {{ path(orchestra_presentation) }} ? 'aria-current = "page"' }}
-                                href="{{ path(orchestra_presentation) }}">Présentation
+                            <li>
+                                <a class="list-group-item btn btn-primary rounded border-0 {{ app.request.pathinfo ==  path("orchestra_presentation")  ? 'active' }}" {{ app.request.pathinfo ==  path("orchestra_presentation")  ? 'aria-current = "page"' }}
+                                   href="{{ path("orchestra_presentation") }}">Présentation
+                                </a>
                             </li>
-                            <li class="list-group-item btn btn-primary rounded border-0 {{ app.request.pathinfo == "#" ? 'active' }}" {{ app.request.pathinfo == "#" ? 'aria-current = "page"' }}
-                                href="#">Musiciens
-                            </li>
-                            <li class="list-group-item btn btn-primary rounded border-0 {{ app.request.pathinfo == "#" ? 'active' }}" {{ app.request.pathinfo == "#" ? 'aria-current = "page"' }}
-                                href="#">Le répertoire
-                            </li>
+                            <li>
+                                <a class="list-group-item btn btn-primary rounded border-0 {{ app.request.pathinfo == "#" ? 'active' }}" {{ app.request.pathinfo == "#" ? 'aria-current = "page"' }}
+                                   href="#">Musiciens
+                                </a></li>
+                            <li>
+                                <a class="list-group-item btn btn-primary rounded border-0 {{ app.request.pathinfo == "#" ? 'active' }}" {{ app.request.pathinfo == "#" ? 'aria-current = "page"' }}
+                                   href="#">Le répertoire
+                                </a></li>
                         </ul>
                     </div>
 
