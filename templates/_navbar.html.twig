@@ -31,8 +31,8 @@
                     </a>
                     <div class="collapse" id="orchestra-collapse" style>
                         <ul class="btn-toggle-nav list-group">
-                            <li class="list-group-item btn btn-primary rounded border-0 {{ app.request.pathinfo == "#" ? 'active' }}" {{ app.request.pathinfo == "#" ? 'aria-current = "page"' }}
-                                href="#">Présentation
+                            <li class="list-group-item btn btn-primary rounded border-0 {{ app.request.pathinfo == {{ path(orchestra_presentation) }} ? 'active' }}" {{ app.request.pathinfo == {{ path(orchestra_presentation) }} ? 'aria-current = "page"' }}
+                                href="{{ path(orchestra_presentation) }}">Présentation
                             </li>
                             <li class="list-group-item btn btn-primary rounded border-0 {{ app.request.pathinfo == "#" ? 'active' }}" {{ app.request.pathinfo == "#" ? 'aria-current = "page"' }}
                                 href="#">Musiciens
