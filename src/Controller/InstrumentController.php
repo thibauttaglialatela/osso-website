@@ -3,7 +3,6 @@
 namespace App\Controller;
 
 
-use App\Entity\Musician;
 use App\Repository\InstrumentRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
@@ -16,17 +15,11 @@ class InstrumentController extends AbstractController
     {
         $instruments = $instrumentRepository->findAll();
 
-
         return $this->render('instrument/index.html.twig', [
             'instruments' => $instruments,
         ]);
     }
 
-    #[Route('Orchestra/instrument/musician/{id}', name: 'orchestra_instrument_musician')]
-    public function show(Musician $musician): Response
-    {
-        return $this->render('instrument/index.html.twig', [
-            'musicians' => $musician,
-        ]);
-    }
+
+
 }

@@ -2,33 +2,33 @@
 
 namespace App\Entity;
 
-use App\Repository\MemberRepository;
+use App\Repository\MusicianRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
-#[ORM\Entity(repositoryClass: MemberRepository::class)]
+#[ORM\Entity(repositoryClass: MusicianRepository::class)]
 #[ORM\Table(name: 'musician')]
 class Musician
 {
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column(type: 'integer')]
-    private $id;
+    private int $id;
 
     #[ORM\Column(type: 'string', length: 255)]
-    private $lastname;
+    private string $lastname;
 
     #[ORM\Column(type: 'string', length: 255)]
-    private $firstname;
+    private string $firstname;
 
     #[ORM\Column(type: 'string', length: 45, nullable: true)]
-    private $status;
+    private ?string $status;
 
 
 
     #[ORM\ManyToMany(targetEntity: Instrument::class, inversedBy: 'musicians')]
-    private $instruments;
+    private Instrument $instruments;
 
     public function __construct()
     {

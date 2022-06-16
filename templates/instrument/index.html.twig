@@ -9,7 +9,7 @@
 
     <h1 class="text-light text-center fs-1 my-lg-4">Les musiciens</h1>
 
-    {{ dump(musicians) }}
+
 <section class="container">
     <div  class="row row-cols-1 row-cols-sm-2 row-cols-lg-4 g-3 mb-lg-5">
         {% for instrument in instruments %}
@@ -18,7 +18,8 @@
                     <div class="card-body">
                         <h3 class="card-title">{{ instrument.name|upper }}</h3>
                         <div class="d-flex justify-content-center align-items-center">
-                            <a href="#" class="btn btn-info">Découvrir les musiciens</a>
+{#                            <a href="#" class="btn btn-info">Découvrir les musiciens</a>#}
+                            <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-bs-target="#myModal">Découvrir les musiciens</button>
                         </div>
                     </div>
                 </div>
@@ -26,5 +27,25 @@
         {% endfor %}
     </div>
 </section>
+
+{#    <div id="myModal" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Instrument</h4>
+                </div>
+                <div class="modal-body">
+                    <ul>
+                        {% for musician in musicians %}
+<li>musician</li>
+                        {% endfor %}
+                    </ul>
+
+                </div>
+            </div>
+        </div>
+    </div>#}
 
 {% endblock %}
