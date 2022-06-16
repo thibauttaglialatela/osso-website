@@ -28,7 +28,13 @@ class Musician
 
 
     #[ORM\ManyToMany(targetEntity: Instrument::class, inversedBy: 'musicians')]
-    private Instrument $instruments;
+    private Collection $instruments;
+
+    public function __toString(): string
+    {
+        return $this->getFirstname() . " " . $this->getLastname();
+    }
+
 
     public function __construct()
     {

@@ -16,17 +16,17 @@ class Instrument
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column(type: 'integer')]
-    private $id;
+    private int $id;
 
     #[ORM\Column(type: 'string', length: 255)]
-    private $name;
+    private string $name;
 
     #[ORM\Column(type: 'string', length: 10, unique: true)]
     #[Assert\Unique]
-    private $fct_id;
+    private string $fct_id;
 
     #[ORM\ManyToMany(targetEntity: Musician::class, mappedBy: 'instruments')]
-    private $musicians;
+    private  Collection $musicians;
 
 
     public function __construct()
