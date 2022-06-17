@@ -11,21 +11,24 @@ class MusicalWork
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column(type: 'integer')]
-    private $id;
+    private int $id;
 
     #[ORM\Column(type: 'string', length: 255)]
-    private $title;
+    private string $title;
 
 
 
     #[ORM\Column(type: 'string', length: 255)]
-    private $status;
+    private string $status;
 
     #[ORM\ManyToOne(targetEntity: Compositor::class, inversedBy: 'musicalWorks')]
     private $compositor;
 
     #[ORM\ManyToOne(targetEntity: Event::class, inversedBy: 'musical_work')]
     private $event;
+
+
+
 
     public function getId(): ?int
     {
