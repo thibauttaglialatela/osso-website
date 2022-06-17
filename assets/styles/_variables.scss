@@ -3,17 +3,18 @@ $blue-600:#3377AF;
 $green: #7EE879;
 $white: #D9D9D9;
 $dark: #3B3B3B;
-
 $font-family-sans-serif: "Roboto flex", sans-serif;
 $font-family-base: "Roboto slab", serif;
 
 $primary: $blue-800;
 
 $secondary: $blue-600;
-$enable-cssgrid: true;
 
-
-
+$table-color: $white;
+$table-striped-color:         #fff;
+$table-striped-bg-factor:     .05;
+$table-striped-bg:            rgba($dark, $table-striped-bg-factor);
+$table-bg:                    transparent;
 $btn-success: $green;
 
 
