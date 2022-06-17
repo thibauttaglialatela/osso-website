@@ -14,7 +14,7 @@ use Doctrine\Persistence\ManagerRegistry;
  * @method Musician[]    findAll()
  * @method Musician[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
  */
-class MemberRepository extends ServiceEntityRepository
+class MusicianRepository extends ServiceEntityRepository
 {
     public function __construct(ManagerRegistry $registry)
     {
