@@ -41,8 +41,8 @@
                                    href="{{ path('orchestra_instrument') }}">Musiciens
                                 </a></li>
                             <li>
-                                <a class="list-group-item btn btn-primary rounded border-0 {{ app.request.pathinfo == "#" ? 'active' }}" {{ app.request.pathinfo == "#" ? 'aria-current = "page"' }}
-                                   href="#">Le répertoire
+                                <a class="list-group-item btn btn-primary rounded border-0 {{ app.request.pathinfo == path('orchestra_musical_work')  ? 'active' }}" {{ app.request.pathinfo ==  path('orchestra_musical_work')  ? 'aria-current = "page"' }}
+                                   href="{{ path('orchestra_musical_work') }}">Le répertoire
                                 </a></li>
                         </ul>
                     </div>
