@@ -12,20 +12,23 @@
 
 <section class="container">
     <div  class="row row-cols-1 row-cols-sm-2 row-cols-lg-4 g-3 mb-lg-5">
+
         {% for instrument in instruments %}
             <div class="col">
                 <div class="card shadow-sm">
                     <div class="card-body">
                         <h3 class="card-title">{{ instrument.name|upper }}</h3>
                         <div class="d-flex justify-content-center align-items-center flex-column">
-                            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                                Launch demo modal
+                            {{ include('musician/_musicians_instrument.html.twig') }}
+{#                            {{ render(path('instrument_musician', {id: instrument.id })) }}#}
+                            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal_{{ instrument.id }}">
+                                En savoir plus.
                             </button>
                         </div>
                     </div>
                 </div>
             </div>
-{{ include('musician/_musicians_instrument.html.twig') }}
+
         {% endfor %}
     </div>
 </section>
