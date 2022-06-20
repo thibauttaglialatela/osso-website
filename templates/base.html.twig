@@ -16,12 +16,12 @@
         {{ encore_entry_script_tags('app') }}
     {% endblock %}
 </head>
-<body class="d-flex flex-column h-100 justify-content-lg-between">
+<body class="d-flex flex-column h-100">
 <header>
     {{ include("_navbar.html.twig") }}
 </header>
 
-<main class="flex-shrink-0">
+<main class="flex-shrink-0 mt-5">
     {% block body %}{% endblock %}
 </main>
 
