@@ -22,7 +22,8 @@ $(document).ready(function () {
                 "next": "Suivante",
                 "previous": "Précédente"
             },
-        }
+        },
+        autofill: true
         }
     );
 });
