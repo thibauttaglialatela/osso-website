@@ -10,6 +10,11 @@ import 'datatables.net-bs5';
 
 $(document).ready(function () {
     $('#osso-repertory').DataTable({
+        responsive: true,
+        pagingType: 'full_numbers',
+        search: {
+            return: true,
+        },
         language: {
             "search": "Rechercher:",
             "info": "Affichage de _START_ à _END_ sur _TOTAL_ entrées",
