@@ -1,11 +1,13 @@
 .table {
   width: 75vw;
   border-radius: 20px;
+  border-bottom: hidden!important;
 }
 .bg-blue {
   background-color: $secondary;
   color: #FFFFFF;
 }
-label {
+label, .dataTables_info {
   color: $white;
 }
+

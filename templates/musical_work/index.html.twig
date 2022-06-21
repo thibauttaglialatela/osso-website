@@ -10,15 +10,15 @@
     <h1 class="text-light text-center fs-1 my-lg-4">Notre répertoire musical</h1>
     <div  class="table-responsive-md d-flex justify-content-center">
 
-        <table id="osso-repertory" class="table bg-blue table-striped">
+        <table id="osso-repertory" class="table bg-blue table-striped table-hover">
             <thead>
             <tr>
-                <th>Titre</th>
-                <th>Compositeur</th>
-                <th>Statut</th>
+                <th scope="col">Titre</th>
+                <th scope="col">Compositeur</th>
+                <th scope="col">Statut</th>
             </tr>
             </thead>
-            <tbody class="table-group-divider">
+            <tbody>
             {% for sheet in repertory %}
                 <tr>
                     <td>{{ sheet.title }}</td>
