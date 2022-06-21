@@ -11,3 +11,8 @@ label, .dataTables_info {
   color: $white;
 }
 
+div.dataTables_filter {
+  width: 50%;
+  float: right;
+  text-align: right;
+}
