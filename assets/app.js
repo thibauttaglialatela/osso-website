@@ -3,6 +3,7 @@ global.$ = global.jQuery = $;
 // any CSS you import will output into a single css file (app.scss in this case)
 import './styles/app.scss';
 
+
 // start the Stimulus application
 import 'bootstrap';
 
@@ -17,6 +18,7 @@ $(document).ready(function () {
         },
         language: {
             "search": "Rechercher:",
+            "emptyTable": "Aucune donnée disponible dans le tableau",
             "info": "Affichage de _START_ à _END_ sur _TOTAL_ entrées",
             "infoEmpty": "Affichage de 0 à 0 sur 0 entrées",
             "infoFiltered": "(filtrées depuis un total de _MAX_ entrées)",
@@ -29,6 +31,7 @@ $(document).ready(function () {
             },
         },
         autofill: true,
+
         }
     );
 });
