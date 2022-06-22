@@ -1,3 +1,5 @@
+import {auto} from "@popperjs/core";
+
 const $ = require( 'jquery' );
 global.$ = global.jQuery = $;
 // any CSS you import will output into a single css file (app.scss in this case)
@@ -50,11 +52,33 @@ $('#osso-repertory th').each(function(index, th) {
 });
 
 import { Calendar } from '@fullcalendar/core';
+import frLocale from '@fullcalendar/core/locales/fr';
 import listPlugin from '@fullcalendar/list';
 import bootstrap5Plugin from '@fullcalendar/bootstrap5';
 
-let calendar = new Calendar(calendarEL, {
-    plugins: [ listPlugin, bootstrap5Plugin ],
-    initialView: 'listWeek',
-    themeSystem: bootstrap5Plugin,
+document.addEventListener('DOMContentLoaded', () => {
+    let calendarEL = document.querySelector('#calendar');
+    let calendar = new Calendar(calendarEL, {
+        plugins: [ listPlugin, bootstrap5Plugin ],
+        initialView: 'listWeek',
+        themeSystem: 'bootstrap5',
+        locale: frLocale,
+        headerToolbar: {
+            left: '',
+            center: 'title',
+            right: ''
+        },
+        footerToolbar: {
+            left: '',
+            center: 'prev,today,next',
+            right: '',
+        },
+        height: auto,
+        titleFormat: {
+            month: "long",
+            year: 'numeric'
+        },
+    });
+    calendar.render();
 })
+
