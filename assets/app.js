@@ -49,5 +49,12 @@ $('#osso-repertory th').each(function(index, th) {
 
 });
 
+import { Calendar } from '@fullcalendar/core';
+import listPlugin from '@fullcalendar/list';
+import bootstrap5Plugin from '@fullcalendar/bootstrap5';
 
-
+let calendar = new Calendar(calendarEL, {
+    plugins: [ listPlugin, bootstrap5Plugin ],
+    initialView: 'listWeek',
+    themeSystem: bootstrap5Plugin,
+})

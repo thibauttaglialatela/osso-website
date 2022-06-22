@@ -21,6 +21,9 @@
         "build": "encore production --progress"
     },
     "dependencies": {
+        "@fullcalendar/bootstrap5": "^5.11.0",
+        "@fullcalendar/core": "^5.11.0",
+        "@fullcalendar/list": "^5.11.0",
         "@popperjs/core": "^2.11.5",
         "bootstrap-icons": "^1.8.3",
         "datatables.net-bs5": "^1.12.1",
