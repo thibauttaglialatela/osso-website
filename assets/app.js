@@ -53,14 +53,14 @@ $('#osso-repertory th').each(function(index, th) {
 
 import { Calendar } from '@fullcalendar/core';
 import frLocale from '@fullcalendar/core/locales/fr';
-import listPlugin from '@fullcalendar/list';
+import dayGridPlugin from '@fullcalendar/daygrid';
 import bootstrap5Plugin from '@fullcalendar/bootstrap5';
 
 document.addEventListener('DOMContentLoaded', () => {
     let calendarEL = document.querySelector('#calendar');
     let calendar = new Calendar(calendarEL, {
-        plugins: [ listPlugin, bootstrap5Plugin ],
-        initialView: 'listWeek',
+        plugins: [ dayGridPlugin, bootstrap5Plugin ],
+        initialView: 'dayGridMonth',
         themeSystem: 'bootstrap5',
         locale: frLocale,
         headerToolbar: {
@@ -78,6 +78,28 @@ document.addEventListener('DOMContentLoaded', () => {
             month: "long",
             year: 'numeric'
         },
+
+        eventSources: [
+
+            // your event source
+            {
+                url: '/event/',
+                method: 'GET',
+                failure: function() {
+                    alert('there was an error while fetching events!');
+                },
+                color: 'yellow',   // a non-ajax option
+                textColor: 'black' // a non-ajax option
+            }
+
+            // any other sources...
+
+        ],
+
+        eventClick: (info) => {
+            console.log(info);
+
+        }
     });
     calendar.render();
 })

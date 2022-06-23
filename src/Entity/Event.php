@@ -24,9 +24,6 @@ class Event
     #[ORM\Column(type: 'text')]
     private $body;
 
-    #[ORM\Column(type: 'date')]
-    private $date;
-
 
     #[ORM\OneToMany(mappedBy: 'event', targetEntity: MusicalWork::class)]
     private $musical_work;
@@ -36,6 +33,12 @@ class Event
 
     #[ORM\Column(type: 'string', length: 255, nullable: true)]
     private $poster;
+
+    #[ORM\Column(type: 'datetime')]
+    private $start_at;
+
+    #[ORM\Column(type: 'datetime')]
+    private $end_at;
 
     public function __construct()
     {
@@ -79,18 +82,6 @@ class Event
     public function setBody(string $body): self
     {
         $this->body = $body;
-
-        return $this;
-    }
-
-    public function getDate(): ?\DateTimeInterface
-    {
-        return $this->date;
-    }
-
-    public function setDate(\DateTimeInterface $date): self
-    {
-        $this->date = $date;
 
         return $this;
     }
@@ -146,6 +137,30 @@ class Event
     public function setPoster(?string $poster): self
     {
         $this->poster = $poster;
+
+        return $this;
+    }
+
+    public function getStartAt(): ?\DateTimeInterface
+    {
+        return $this->start_at;
+    }
+
+    public function setStartAt(\DateTimeInterface $start_at): self
+    {
+        $this->start_at = $start_at;
+
+        return $this;
+    }
+
+    public function getEndAt(): ?\DateTimeInterface
+    {
+        return $this->end_at;
+    }
+
+    public function setEndAt(\DateTimeInterface $end_at): self
+    {
+        $this->end_at = $end_at;
 
         return $this;
     }

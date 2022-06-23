@@ -38,3 +38,18 @@
   color: $white;
   border: none;
 }
+.btn-group .fc-prev-button {
+  background-color: $secondary;
+  border-color: white;
+  border-width: 1px 0 1px 1px;
+}
+.btn-group .fc-next-button {
+  background-color: $secondary;
+  border-color: white;
+  border-width: 1px 1px 1px 0;
+}
+.btn-group .fc-today-button {
+  color: $white;
+  background-color: $secondary;
+  border-color: $white;
+}
