@@ -12,24 +12,27 @@ use Symfony\Component\Routing\Annotation\Route;
 class EventController extends AbstractController
 {
     #[Route('/', name: 'index', methods: 'GET')]
-    public function index(EventRepository $eventRepository): Response
+    public function index(): Response
+    {
+
+        return $this->render('event/index.html.twig');
+    }
+
+    #[Route('/show/', name:'show',methods: 'GET')]
+    public function showAllEvents(EventRepository $eventRepository):Response
     {
         $events = $eventRepository->findAll();
         $concerts = [];
         foreach($events as $event){
             $concerts[] = [
+                'id'=>$event->getId(),
                 'title'=>$event->getTitle(),
-                'start'=>$event->getDate()->format('Y-m-d')
+                'start'=>$event->getStartAt()->format('Y-m-d H:i:s'),
+                'end'=>$event->getEndAt()->format('Y-m-d H:i:s')
             ];
         }
 
         return new Response(json_encode($concerts));
-/*        foreach ($events as $event) {
-
-        }*/
-        return $this->render('event/index.html.twig', [
-            'events'=>$events,
-        ]);
     }
 
     #[Route('/show/{id}', name: 'show', methods: 'GET')]

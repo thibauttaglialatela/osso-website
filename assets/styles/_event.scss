@@ -1,6 +1,6 @@
 #calendar {
   width: 50vw;
-  margin: 0 auto;
+  margin: 5rem auto;
 }
 
 .fc .fc-toolbar-title {
@@ -23,4 +23,13 @@
 }
 .fc-theme-bootstrap5 .fc-list, .fc-theme-bootstrap5 .fc-scrollgrid, .fc-theme-bootstrap5 td, .fc-theme-bootstrap5 th {
   border: none;
+}
+.fc-theme-bootstrap5 td {
+  background-color: $secondary;
+  color:$white;
+  border: thin ridge $green;
+}
+.fc .fc-daygrid-day.fc-day-today {
+  background-color: $green;
+  color:black;
 }

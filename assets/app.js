@@ -83,7 +83,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
             // your event source
             {
-                url: '/event/',
+                url: '/event/show/',
                 method: 'GET',
                 failure: function() {
                     alert('there was an error while fetching events!');
