@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use App\Entity\Event;
 use App\Repository\EventRepository;
+use App\Service\JsonResponseFactory;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -18,22 +19,6 @@ class EventController extends AbstractController
         return $this->render('event/index.html.twig');
     }
 
-    #[Route('/show/', name:'show',methods: 'GET')]
-    public function showAllEvents(EventRepository $eventRepository):Response
-    {
-        $events = $eventRepository->findAll();
-        $concerts = [];
-        foreach($events as $event){
-            $concerts[] = [
-                'id'=>$event->getId(),
-                'title'=>$event->getTitle(),
-                'start'=>$event->getStartAt()->format('Y-m-d H:i:s'),
-                'end'=>$event->getEndAt()->format('Y-m-d H:i:s')
-            ];
-        }
-
-        return new Response(json_encode($concerts));
-    }
 
     #[Route('/show/{id}', name: 'show', methods: 'GET')]
 public function showOneEvent(Event $event): Response
