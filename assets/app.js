@@ -82,17 +82,22 @@ document.addEventListener('DOMContentLoaded', () => {
         eventSources: [
             {
                 url: '/event/show/', // use the `url` property
-                failure: function() {
+                failure: function () {
                     alert('there was an error while fetching events!');
                 },
                 backgroundColor: 'blue',
                 color: 'black'
             }
         ],
-        eventClick: function showModal(info) {
+/*        eventClick: function showModal(info) {
             const url = `/event/show/${info.event._def.publicId}`
-            console.log(url);
-        }
+            fetch(url)
+                .then(response => response.text())
+                .then(html => {
+                    document.querySelector(".eventModal").innerHTML = html;
+                })
+                .catch(error => alert(error))
+        }*/
     });
     calendar.render();
 })
