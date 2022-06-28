@@ -13,10 +13,12 @@ use Symfony\Component\Routing\Annotation\Route;
 class EventController extends AbstractController
 {
     #[Route('/', name: 'index', methods: 'GET')]
-    public function index(): Response
+    public function index(EventRepository $eventRepository): Response
     {
 
-        return $this->render('event/index.html.twig');
+        return $this->render('event/index.html.twig', [
+            'events' => $eventRepository->findBy(['category' => 'concert'], ['start_at' => 'ASC'])
+        ]);
     }
 
     #[Route('/show', name: 'show_all', methods: 'GET')]
