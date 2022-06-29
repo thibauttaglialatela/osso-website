@@ -40,6 +40,9 @@ class Event
     #[ORM\Column(type: 'datetime')]
     private $end_at;
 
+    #[ORM\Column(type: 'string', length: 100)]
+    private $localisation;
+
     public function __construct()
     {
         $this->musical_work = new ArrayCollection();
@@ -161,6 +164,18 @@ class Event
     public function setEndAt(\DateTimeInterface $end_at): self
     {
         $this->end_at = $end_at;
+
+        return $this;
+    }
+
+    public function getLocalisation(): ?string
+    {
+        return $this->localisation;
+    }
+
+    public function setLocalisation(string $localisation): self
+    {
+        $this->localisation = $localisation;
 
         return $this;
     }

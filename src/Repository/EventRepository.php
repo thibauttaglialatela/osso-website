@@ -55,4 +55,18 @@ class EventRepository extends ServiceEntityRepository
         $query = $queryBuilder->getQuery();
         return $query->getArrayResult();
     }
+    /**
+     * @return Event[]
+     */
+    public function getNewEvent(\DateTime $dateTime, string $category = 'concert'): array
+    {
+        $qb = $this->createQueryBuilder('e')
+            ->where('e.category = :category')
+            ->andWhere('e.start_at > :date')
+            ->setParameter('date', $dateTime)
+            ->setParameter('category', $category)
+            ->orderBy('e.start_at', 'ASC');
+        $query = $qb->getQuery();
+        return $query->getArrayResult();
+    }
 }

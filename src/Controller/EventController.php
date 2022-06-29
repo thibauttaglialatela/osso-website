@@ -18,8 +18,10 @@ class EventController extends AbstractController
         $currentDate = new \DateTime();
         $currentDate->format('Y-m-d H:i:s');
         $oldEvents = $eventRepository->getOldEvent($currentDate);
+        $newEvents = $eventRepository->getNewEvent($currentDate);
         return $this->render('event/index.html.twig', [
-            'old_events' => $oldEvents
+            'old_events' => $oldEvents,
+            'new_events' => $newEvents,
         ]);
     }
 
