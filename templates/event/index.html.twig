@@ -9,22 +9,27 @@
     <h1 class="text-light text-center fs-1 my-lg-4">Nos prochains concerts et l'agenda des répétitions</h1>
     <h2 class="text-light text-center fs-2">Nos concerts à venir</h2>
     {{ dump(events) }}
-    {% for event in events %}
-        <div class="card mb-3" style="max-width: 540px;">
-            <div class="row g-0">
-                <div class="col-md-4">
-                    <img src="{{ event.poster }}" class="img-fluid rounded-start" alt="{{ event.title }}">
-                </div>
-                <div class="col-md-8">
-                    <div class="card-body">
-                        <h5 class="card-title">{{ event.title }}</h5>
-                        <p class="card-text">{{ event.summary }}</p>
-                        <p class="card-text">Le {{ event.startAt|date('d/m/Y') }} à {{ event.startAt|date('H:i') }}</p>
+
+        {% for event in events %}
+            <div class="card mx-auto mb-1 w-50">
+                <img src="{{ event.poster }}" class="card-img-top img-fluid" alt="{{ event.title }}">
+                <div class="card-body">
+                    <div class="d-flex justify-content-between">
+                        <h5 class="card-title">Lieu du concert</h5>
+                        <h5 class="card-title">Le {{ event.startAt|date("d/m/Y") }} à {{ event.startAt|date("H:i") }}</h5>
                     </div>
+                    <h5 class="card-title">{{ event.title }}</h5>
+                    <p class="card-text">{{ event.summary }}</p>
+                    <div class="d-flex justify-content-between">
+                        <p class="card-text">Type : {{ event.category }}</p>
+                        <a href="#" class="btn btn-primary">En savoir plus</a>
+                    </div>
+
                 </div>
             </div>
-        </div>
-    {% endfor %}
+        {% endfor %}
+
+
     <h2 class="text-light text-center fs-2">Calendrier des répétitions et des concerts</h2>
     <section id="calendar"></section>
 
