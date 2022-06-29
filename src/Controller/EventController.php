@@ -15,9 +15,11 @@ class EventController extends AbstractController
     #[Route('/', name: 'index', methods: 'GET')]
     public function index(EventRepository $eventRepository): Response
     {
-
+        $currentDate = new \DateTime();
+        $currentDate->format('Y-m-d H:i:s');
+        $oldEvents = $eventRepository->getOldEvent($currentDate);
         return $this->render('event/index.html.twig', [
-            'events' => $eventRepository->findBy(['category' => 'concert'], ['start_at' => 'ASC'])
+            'old_events' => $oldEvents
         ]);
     }
 

@@ -4,6 +4,9 @@ namespace App\Repository;
 
 use App\Entity\Event;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\DBAL\Types\Types;
+use Doctrine\ORM\Query\Parameter;
 use Doctrine\Persistence\ManagerRegistry;
 
 /**
@@ -38,29 +41,18 @@ class EventRepository extends ServiceEntityRepository
             $this->getEntityManager()->flush();
         }
     }
-
-//    /**
-//     * @return Event[] Returns an array of Event objects
-//     */
-//    public function findByExampleField($value): array
-//    {
-//        return $this->createQueryBuilder('e')
-//            ->andWhere('e.exampleField = :val')
-//            ->setParameter('val', $value)
-//            ->orderBy('e.id', 'ASC')
-//            ->setMaxResults(10)
-//            ->getQuery()
-//            ->getResult()
-//        ;
-//    }
-
-//    public function findOneBySomeField($value): ?Event
-//    {
-//        return $this->createQueryBuilder('e')
-//            ->andWhere('e.exampleField = :val')
-//            ->setParameter('val', $value)
-//            ->getQuery()
-//            ->getOneOrNullResult()
-//        ;
-//    }
+    /**
+     * @return Event[]
+     */
+    public function getOldEvent(\DateTime $dateTime, string $category = 'concert'): array
+    {
+        $queryBuilder = $this->createQueryBuilder('e')
+            ->andWhere('e.category = :category')
+            ->andWhere('e.start_at <= :date')
+            ->setParameter('date', $dateTime)
+            ->setParameter('category', $category)
+            ->orderBy('e.start_at', 'ASC');
+        $query = $queryBuilder->getQuery();
+        return $query->getArrayResult();
+    }
 }

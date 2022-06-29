@@ -7,32 +7,29 @@
          style="background-image: url('{{ asset('build/osso-calendar.jpg') }}')">
     </div>
     <h1 class="text-light text-center fs-1 my-lg-4">Nos prochains concerts et l'agenda des répétitions</h1>
-    <h2 class="text-light text-center fs-2">Nos concerts à venir</h2>
-    {{ dump(events) }}
-
-        {% for event in events %}
-            <div class="card mx-auto mb-1 w-50">
-                <img src="{{ event.poster }}" class="card-img-top img-fluid" alt="{{ event.title }}">
-                <div class="card-body">
-                    <div class="d-flex justify-content-between">
-                        <h5 class="card-title">Lieu du concert</h5>
-                        <h5 class="card-title">Le {{ event.startAt|date("d/m/Y") }} à {{ event.startAt|date("H:i") }}</h5>
-                    </div>
-                    <h5 class="card-title">{{ event.title }}</h5>
-                    <p class="card-text">{{ event.summary }}</p>
-                    <div class="d-flex justify-content-between">
-                        <p class="card-text">Type : {{ event.category }}</p>
-                        <a href="#" class="btn btn-primary">En savoir plus</a>
-                    </div>
-
-                </div>
-            </div>
-        {% endfor %}
-
-
+    {{ dump(old_events) }}
+    <h2 class="text-light text-center fs-2">Nos prochains concerts</h2>
     <h2 class="text-light text-center fs-2">Calendrier des répétitions et des concerts</h2>
     <section id="calendar"></section>
+    <h2 class="text-light text-center fs-2">Nos anciens concerts</h2>
+    {% for old_event in old_events %}
+        <div class="card mx-auto mb-1 w-50">
+            <img src="{{ old_event.poster }}" class="card-img-top img-fluid" alt="{{ old_event.title }}">
+            <div class="card-body">
+                <div class="d-flex justify-content-between">
+                    <h5 class="card-text">Lieu du concert</h5>
+                    <h5 class="card-text">Le {{ old_event.start_at|date("d/m/Y") }} à {{ old_event.start_at|date("H:i") }}</h5>
+                </div>
+                <h5 class="card-title">{{ old_event.title }}</h5>
+                <p class="card-text">{{ old_event.summary }}</p>
+                <div class="d-flex justify-content-between">
+                    <p class="card-text">Type : {{ old_event.category }}</p>
+                    <a href="#" class="btn btn-primary">En savoir plus</a>
+                </div>
 
+            </div>
+        </div>
+    {% endfor %}
 
 
 {% endblock %}
