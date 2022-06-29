@@ -7,14 +7,13 @@
          style="background-image: url('{{ asset('build/osso-calendar.jpg') }}')">
     </div>
     <h1 class="text-light text-center fs-1 my-lg-4">Nos prochains concerts et l'agenda des répétitions</h1>
-    {{ dump(new_events) }}
     <h2 class="text-light text-center fs-2">Nos prochains concerts</h2>
     {% for new_event in new_events %}
         <div class="card mx-auto mb-1 w-50">
             <img src="{{ new_event.poster }}" class="card-img-top img-fluid" alt="{{ new_event.title }}">
             <div class="card-body">
                 <div class="d-flex justify-content-between">
-                    <h5 class="card-text">Lieu du concert</h5>
+                    <h5 class="card-text">Lieu du concert : {{ new_event.localisation }}</h5>
                     <h5 class="card-text">Le {{ new_event.start_at|date("d/m/Y") }} à {{ new_event.start_at|date("H:i") }}</h5>
                 </div>
                 <h5 class="card-title">{{ new_event.title }}</h5>
@@ -35,7 +34,7 @@
             <img src="{{ old_event.poster }}" class="card-img-top img-fluid" alt="{{ old_event.title }}">
             <div class="card-body">
                 <div class="d-flex justify-content-between">
-                    <h5 class="card-text">Lieu du concert</h5>
+                    <h5 class="card-text">Lieu du concert : {{ old_event.localisation }}</h5>
                     <h5 class="card-text">Le {{ old_event.start_at|date("d/m/Y") }} à {{ old_event.start_at|date("H:i") }}</h5>
                 </div>
                 <h5 class="card-title">{{ old_event.title }}</h5>
