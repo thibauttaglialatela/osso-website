@@ -1,8 +1,3 @@
-<!-- Button trigger modal -->
-<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="exampleModal_{{ event.id }}">
-    Launch demo modal
-</button>
-
 <!-- Modal -->
 <div class="modal fade" id="exampleModal_{{ event.id }}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
@@ -13,14 +8,9 @@
             </div>
             <div class="modal-body">
                 {{ event.body }}
-                {{ event.summary }}
-                {{ event.poster }}
-                {{ event.startAt|date("d-m-Y") }}
-                {{ event.endAt|date("d-m-Y") }}
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">Save changes</button>
+                <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Fermer</button>
             </div>
         </div>
     </div>

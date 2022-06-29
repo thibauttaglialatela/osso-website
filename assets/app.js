@@ -89,15 +89,15 @@ document.addEventListener('DOMContentLoaded', () => {
                 color: 'black'
             }
         ],
-/*        eventClick: function showModal(info) {
+        eventClick: function showModal(info) {
             const url = `/event/show/${info.event._def.publicId}`
             fetch(url)
                 .then(response => response.text())
                 .then(html => {
-                    document.querySelector(".eventModal").innerHTML = html;
+                    console.log(html);
                 })
                 .catch(error => alert(error))
-        }*/
+        }
     });
     calendar.render();
 })

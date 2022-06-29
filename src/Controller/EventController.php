@@ -44,7 +44,8 @@ class EventController extends AbstractController
     #[Route('/show/{id}', name: 'show', methods: 'GET')]
     public function showOneEvent(Event $event): Response
     {
-        return $this->render('event/show.html.twig', [
+
+        return $this->render('event/_show_event.html.twig', [
             'event' => $event,
         ]);
     }
