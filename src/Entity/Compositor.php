@@ -13,18 +13,24 @@ class Compositor
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column(type: 'integer')]
-    private $id;
+    private int $id;
 
     #[ORM\Column(type: 'string', length: 255)]
-    private $name;
+    private string $name;
 
     #[ORM\OneToMany(mappedBy: 'compositor', targetEntity: MusicalWork::class)]
-    private $musicalWorks;
+    private  Collection $musicalWorks;
 
     public function __construct()
     {
         $this->musicalWorks = new ArrayCollection();
     }
+
+    public function __toString(): string
+    {
+        return $this->getName();
+    }
+
 
     public function getId(): ?int
     {

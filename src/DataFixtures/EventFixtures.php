@@ -21,7 +21,9 @@ class EventFixtures extends Fixture
             $event->setTitle($faker->text(50));
             $event->setSummary($faker->text(200));
             $event->setBody($faker->text);
-            $event->setDate($faker->dateTimeInInterval('+2 weeks', '+1 year'));
+            $event->setStartAt($faker->dateTimeBetween('-1 year', '+6 months'));
+            $event->setEndAt($faker->dateTimeBetween('-6 months','+6 months'));
+            $event->setLocalisation($faker->city());
             $event->setCategory('concert');
             $event->setPoster('https://picsum.photos/200/300');
             $manager->persist($event);

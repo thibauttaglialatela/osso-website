@@ -1,6 +1,6 @@
-<div class="modal fade" id="exampleModal_{{ instrument.id }}" tabindex="-1" aria-labelledby="instrumentModalLabel"
+<div class="modal fade " id="exampleModal_{{ instrument.id }}" tabindex="-1" aria-labelledby="instrumentModalLabel"
      aria-hidden="true">
-    <div class="modal-dialog">
+    <div class="modal-dialog modal-fullscreen-md-down">
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title" id="instrumentModalLabel">{{ instrument.name }}</h5>
@@ -11,7 +11,7 @@
                 {% endfor %}
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fermer</button>
+                <button type="button" class="btn btn-info" data-bs-dismiss="modal">Fermer</button>
             </div>
         </div>
     </div>

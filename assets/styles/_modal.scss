@@ -1,0 +1,14 @@
+.modal-content {
+  background-color: $secondary;
+
+}
+.modal-header {
+  justify-content: center;
+}
+.modal-title {
+  color: color-contrast($secondary, $white, #fff);
+}
+.modal-body {
+  text-align: center;
+  color: color-contrast($secondary, $white, #fff);
+}

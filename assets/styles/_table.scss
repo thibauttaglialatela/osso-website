@@ -1,0 +1,28 @@
+.table {
+  width: 75vw;
+  border-radius: 20px;
+  border-bottom: hidden!important;
+}
+.bg-blue {
+  background-color: $secondary;
+  color: #FFFFFF;
+}
+label, .dataTables_info {
+  color: $white;
+}
+
+table.dataTable thead .sorting,
+table.dataTable thead .sorting_asc,
+table.dataTable thead .sorting_desc {
+  background: none;
+}
+
+div.dataTables_wrapper {
+  margin: 0 auto;
+  width: 70%;
+}
+
+.dataTables_filter {
+  display:flex;
+  justify-content: right;
+}
