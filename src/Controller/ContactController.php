@@ -22,6 +22,7 @@ class ContactController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             $contactRepository->add($contact, true);
             $this->addFlash('success', 'Votre message a bien été envoyé');
+//            TODO: implémenter le mailer et terminer le formulaire de contact
             return $this->redirectToRoute('contact_index');
         }
         return $this->renderForm('contact/index.html.twig', [

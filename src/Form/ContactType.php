@@ -28,11 +28,15 @@ class ContactType extends AbstractType
             ->add('subject', TextType::class, [
                 'required'=>false,
                 'label'=>'sujet du message',
-                'label_attr'=>['class'=>'fs-3']
+                'label_attr'=>['class'=>'fs-3'],
             ])
             ->add('message', TextareaType::class, [
                 'label' => 'Votre message',
                 'label_attr'=>['class'=>'fs-3'],
+                'attr'=>[
+                    'cols'=> '5',
+                    'rows'=>'5',
+                ]
             ])
             ->add('save', SubmitType::class, [
                 'attr' => [
