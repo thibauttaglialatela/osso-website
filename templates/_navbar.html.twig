@@ -67,10 +67,10 @@
                     </a>
                 </li>
                 <li class="mb-1">
-                    <a href="{{ path('app_index') }}"
-                       class="btn btn-primary btn-lg d-inline-flex align-items-center rounded border-0  {{ app.request.pathinfo == '#' ? 'active' }}"
+                    <a href="{{ path('contact_index') }}"
+                       class="btn btn-primary btn-lg d-inline-flex align-items-center rounded border-0  {{ app.request.pathinfo == path('contact_index') ? 'active' }}"
                        role="button"
-                            {{ app.request.pathinfo == '#' ? 'aria-current = "page"' }}
+                            {{ app.request.pathinfo == path('contact_index') ? 'aria-current = "page"' }}
                     >
                         Contactez nous
                     </a>
