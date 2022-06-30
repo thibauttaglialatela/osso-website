@@ -9,7 +9,9 @@ h1 {
   font-family: $font-family-sans-serif;
 }
 
-
+hr {
+  color: $white;
+}
 .text-light {
   --bs-text-opacity: 1;
   color: rgba($white, var(--bs-text-opacity)) !important;
