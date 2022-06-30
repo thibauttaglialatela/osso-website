@@ -1,48 +1,49 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}{{ parent() }} - Calendrier de concerts{% endblock %}
+{% block title %}{{ parent() }} - Calendrier{% endblock %}
 
 {% block body %}
     <div class="banner-picture"
          style="background-image: url('{{ asset('build/osso-calendar.jpg') }}')">
     </div>
-    <h1 class="text-light text-center fs-1 my-lg-4">Nos prochains concerts et l'agenda des répétitions</h1>
+    <h1 class="text-light text-center fs-1 text-capitalize fw-bold my-lg-4">calendrier</h1>
     <h2 class="text-light text-center fs-2">Nos prochains concerts</h2>
     {% for event in new_events %}
-        <div class="card mx-auto mb-1 w-50">
+        <div class="card mx-auto mb-3 w-50">
             <img src="{{ event.poster }}" class="card-img-top img-fluid" alt="{{ event.title }}">
             <div class="card-body">
-                <div class="d-flex justify-content-between">
+                <div class="d-flex justify-content-between flex-column flex-md-row">
                     <h5 class="card-text">Lieu du concert : {{ event.localisation }}</h5>
                     <h5 class="card-text">Le {{ event.start_at|date("d/m/Y") }} à {{ event.start_at|date("H:i") }}</h5>
                 </div>
                 <h5 class="card-title">{{ event.title }}</h5>
                 <p class="card-text">{{ event.summary }}</p>
-                <div class="d-flex justify-content-between">
+                <div class="d-flex justify-content-between flex-column flex-md-row">
                     <p class="card-text">Type : {{ event.category }}</p>
                     {{ include('/event/_show_event.html.twig') }}
                     <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal_{{ event.id }}">
                         En savoir plus
                     </button>
                 </div>
-
             </div>
         </div>
     {% endfor %}
+
     <h2 class="text-light text-center fs-2 mt-lg-4">Calendrier des répétitions et des concerts</h2>
     <section id="calendar"></section>
+
     <h2 class="text-light text-center fs-2">Nos anciens concerts</h2>
     {% for event in old_events %}
-        <div class="card mx-auto mb-1 w-50">
+        <div class="card mx-auto mb-md-5 w-50">
             <img src="{{ event.poster }}" class="card-img-top img-fluid" alt="{{ event.title }}">
             <div class="card-body">
-                <div class="d-flex justify-content-between">
+                <div class="d-flex justify-content-between flex-column flex-md-row">
                     <h5 class="card-text">Lieu du concert : {{ event.localisation }}</h5>
                     <h5 class="card-text">Le {{ event.start_at|date("d/m/Y") }} à {{ event.start_at|date("H:i") }}</h5>
                 </div>
                 <h5 class="card-title">{{ event.title }}</h5>
                 <p class="card-text">{{ event.summary }}</p>
-                <div class="d-flex justify-content-between">
+                <div class="d-flex justify-content-between flex-column flex-md-row">
                     <p class="card-text">Type : {{ event.category }}</p>
                     {{ include('/event/_show_event.html.twig') }}
                     <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal_{{ event.id }}">

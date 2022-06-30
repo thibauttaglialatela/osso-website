@@ -60,6 +60,7 @@ import bootstrap5Plugin from '@fullcalendar/bootstrap5';
 document.addEventListener('DOMContentLoaded', () => {
     let calendarEL = document.querySelector('#calendar');
     let calendar = new Calendar(calendarEL, {
+        aspectRatio: 2,
         plugins: [dayGridPlugin, bootstrap5Plugin, timeGridPlugin],
         initialView: 'dayGridMonth',
         themeSystem: 'bootstrap5',
