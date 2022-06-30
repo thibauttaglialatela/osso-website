@@ -3,13 +3,21 @@
 {% block title %}{{ parent() }} - Contact{% endblock %}
 
 {% block body %}
-    <h1 class="text-light text-center fs-1 text-uppercase fw-bold my-lg-4">contactez l'OSSO</h1>
-    <div class="container-fluid">
+    <h1 class="text-light text-center fs-1 text-uppercase fw-bold my-lg-4 mt-4">contactez l'OSSO</h1>
 
+    <div class="container-fluid">
         <div class="row">
             <div class="col-12 col-lg-6 offset-lg-3">
+                {% for label, messages in app.flashes %}
+                    {% for message in messages %}
+                        <div class="alert alert-{{ label }}">
+                            {{ message }}
+                        </div>
+                    {% endfor %}
+                {% endfor %}
                 <p class="text-light text-start fs-3">
-                    Si vous désirez obtenir des renseignements sur nos futurs concerts ou bien nous rejoindre, vous pouvez
+                    Si vous désirez obtenir des renseignements sur nos futurs concerts ou bien nous rejoindre, vous
+                    pouvez
                     prendre contact avec nous au moyen du formulaire ci-dessous.
                 </p>
                 <hr>

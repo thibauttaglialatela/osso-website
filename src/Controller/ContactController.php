@@ -21,6 +21,7 @@ class ContactController extends AbstractController
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {
             $contactRepository->add($contact, true);
+            $this->addFlash('success', 'Votre message a bien été envoyé');
             return $this->redirectToRoute('contact_index');
         }
         return $this->renderForm('contact/index.html.twig', [
