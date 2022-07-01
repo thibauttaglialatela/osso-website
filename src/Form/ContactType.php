@@ -10,6 +10,8 @@ use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Karser\Recaptcha3Bundle\Validator\Constraints\Recaptcha3;
+use Karser\Recaptcha3Bundle\Form\Recaptcha3Type;
 
 class ContactType extends AbstractType
 {
@@ -43,6 +45,10 @@ class ContactType extends AbstractType
                     'class'=>'btn btn-success mt-2'
                 ],
                 'label' => 'Envoyer votre message'
+            ])
+            ->add('captcha', Recaptcha3Type::class, [
+                'constraints' => new Recaptcha3(),
+                'action_name' => 'Contact',
             ])
         ;
     }
