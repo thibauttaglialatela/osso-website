@@ -5,12 +5,13 @@ namespace App\Controller;
 use App\Entity\Contact;
 use App\Form\ContactType;
 use App\Repository\ContactRepository;
+use Symfony\Bridge\Twig\Mime\TemplatedEmail;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Mailer\MailerInterface;
 use Symfony\Component\Routing\Annotation\Route;
-use Symfony\Component\Mime\Email;
+
 
 #[Route('/contact', name: 'contact_')]
 class ContactController extends AbstractController
@@ -23,13 +24,15 @@ class ContactController extends AbstractController
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {
             $contactRepository->add($contact, true);
-            $email = (new Email())
+            $email = (new TemplatedEmail())
                 ->from($contact->getEmail())
                 ->to('osso64@test.com')
                 ->cc('cc@example.com')
                 ->subject($contact->getSubject())
-                ->text($contact->getMessage())
-                ->html('<p>See Twig integration for better HTML integration!</p>');
+                ->htmlTemplate('emails/contact.html.twig')
+                ->context([
+                    'contact' => $contact
+                ]);
 
             $mailer->send($email);
             $this->addFlash('success', 'Votre message a bien été envoyé');
