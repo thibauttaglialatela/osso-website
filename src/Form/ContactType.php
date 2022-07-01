@@ -19,20 +19,20 @@ class ContactType extends AbstractType
             ->add('fullName', TextType::class, [
                 'required'=>false,
                 'label'=>'Nom',
-                'label_attr'=>['class'=>'fs-3']
+                'label_attr'=>['class'=>'fs-4']
             ])
             ->add('email', EmailType::class, [
                 'label' => 'e-mail',
-                'label_attr'=>['class'=>'fs-3']
+                'label_attr'=>['class'=>'fs-4']
             ])
             ->add('subject', TextType::class, [
                 'required'=>false,
-                'label'=>'sujet du message',
-                'label_attr'=>['class'=>'fs-3'],
+                'label'=>'sujet',
+                'label_attr'=>['class'=>'fs-4'],
             ])
             ->add('message', TextareaType::class, [
                 'label' => 'Votre message',
-                'label_attr'=>['class'=>'fs-3'],
+                'label_attr'=>['class'=>'fs-4'],
                 'attr'=>[
                     'cols'=> '5',
                     'rows'=>'5',
