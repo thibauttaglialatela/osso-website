@@ -1,10 +1,25 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
+    <title></title>
 </head>
 <body>
-<h1>{{ contact.subject }}</h1>
-<p>{{ contact.message }}</p>
+{% apply inky_to_html|inline_css(source('@styles/foundation-emails.css')) %}
+    <container>
+        <row class="header">
+            <columns>
+                <spacer size="20"></spacer>
+                <h1 class="text-left">Demande de {{ contact.fullName }}</h1>
+                <p>Email: {{ contact.email }}</p>
+                <p>Sujet : {{ contact.subject }}</p>
+                <p>Message :</p>
+                <div>
+                    {{ contact.message }}
+                </div>
+            </columns>
+        </row>
+    </container>
+{% endapply %}
 </body>
 </html>
