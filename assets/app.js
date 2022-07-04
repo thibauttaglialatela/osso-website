@@ -93,10 +93,10 @@ document.addEventListener('DOMContentLoaded', () => {
         eventClick: function showModal(info) {
             const url = `/event/show/${info.event._def.publicId}`
             fetch(url)
-                .then(response => response.text())
-                .then(html => {
-                    console.log(html);
+                .then(response => {
+                    response.json();
                 })
+                .then(json => console.log(json))
                 .catch(error => alert(error))
         }
     });

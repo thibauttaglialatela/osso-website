@@ -20,8 +20,8 @@
                 <p class="card-text">{{ event.summary }}</p>
                 <div class="d-flex justify-content-between flex-column flex-md-row">
                     <p class="card-text">Type : {{ event.category }}</p>
-                    {{ include('/event/_show_event.html.twig') }}
-                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal_{{ event.id }}">
+{#                    {{ include('/event/_show_event.html.twig') }}#}
+                    <button type="button" class="btn btn-primary">
                         En savoir plus
                     </button>
                 </div>
@@ -46,7 +46,7 @@
                 <div class="d-flex justify-content-between flex-column flex-md-row">
                     <p class="card-text">Type : {{ event.category }}</p>
                     {{ include('/event/_show_event.html.twig') }}
-                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal_{{ event.id }}">
+                    <button type="button" class="btn btn-primary">
                         En savoir plus.
                     </button>
                 </div>
@@ -54,6 +54,5 @@
             </div>
         </div>
     {% endfor %}
-
 
 {% endblock %}

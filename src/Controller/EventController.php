@@ -42,12 +42,15 @@ class EventController extends AbstractController
     }
 
     #[Route('/show/{id}', name: 'show', methods: 'GET')]
-    public function showOneEvent(Event $event): Response
+    public function showOneEvent(int $id, EventRepository $eventRepository): JsonResponse
     {
-
-        return $this->render('event/_show_event.html.twig', [
-            'event' => $event,
-        ]);
+        $event = $eventRepository->find($id);
+        $eventModal = [
+            'id' => $event->getId(),
+            'title' => $event->getTitle(),
+            'body' => $event->getBody()
+        ];
+        return $this->json($eventModal);
     }
 
 //TODO: créer la modale pour afficher un event au click sur le calendrier avec une requéte AJAX
