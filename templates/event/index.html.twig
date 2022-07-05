@@ -20,8 +20,7 @@
                 <p class="card-text">{{ event.summary }}</p>
                 <div class="d-flex justify-content-between flex-column flex-md-row">
                     <p class="card-text">Type : {{ event.category }}</p>
-{#                    {{ include('/event/_show_event.html.twig') }}#}
-                    <button type="button" class="btn btn-primary">
+                    <button type="button" class="btn btn-primary" >
                         En savoir plus
                     </button>
                 </div>
@@ -34,7 +33,7 @@
 
     <h2 class="text-light text-center fs-2">Nos anciens concerts</h2>
     {% for event in old_events %}
-        <div class="card mx-auto mb-md-5 w-50">
+        <div class="card mx-auto mb-md-5 w-50 event-modal" data-event-data="{{ event|json_encode }}">
             <img src="{{ event.poster }}" class="card-img-top img-fluid" alt="{{ event.title }}">
             <div class="card-body">
                 <div class="d-flex justify-content-between flex-column flex-md-row">
@@ -45,14 +44,13 @@
                 <p class="card-text">{{ event.summary }}</p>
                 <div class="d-flex justify-content-between flex-column flex-md-row">
                     <p class="card-text">Type : {{ event.category }}</p>
-                    {{ include('/event/_show_event.html.twig') }}
-                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#eventModalContent">
+                    <button type="button" class="btn btn-primary" id="btn-show-modal" onclick="dispatchModal">
                         En savoir plus.
                     </button>
                 </div>
-
+                {{ include('/event/_show_event.html.twig') }}
             </div>
         </div>
     {% endfor %}
-    {{ include('/event/_show_event.html.twig') }}
+
 {% endblock %}
