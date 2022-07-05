@@ -46,7 +46,7 @@
                 <div class="d-flex justify-content-between flex-column flex-md-row">
                     <p class="card-text">Type : {{ event.category }}</p>
                     {{ include('/event/_show_event.html.twig') }}
-                    <button type="button" class="btn btn-primary">
+                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#eventModalContent">
                         En savoir plus.
                     </button>
                 </div>
@@ -54,5 +54,5 @@
             </div>
         </div>
     {% endfor %}
-
+    {{ include('/event/_show_event.html.twig') }}
 {% endblock %}

@@ -11,6 +11,8 @@ import 'bootstrap';
 
 import 'datatables.net-bs5';
 
+
+
 $(document).ready(function () {
     $('#osso-repertory').DataTable({
             responsive: true,
@@ -93,13 +95,17 @@ document.addEventListener('DOMContentLoaded', () => {
         eventClick: function showModal(info) {
             const url = `/event/show/${info.event._def.publicId}`
             fetch(url)
-                .then(response => {
-                    response.json();
-                })
-                .then(json => console.log(json))
+                .then(response => response.json())
+                .then(json => dispatchModal(json))
                 .catch(error => alert(error))
         }
     });
     calendar.render();
 })
-
+function dispatchModal (data) {
+    window.bootstrap = require('bootstrap/dist/js/bootstrap.bundle.js');
+    const myModal = new bootstrap.Modal(document.getElementById('eventModalContent'));
+    document.getElementById('eventModalContent').querySelector('.modal-title').innerHTML = data.title;
+    document.getElementById('eventModalContent').querySelector('.modal-body').innerHTML = data.body;
+    myModal.show();
+}
