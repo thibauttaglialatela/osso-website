@@ -52,6 +52,4 @@ class EventController extends AbstractController
         ];
         return $this->json($eventModal);
     }
-
-//TODO: créer la modale pour afficher un event au click sur le calendrier avec une requéte AJAX
 }
