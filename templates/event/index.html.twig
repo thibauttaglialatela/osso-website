@@ -9,7 +9,8 @@
     <h1 class="text-light text-center fs-1 text-capitalize fw-bold my-lg-4">calendrier</h1>
     <h2 class="text-light text-center fs-2">Nos prochains concerts</h2>
     {% for event in new_events %}
-        <div class="card mx-auto mb-3 w-50">
+
+        <div class="card mx-auto mb-3">
             <img src="{{ event.poster }}" class="card-img-top img-fluid" alt="{{ event.title }}">
             <div class="card-body">
                 <div class="d-flex justify-content-between flex-column flex-md-row">
@@ -20,8 +21,8 @@
                 <p class="card-text">{{ event.summary }}</p>
                 <div class="d-flex justify-content-between flex-column flex-md-row">
                     <p class="card-text">Type : {{ event.category }}</p>
-                    <button type="button" class="btn btn-primary" >
-                        En savoir plus
+                    <button type="button" class="btn btn-primary btn-show-modal" data-event-data="{{ event|json_encode }}" >
+                        En savoir plus.
                     </button>
                 </div>
             </div>
@@ -29,11 +30,12 @@
     {% endfor %}
 
     <h2 class="text-light text-center fs-2 mt-lg-4">Calendrier des répétitions et des concerts</h2>
+
     <section id="calendar"></section>
 
     <h2 class="text-light text-center fs-2">Nos anciens concerts</h2>
     {% for event in old_events %}
-        <div class="card mx-auto mb-md-5 w-50 event-modal" data-event-data="{{ event|json_encode }}">
+        <div class="card mx-auto mb-md-5 event-modal">
             <img src="{{ event.poster }}" class="card-img-top img-fluid" alt="{{ event.title }}">
             <div class="card-body">
                 <div class="d-flex justify-content-between flex-column flex-md-row">
@@ -44,7 +46,7 @@
                 <p class="card-text">{{ event.summary }}</p>
                 <div class="d-flex justify-content-between flex-column flex-md-row">
                     <p class="card-text">Type : {{ event.category }}</p>
-                    <button type="button" class="btn btn-primary" id="btn-show-modal" onclick="dispatchModal">
+                    <button type="button" class="btn btn-primary btn-show-modal" data-event-data="{{ event|json_encode }}" >
                         En savoir plus.
                     </button>
                 </div>

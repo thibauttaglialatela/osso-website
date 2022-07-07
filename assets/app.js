@@ -101,25 +101,18 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
     calendar.render();
-})
 
-function dispatchModal (data) {
-    window.bootstrap = require('bootstrap/dist/js/bootstrap.bundle.js');
-    const modalContent = document.getElementById('eventModalContent');
-    const myModal = new bootstrap.Modal(document.getElementById('eventModalContent'));
-    modalContent.querySelector('.modal-title').innerHTML = data.title;
-    modalContent.querySelector('.modal-body').innerHTML = data.body;
-    return myModal.show();
-}
-
-document.addEventListener('DOMContentLoaded', () => {
-    const allModal = document.querySelectorAll('[data-event-data]');
-    const  entryModalObject = Array.from(allModal).map(item => JSON.parse(item.dataset.eventData));
-    for (let item of entryModalObject) {
-        console.log("le concert :", item);
-        document.querySelector('#btn-show-modal').addEventListener('click', (event) => {
-            event.currentTarget;
-            dispatchModal(item);
-        });
+    function dispatchModal (data) {
+        window.bootstrap = require('bootstrap/dist/js/bootstrap.bundle.js');
+        const modalContent = document.getElementById('eventModalContent');
+        const myModal = new bootstrap.Modal(document.getElementById('eventModalContent'));
+        modalContent.querySelector('.modal-title').innerHTML = data.title;
+        modalContent.querySelector('.modal-body').innerHTML = data.body;
+        return myModal.show();
     }
+
+    document.querySelectorAll('.btn-show-modal').forEach(button => {
+
+        button.addEventListener('click', (event) => dispatchModal(JSON.parse(event.target.dataset.eventData)));
+    });
 })
