@@ -1,5 +1,5 @@
 .card {
-background-color: $secondary;
+  background-color: $secondary;
 }
 
 .text-bg-secondary {
@@ -9,12 +9,13 @@ background-color: $secondary;
 .card-title {
   text-align: center;
   margin-bottom: 1rem;
-  text-decoration-line: underline;
+  color: #FFFFFF;
 }
 
 .card-text {
   text-align: left;
 }
+
 .card-img-top {
   max-height: 20vw;
 }
