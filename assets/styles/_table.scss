@@ -1,7 +1,8 @@
 .table {
-  width: 75vw;
+  width: 100%;
   border-radius: 20px;
   border-bottom: hidden!important;
+  margin: 0 auto;
 }
 .bg-blue {
   background-color: $secondary;
@@ -19,10 +20,21 @@ table.dataTable thead .sorting_desc {
 
 div.dataTables_wrapper {
   margin: 0 auto;
-  width: 70%;
+  width: 80%;
 }
 
-.dataTables_filter {
-  display:flex;
-  justify-content: right;
+.dataTables_filter, .dataTables_length {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+}
+.dataTables_info {
+  text-align: center;
+}
+
+.pagination {
+  display: flex;
+  padding-left: 0;
+  list-style: none;
+  justify-content: center;
 }

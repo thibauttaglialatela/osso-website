@@ -30,12 +30,11 @@ $(document).ready(function () {
                 "paginate": {
                     "first": "Première",
                     "last": "Dernière",
-                    "next": "Suivante",
-                    "previous": "Précédente"
+                    "next": "&raquo;",
+                    "previous": "&laquo;"
                 },
             },
             autofill: true,
-
         }
     );
 });
