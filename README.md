@@ -8,3 +8,4 @@ Voici le dépot pour la création du site web de l'OSSO
 3. faire un yarn install
 4. faire une copie du fichier .env en .env.local et modifier la ligne correspondante à la base MySQL
 5. faire un symfony console d:d:c pour recréer la base.
+6. taper symfony console d:f:l afin de créer les fixtures
