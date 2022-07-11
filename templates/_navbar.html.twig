@@ -58,10 +58,10 @@
                     </a>
                 </li>
                 <li class="mb-1 me-lg-5">
-                    <a href="{{ path('app_index') }}"
-                       class="btn btn-primary btn-lg d-inline-flex align-items-center rounded border-0  {{ app.request.pathinfo == '#' ? 'active' }}"
+                    <a href="{{ path('press_index') }}"
+                       class="btn btn-primary btn-lg d-inline-flex align-items-center rounded border-0  {{ app.request.pathinfo == path('press_index') ? 'active' }}"
                        role="button"
-                            {{ app.request.pathinfo == "#" ? 'aria-current = "page"' }}
+                            {{ app.request.pathinfo == path('press_index') ? 'aria-current = "page"' }}
                     >
                         Médias
                     </a>
