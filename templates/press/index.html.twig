@@ -1,10 +1,18 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello PressController!{% endblock %}
+{% block title %}{{ parent() }} - médias{% endblock %}
 
 {% block body %}
     <div class="banner-picture"
          style="background-image: url('{{ asset('build/press-banner.jpg') }}')">
     </div>
     <h1 class="text-light text-center fs-1 fw-bold my-lg-4 text-uppercase">médias</h1>
+    <h2  class="fs-2 text-center"><a href="#" class="text-light">Galerie photos</a></h2>
+<h2 class="fs-2 text-center text-light mt-4 text-decoration-underline">On parle de l'OSSO dans la presse</h2>
+    {% for article in press_articles %}
+        <h3 class="text-center text-light"><span>{{ article.newspaper }} : </span><a class="text-light" href={{ article.articleLink }}>{{ article.title }}</a></h3>
+        <h4 class="text-light text-center">Article daté du {{ article.articleDate|date('l j F Y')|format_datetime('full', 'none', locale='fr') }}</h4>
+        {% else %}
+        {{ 'Désolé il n\'y a aucun article sur l\'OSSO en ce moment. Revenez plus tard' }}
+    {% endfor %}
 {% endblock %}
