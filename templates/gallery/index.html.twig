@@ -1,0 +1,15 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ parent() }} - galeries photo{% endblock %}
+
+{% block body %}
+    <ul>
+        {% for gallery in galleries %}
+            <li class="text-light text-center">
+                <a href="{{ path('gallery_show', {'galleryTitle': gallery.title}) }}">{{ gallery.title }}</a>
+                </li>
+        {% endfor %}
+    </ul>
+    
+
+{% endblock %}
