@@ -5,11 +5,12 @@
 {% block body %}
     <ul>
         {% for gallery in galleries %}
-            <li class="text-light text-center">
-                <a href="{{ path('gallery_show', {'galleryTitle': gallery.title}) }}">{{ gallery.title }}</a>
-                </li>
+            <li>
+                <a class="text-light text-center"
+                   href="{{ path('gallery_show', {'galleryTitle': gallery.title}) }}">{{ gallery.title }}</a>
+            </li>
         {% endfor %}
     </ul>
-    
+    <a href="{{ path('press_index') }}" class="btn btn-info">Retour</a>
 
 {% endblock %}
