@@ -3,14 +3,44 @@
 {% block title %}{{ parent() }} - galeries photo{% endblock %}
 
 {% block body %}
-    <ul>
-        {% for gallery in galleries %}
-            <li>
-                <a class="text-light text-center"
-                   href="{{ path('gallery_show', {'galleryTitle': gallery.title}) }}">{{ gallery.title }}</a>
-            </li>
-        {% endfor %}
-    </ul>
+    <h1 class="text-light text-center fs-1 fw-bold my-lg-4 text-uppercase">photos des concerts</h1>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-10 mx-auto">
+                <ul>
+                    {% for gallery in galleries %}
+                        <li>
+                            <h2 class="text-light text-center">{{ gallery.title }}</h2>
+                            <div id="carouselControls_{{ gallery.id }}" class="carousel slide" data-bs-ride="carousel">
+                                <div class="carousel-inner">
+                                    <div class="carousel-item active">
+                                        <img src="https://picsum.photos/100" class="d-block w-100 bg-light" alt="...">
+                                    </div>
+                                    <div class="carousel-item">
+                                        <img src="https://picsum.photos/100" class="d-block w-100 bg-danger" alt="...">
+                                    </div>
+                                    <div class="carousel-item">
+                                        <img src="https://picsum.photos/100" class="d-block w-100 bg-info" alt="...">
+                                    </div>
+                                </div>
+                                <button class="carousel-control-prev" type="button"
+                                        data-bs-target="#carouselControls_{{ gallery.id }}" data-bs-slide="prev">
+                                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                    <span class="visually-hidden">Previous</span>
+                                </button>
+                                <button class="carousel-control-next" type="button"
+                                        data-bs-target="#carouselControls_{{ gallery.id }}" data-bs-slide="next">
+                                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                    <span class="visually-hidden">Next</span>
+                                </button>
+                            </div>
+                        </li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+    </div>
+
     <a href="{{ path('press_index') }}" class="btn btn-info">Retour</a>
 
 {% endblock %}

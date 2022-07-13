@@ -2,12 +2,8 @@
 
 namespace App\Controller;
 
-use App\Entity\Gallery;
-use App\Entity\Poster;
 use App\Repository\GalleryRepository;
 use App\Repository\PosterRepository;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Entity;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Response;
@@ -25,7 +21,7 @@ class GalleryController extends AbstractController
     }
 
     #[Route('/{galleryTitle}', name: 'show')]
-    public function show(string $galleryTitle, GalleryRepository $galleryRepository, PosterRepository $posterRepository): Response
+    public function show(string $galleryTitle, GalleryRepository $galleryRepository, PosterRepository $posterRepository): JsonResponse
     {
         $gallery = $galleryRepository->findOneBy(['title' => $galleryTitle]);
         if(!$gallery) {
@@ -33,9 +29,7 @@ class GalleryController extends AbstractController
         } else {
             $posters = $posterRepository->findBy(['gallery' => $gallery]);
         }
-        return $this->render('gallery/show.html.twig', [
-            'posters' => $posters
-        ]);
+        return $this->json(['posters' => $posters]);
     }
 
 }

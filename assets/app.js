@@ -111,7 +111,8 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     document.querySelectorAll('.btn-show-modal').forEach(button => {
-
         button.addEventListener('click', (event) => dispatchModal(JSON.parse(event.target.dataset.eventData)));
     });
+
+
 })
