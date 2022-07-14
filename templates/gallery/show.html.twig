@@ -4,6 +4,7 @@
 
 {% block body %}
 {{ dump(posters) }}
+    <h1 class="text-center text-light">{{ posters[0].gallery.title }}</h1>
     <a href="{{ path('gallery_index') }}" class="btn btn-info">Retour</a>
 
 {% endblock %}

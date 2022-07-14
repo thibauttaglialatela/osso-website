@@ -21,7 +21,7 @@ class GalleryController extends AbstractController
     }
 
     #[Route('/{galleryTitle}', name: 'show')]
-    public function show(string $galleryTitle, GalleryRepository $galleryRepository, PosterRepository $posterRepository): JsonResponse
+    public function show(string $galleryTitle, GalleryRepository $galleryRepository, PosterRepository $posterRepository): Response
     {
         $gallery = $galleryRepository->findOneBy(['title' => $galleryTitle]);
         if(!$gallery) {
@@ -29,7 +29,9 @@ class GalleryController extends AbstractController
         } else {
             $posters = $posterRepository->findBy(['gallery' => $gallery]);
         }
-        return $this->json(['posters' => $posters]);
+        return $this->render('gallery/show.html.twig', [
+            'posters' => $posters
+        ]);
     }
 
 }
