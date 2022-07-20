@@ -1,0 +1,25 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ parent() }} - galeries photo{% endblock %}
+
+{% block body %}
+    <h1 class="text-light text-center fs-1 fw-bold my-lg-4 text-uppercase mt-3">photos des concerts</h1>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-10 mx-auto">
+                <ul>
+                    {% for gallery in galleries %}
+                        <a href="{{ path('gallery_show', {'galleryTitle': gallery.title}) }}"><h2 class="text-light text-center">{{ gallery.title }}</h2></a>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+    </div>
+<div class="row">
+    <div class="col-12 d-flex flex-row justify-content-center">
+        <a href="{{ path('press_index') }}" class="btn btn-info">Retour</a>
+    </div>
+</div>
+
+
+{% endblock %}

@@ -1,0 +1,63 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{% endblock %}
+
+{% block body %}
+    <h1 class="text-center text-light mt-2">{{ posters[0].gallery.title }}</h1>
+    <div class="container-fluid">
+        <div class="row" id="gallery" data-bs-toggle="modal" data-bs-target="#exampleModal">
+            {% for poster in posters %}
+                <div class="col-12 col-sm-6 col-lg-3">
+                    <img src="{{ poster.image }}" alt="{{ poster.alt }}" class="w-100" data-bs-target="#carouselExample" data-slide-to="{{ poster.id }}">
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+
+{#    Modal#}
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">{{ posters[0].gallery.title }}</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+
+                    <!-- Carousel -->
+                    <div id="carouselExample" class="carousel slide" data-bs-ride="true">
+                        <div class="carousel-inner">
+                            {% for poster in posters %}
+                                <div data-slide-to="{{ loop.index0 }}"
+                                class="carousel-item {{ loop.index0 == 0 ? 'active' }}">
+                                    <img src="{{ poster.image }}" alt="{{ poster.alt }}" class="d-block w-100">
+                                </div>
+                            {% endfor %}
+                        </div>
+                        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample"
+                                data-bs-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Previous</span>
+                        </button>
+                        <button class="carousel-control-next" type="button" data-bs-target="#carouselExample"
+                                data-bs-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Next</span>
+                        </button>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fermer</button>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <div class="row">
+        <div class="col-12 d-flex flex-row justify-content-center">
+            <a href="{{ path('gallery_index') }}" class="btn btn-info">Retour</a>
+        </div>
+    </div>
+
+
+{% endblock %}

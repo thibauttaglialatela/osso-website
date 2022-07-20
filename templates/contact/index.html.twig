@@ -1,0 +1,40 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ parent() }} - Contact{% endblock %}
+
+{% block body %}
+    <h1 class="text-light text-center fs-1 text-uppercase fw-bold my-lg-4 mt-4">contactez l'OSSO</h1>
+
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-12 col-lg-5 mx-auto">
+                {% for label, messages in app.flashes %}
+                    {% for message in messages %}
+                        <div class="alert alert-{{ label }}">
+                            {{ message }}
+                        </div>
+                    {% endfor %}
+                {% endfor %}
+                <p class="text-light text-start fs-3">
+                    Si vous désirez obtenir des renseignements sur nos futurs concerts ou bien nous rejoindre, vous
+                    pouvez
+                    prendre contact avec nous au moyen du formulaire ci-dessous.
+                </p>
+                <hr>
+                {{ form_start(form) }}
+                {{ form_errors(form) }}
+
+                {{ form_row(form.fullName) }}
+                {{ form_row(form.email) }}
+                {{ form_row(form.subject) }}
+                {{ form_row(form.message) }}
+
+                {{ form_end(form) }}
+            </div>
+        </div>
+
+
+    </div>
+
+
+{% endblock %}

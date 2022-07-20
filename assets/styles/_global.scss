@@ -1,0 +1,22 @@
+.banner-picture {
+  background-size: cover;
+  min-height: 25vh;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+h1 {
+  font-family: $font-family-sans-serif;
+}
+
+hr {
+  color: $white;
+}
+.text-light {
+  --bs-text-opacity: 1;
+  color: rgba($white, var(--bs-text-opacity)) !important;
+}
+
+li {
+  list-style-type: none;
+}

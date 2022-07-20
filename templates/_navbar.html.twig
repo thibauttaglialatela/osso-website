@@ -1,0 +1,81 @@
+<nav class="navbar navbar-expand-xl navbar-dark bg-secondary fixed-top" aria-label="OSSO website navbar">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="#">OSSO</a>
+        <button class="navbar-toggler collapsed" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarOSSO" aria-controls="navbarOSSO" aria-expanded="false"
+                aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="navbar-collapse collapse" id="navbarOSSO" style="">
+            <ul class="navbar-nav ms-lg-auto mb-2 mb-lg-0 d-flex align-items-center">
+                <li class="mb-1 me-lg-5">
+                    <a href="{{ path('app_index') }}"
+                       class="btn btn-primary btn-lg d-inline-flex align-items-center rounded border-0  {{ app.request.pathinfo == path("app_index") ? 'active' }}"
+                       role="button"
+                            {{ app.request.pathinfo == path("app_index") ? 'aria-current = "page"' }}
+                    >
+                        Accueil
+                    </a>
+                </li>
+                <li class="mb-1 me-lg-5">
+                    <a
+                            class="btn btn-primary btn-lg btn-toggle d-inline-flex align-items-center rounded border-0 collapsed"
+                            data-bs-toggle="collapse"
+                            data-bs-target="#orchestra-collapse"
+                            id="navbarDropdown"
+                            aria-expanded="false"
+                            role="button"
+                    >
+                        Orchestre
+                    </a>
+                    <div class="collapse" id="orchestra-collapse" style>
+                        <ul class="btn-toggle-nav list-group">
+                            <li>
+                                <a class="list-group-item btn btn-primary rounded border-0 {{ app.request.pathinfo ==  path("orchestra_presentation")  ? 'active' }}" {{ app.request.pathinfo ==  path("orchestra_presentation")  ? 'aria-current = "page"' }}
+                                   href="{{ path("orchestra_presentation") }}">Présentation
+                                </a>
+                            </li>
+                            <li>
+                                <a class="list-group-item btn btn-primary rounded border-0 {{ app.request.pathinfo == path('orchestra_instrument') ? 'active' }}" {{ app.request.pathinfo == path('orchestra_instrument') ? 'aria-current = "page"' }}
+                                   href="{{ path('orchestra_instrument') }}">Musiciens
+                                </a></li>
+                            <li>
+                                <a class="list-group-item btn btn-primary rounded border-0 {{ app.request.pathinfo == path('orchestra_musical_work')  ? 'active' }}" {{ app.request.pathinfo ==  path('orchestra_musical_work')  ? 'aria-current = "page"' }}
+                                   href="{{ path('orchestra_musical_work') }}">Le répertoire
+                                </a></li>
+                        </ul>
+                    </div>
+
+                </li>
+                <li class="mb-1 me-lg-5">
+                    <a href="{{ path('event_index') }}"
+                       class="btn btn-primary btn-lg d-inline-flex align-items-center rounded border-0  {{ app.request.pathinfo == path('event_index') ? 'active' }}"
+                       role="button"
+                            {{ app.request.pathinfo == path('event_index') ? 'aria-current = "page"' }}
+                    >
+                        Calendrier
+                    </a>
+                </li>
+                <li class="mb-1 me-lg-5">
+                    <a href="{{ path('press_index') }}"
+                       class="btn btn-primary btn-lg d-inline-flex align-items-center rounded border-0  {{ app.request.pathinfo == path('press_index') ? 'active' }}"
+                       role="button"
+                            {{ app.request.pathinfo == path('press_index') ? 'aria-current = "page"' }}
+                    >
+                        Médias
+                    </a>
+                </li>
+                <li class="mb-1">
+                    <a href="{{ path('contact_index') }}"
+                       class="btn btn-primary btn-lg d-inline-flex align-items-center rounded border-0  {{ app.request.pathinfo == path('contact_index') ? 'active' }}"
+                       role="button"
+                            {{ app.request.pathinfo == path('contact_index') ? 'aria-current = "page"' }}
+                    >
+                        Contactez l'OSSO
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>

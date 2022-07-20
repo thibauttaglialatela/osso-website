@@ -1,0 +1,39 @@
+#calendar {
+  width: 100vw;
+}
+@media screen and (min-width:576px ) {
+  #calendar {
+    width: 50vw;
+    margin: 5rem auto;
+  }
+}
+.fc .fc-toolbar-title {
+  font-size: 2rem;
+  margin: 0;
+  color: $white;
+}
+.fc .fc-list-empty {
+  background-color: $secondary;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 20px;
+}
+.fc-today-button {
+  color: $white;
+  border: $white solid 1px;
+  text-transform: uppercase;
+}
+.fc-theme-bootstrap5 .fc-list, .fc-theme-bootstrap5 .fc-scrollgrid, .fc-theme-bootstrap5 td, .fc-theme-bootstrap5 th {
+  border: none;
+}
+.fc-theme-bootstrap5 td {
+  background-color: $secondary;
+  color:$white;
+  border: thin ridge $green;
+}
+.fc .fc-daygrid-day.fc-day-today {
+  background-color: $green;
+  color:black;
+}
