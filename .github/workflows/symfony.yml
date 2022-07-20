@@ -30,6 +30,10 @@ jobs:
         key: ${{ runner.os }}-php-${{ hashFiles('**/composer.lock') }}
         restore-keys: |
           ${{ runner.os }}-php-
+    - name: composer update action
+  # You may pin to the exact commit or the version.
+  # uses: kawax/composer-update-action@ff82e4d675a24bc9ed3c1b764ca1e7392d05d4cc
+      uses: kawax/composer-update-action@v3.0.0
     - name: Install Dependencies
       run: composer install -q --no-ansi --no-interaction --no-scripts --no-progress --prefer-dist
     - name: PHPUnit for Symfony
