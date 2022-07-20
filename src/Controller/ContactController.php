@@ -12,7 +12,6 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Mailer\MailerInterface;
 use Symfony\Component\Routing\Annotation\Route;
 
-
 #[Route('/contact', name: 'contact_')]
 class ContactController extends AbstractController
 {
@@ -31,7 +30,7 @@ class ContactController extends AbstractController
                 ->subject($contact->getSubject())
                 ->htmlTemplate('emails/contact.html.twig')
                 ->context([
-                    'contact' => $contact
+                    'contact' => $contact,
                 ]);
 
             $mailer->send($email);
@@ -39,6 +38,7 @@ class ContactController extends AbstractController
 
             return $this->redirectToRoute('contact_index');
         }
+
         return $this->renderForm('contact/index.html.twig', [
             'form' => $form,
         ]);

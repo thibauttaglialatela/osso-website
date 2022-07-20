@@ -2,17 +2,17 @@
 
 namespace App\DataFixtures;
 
-use Doctrine\Persistence\ObjectManager;
 use App\Entity\Instrument;
 use Doctrine\Bundle\FixturesBundle\Fixture;
+use Doctrine\Persistence\ObjectManager;
 use League\Csv\Exception;
 use League\Csv\Reader;
 
 class InstrumentFixtures extends Fixture
 {
-
     /**
-     * @inheritDoc
+     * {@inheritDoc}
+     *
      * @throws Exception
      */
     public function load(ObjectManager $manager)
@@ -26,9 +26,8 @@ class InstrumentFixtures extends Fixture
             $instrument->setFctId($record['fct_id']);
 
             $manager->persist($instrument);
-            $this->addReference('Instrument_' . $instrumentId, $instrument);
+            $this->addReference('Instrument_'.$instrumentId, $instrument);
         }
         $manager->flush();
-
     }
 }

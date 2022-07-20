@@ -13,6 +13,7 @@ class MusicianController extends AbstractController
     public function show(InstrumentRepository $instrumentRepository, int $id): Response
     {
         $instrument = $instrumentRepository->find($id);
+
         return $this->render('musician/_musicians_instrument.html.twig', [
             'instrument' => $instrument,
         ]);

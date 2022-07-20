@@ -2,7 +2,6 @@
 
 namespace App\Controller;
 
-use App\Entity\Event;
 use App\Repository\EventRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\JsonResponse;
@@ -19,6 +18,7 @@ class EventController extends AbstractController
         $currentDate->format('Y-m-d H:i:s');
         $oldEvents = $eventRepository->getOldEvent($currentDate);
         $newEvents = $eventRepository->getNewEvent($currentDate);
+
         return $this->render('event/index.html.twig', [
             'old_events' => $oldEvents,
             'new_events' => $newEvents,
@@ -38,6 +38,7 @@ class EventController extends AbstractController
                 'end' => $event->getEndAt()->format('Y-m-d H:i:s'),
             ];
         }
+
         return new JsonResponse($data);
     }
 
@@ -48,8 +49,9 @@ class EventController extends AbstractController
         $eventModal = [
             'id' => $event->getId(),
             'title' => $event->getTitle(),
-            'body' => $event->getBody()
+            'body' => $event->getBody(),
         ];
+
         return $this->json($eventModal);
     }
 }

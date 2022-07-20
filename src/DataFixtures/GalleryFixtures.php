@@ -17,13 +17,13 @@ class GalleryFixtures extends Fixture
         // $manager->persist($product);
         $faker = Factory::create('fr_FR');
 
-        for ($i = 0; $i < self::GALLERY_NB; $i++) {
+        for ($i = 0; $i < self::GALLERY_NB; ++$i) {
             $gallery = new Gallery();
             $gallery->setTitle($faker->sentence());
             $gallery->setDate($faker->dateTimeBetween('-1 year', 'now'));
             $manager->persist($gallery);
 
-            $this->addReference('gallery_' . $i, $gallery);
+            $this->addReference('gallery_'.$i, $gallery);
         }
 
         $manager->flush();

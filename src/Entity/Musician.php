@@ -25,16 +25,13 @@ class Musician
     #[ORM\Column(type: 'string', length: 45, nullable: true)]
     private ?string $status;
 
-
-
     #[ORM\ManyToMany(targetEntity: Instrument::class, inversedBy: 'musicians')]
     private Collection $instruments;
 
     public function __toString(): string
     {
-        return $this->getFirstname() . " " . $this->getLastname();
+        return $this->getFirstname().' '.$this->getLastname();
     }
-
 
     public function __construct()
     {
@@ -81,7 +78,6 @@ class Musician
 
         return $this;
     }
-
 
     /**
      * @return Collection<int, Instrument>

@@ -2,7 +2,6 @@
 
 namespace App\DataFixtures;
 
-
 use App\Entity\MusicalWork;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Common\DataFixtures\DependentFixtureInterface;
@@ -17,7 +16,6 @@ class MusicalWorkFixtures extends Fixture implements DependentFixtureInterface
      */
     public function load(ObjectManager $manager): void
     {
-
         $handler = Reader::createFromPath('assets/images/Mozart_work.csv', 'r');
         $handler->setHeaderOffset(0);
         foreach ($handler as $record) {
@@ -29,8 +27,6 @@ class MusicalWorkFixtures extends Fixture implements DependentFixtureInterface
 
             $manager->persist($musicalWork);
         }
-
-
 
         $manager->flush();
     }

@@ -12,11 +12,11 @@ class ContactFixtures extends Fixture
     public function load(ObjectManager $manager): void
     {
         $faker = Factory::create('fr_FR');
-        for ($i = 0; $i < 5; $i++) {
+        for ($i = 0; $i < 5; ++$i) {
             $contact = new Contact();
             $contact->setFullName($faker->name)
                 ->setEmail($faker->email)
-                ->setSubject("Demande n° " . ($i + 1))
+                ->setSubject('Demande n° '.($i + 1))
                 ->setMessage($faker->realText);
             $manager->persist($contact);
         }

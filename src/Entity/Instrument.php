@@ -6,8 +6,8 @@ use App\Repository\InstrumentRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
-use Symfony\Component\Validator\Constraints as Assert;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
+use Symfony\Component\Validator\Constraints as Assert;
 
 #[ORM\Entity(repositoryClass: InstrumentRepository::class)]
 #[UniqueEntity('fct_id')]
@@ -26,8 +26,7 @@ class Instrument
     private string $fct_id;
 
     #[ORM\ManyToMany(targetEntity: Musician::class, mappedBy: 'instruments')]
-    private  Collection $musicians;
-
+    private Collection $musicians;
 
     public function __construct()
     {
@@ -73,7 +72,6 @@ class Instrument
         return $this->musician;
     }
 
-
     /**
      * @return Collection<int, self>
      */
@@ -108,6 +106,4 @@ class Instrument
 
         return $this;
     }
-
-
 }

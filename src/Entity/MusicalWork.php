@@ -16,8 +16,6 @@ class MusicalWork
     #[ORM\Column(type: 'string', length: 255)]
     private string $title;
 
-
-
     #[ORM\Column(type: 'string', length: 255)]
     private string $status;
 
@@ -26,9 +24,6 @@ class MusicalWork
 
     #[ORM\ManyToOne(targetEntity: Event::class, inversedBy: 'musical_work')]
     private $event;
-
-
-
 
     public function getId(): ?int
     {
@@ -46,7 +41,6 @@ class MusicalWork
 
         return $this;
     }
-
 
     public function getStatus(): ?string
     {
