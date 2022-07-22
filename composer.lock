@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "7905f902dd018ca379b2f2c46d3b1260",
+    "content-hash": "b7c6eb35cae6ca59f829fba435cb02b4",
     "packages": [
         {
             "name": "datatables/datatables",
