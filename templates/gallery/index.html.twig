@@ -9,7 +9,7 @@
             <div class="col-10 mx-auto">
                 <ul>
                     {% for gallery in galleries %}
-                        <a href="{{ path('gallery_show', {'galleryTitle': gallery.title}) }}"><h2 class="text-light text-center">{{ gallery.title }}</h2></a>
+                        <a href="{{ path('gallery_show', {'gallerySlug': gallery.slug}) }}"><h2 class="text-light text-center">{{ gallery.title }}</h2></a>
                     {% endfor %}
                 </ul>
             </div>

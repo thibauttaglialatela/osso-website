@@ -21,10 +21,10 @@ class GalleryController extends AbstractController
         ]);
     }
 
-    #[Route('/{galleryTitle}', name: 'show')]
-    public function show(string $galleryTitle, GalleryRepository $galleryRepository, PosterRepository $posterRepository): Response
+    #[Route('/{gallerySlug}', name: 'show')]
+    public function show(string $gallerySlug, GalleryRepository $galleryRepository, PosterRepository $posterRepository): Response
     {
-        $gallery = $galleryRepository->findOneBy(['title' => $galleryTitle]);
+        $gallery = $galleryRepository->findOneBy(['slug' => $gallerySlug]);
         if (!$gallery) {
             throw $this->createNotFoundException('aucune galerie trouvé');
         } else {

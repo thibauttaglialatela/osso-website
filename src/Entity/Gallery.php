@@ -24,6 +24,9 @@ class Gallery
     #[ORM\OneToMany(mappedBy: 'gallery', targetEntity: Poster::class)]
     private $posters;
 
+    #[ORM\Column(type: 'string', length: 255)]
+    private $slug;
+
     public function __construct()
     {
         $this->posters = new ArrayCollection();
@@ -84,6 +87,18 @@ class Gallery
                 $poster->setGallery(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getSlug(): ?string
+    {
+        return $this->slug;
+    }
+
+    public function setSlug(string $slug): self
+    {
+        $this->slug = $slug;
 
         return $this;
     }
