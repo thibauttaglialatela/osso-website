@@ -14,5 +14,6 @@ class SlugifyTest extends TestCase
         assertEquals('games-of-thrones', $slugify->generate('games of thrones'));
         assertEquals('cinquieme-symphonie-de-beethoven', $slugify->generate(' cinquiéme symphonie  de Beethoven'));
         assertEquals('prelude-a-l-apres-midi-d-un-faune', $slugify->generate('Prélude à l\'aprés-midi d\'un faune'));
+        assertEquals('rien-a-voir', $slugify->generate(' rien à  voir '));
     }
 }
