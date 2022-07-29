@@ -2,7 +2,6 @@
 
 namespace App\Controller;
 
-
 use App\Repository\InstrumentRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
@@ -19,7 +18,4 @@ class InstrumentController extends AbstractController
             'instruments' => $instruments,
         ]);
     }
-
-
-
 }

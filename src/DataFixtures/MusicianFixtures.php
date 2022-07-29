@@ -2,10 +2,10 @@
 
 namespace App\DataFixtures;
 
+use App\Entity\Musician;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Common\DataFixtures\DependentFixtureInterface;
 use Doctrine\Persistence\ObjectManager;
-use App\Entity\Musician;
 
 class MusicianFixtures extends Fixture implements DependentFixtureInterface
 {

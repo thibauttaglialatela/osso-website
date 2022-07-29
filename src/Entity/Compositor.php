@@ -19,7 +19,7 @@ class Compositor
     private string $name;
 
     #[ORM\OneToMany(mappedBy: 'compositor', targetEntity: MusicalWork::class)]
-    private  Collection $musicalWorks;
+    private Collection $musicalWorks;
 
     public function __construct()
     {
@@ -30,7 +30,6 @@ class Compositor
     {
         return $this->getName();
     }
-
 
     public function getId(): ?int
     {

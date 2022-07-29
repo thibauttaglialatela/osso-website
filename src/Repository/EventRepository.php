@@ -4,9 +4,6 @@ namespace App\Repository;
 
 use App\Entity\Event;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
-use Doctrine\Common\Collections\ArrayCollection;
-use Doctrine\DBAL\Types\Types;
-use Doctrine\ORM\Query\Parameter;
 use Doctrine\Persistence\ManagerRegistry;
 
 /**
@@ -41,6 +38,7 @@ class EventRepository extends ServiceEntityRepository
             $this->getEntityManager()->flush();
         }
     }
+
     /**
      * @return Event[]
      */
@@ -53,8 +51,10 @@ class EventRepository extends ServiceEntityRepository
             ->setParameter('category', $category)
             ->orderBy('e.start_at', 'ASC');
         $query = $queryBuilder->getQuery();
+
         return $query->getArrayResult();
     }
+
     /**
      * @return Event[]
      */
@@ -67,6 +67,7 @@ class EventRepository extends ServiceEntityRepository
             ->setParameter('category', $category)
             ->orderBy('e.start_at', 'ASC');
         $query = $qb->getQuery();
+
         return $query->getArrayResult();
     }
 }

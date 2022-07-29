@@ -2,7 +2,6 @@
 
 namespace App\DataFixtures;
 
-use App\Entity\Gallery;
 use App\Entity\Poster;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Common\DataFixtures\DependentFixtureInterface;
@@ -17,7 +16,7 @@ class PosterFixtures extends Fixture implements DependentFixtureInterface
     {
         $faker = Factory::create('fr_FR');
 
-        for ($i = 0; $i < self::PICTURE_NB; $i++) {
+        for ($i = 0; $i < self::PICTURE_NB; ++$i) {
             $poster = new Poster();
             $poster->setImage('https://picsum.photos/200');
             $poster->setAlt($faker->sentence(3));
@@ -25,10 +24,9 @@ class PosterFixtures extends Fixture implements DependentFixtureInterface
             $poster->setAuthor($faker->name);
             $poster->setGallery($this->getReference('gallery_0'));
             $manager->persist($poster);
-
         }
 
-        for ($i = 0; $i < self::PICTURE_NB; $i++) {
+        for ($i = 0; $i < self::PICTURE_NB; ++$i) {
             $poster = new Poster();
             $poster->setImage('https://picsum.photos/200');
             $poster->setAlt($faker->sentence(3));
@@ -36,10 +34,9 @@ class PosterFixtures extends Fixture implements DependentFixtureInterface
             $poster->setAuthor($faker->name);
             $poster->setGallery($this->getReference('gallery_1'));
             $manager->persist($poster);
-
         }
 
-        for ($i = 0; $i < self::PICTURE_NB; $i++) {
+        for ($i = 0; $i < self::PICTURE_NB; ++$i) {
             $poster = new Poster();
             $poster->setImage('https://picsum.photos/200');
             $poster->setAlt($faker->sentence(3));
@@ -47,7 +44,6 @@ class PosterFixtures extends Fixture implements DependentFixtureInterface
             $poster->setAuthor($faker->name);
             $poster->setGallery($this->getReference('gallery_2'));
             $manager->persist($poster);
-
         }
 
         $manager->flush();

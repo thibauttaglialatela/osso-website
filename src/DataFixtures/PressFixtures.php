@@ -2,18 +2,19 @@
 
 namespace App\DataFixtures;
 
+use App\Entity\Press;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Persistence\ObjectManager;
 use Faker\Factory;
-use App\Entity\Press;
 
 class PressFixtures extends Fixture
 {
     public const ARTICLE_NB = 5;
+
     public function load(ObjectManager $manager): void
     {
         $faker = Factory::create('fr_FR');
-        for ($i = 0; $i < self::ARTICLE_NB; $i++) {
+        for ($i = 0; $i < self::ARTICLE_NB; ++$i) {
             $press = new Press();
             $press->setTitle($faker->realText(100));
             $press->setNewspaper('La République des Pyrénées');

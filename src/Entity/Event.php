@@ -24,7 +24,6 @@ class Event
     #[ORM\Column(type: 'text')]
     private $body;
 
-
     #[ORM\OneToMany(mappedBy: 'event', targetEntity: MusicalWork::class)]
     private $musical_work;
 
@@ -88,7 +87,6 @@ class Event
 
         return $this;
     }
-
 
     /**
      * @return Collection<int, MusicalWork>
