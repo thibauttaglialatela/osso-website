@@ -1,0 +1,30 @@
+<div class="d-flex flex-column flex-shrink-0 p-3 bg-light sidebar">
+    <a href="/admin" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-dark text-decoration-none">
+        <svg class="bi me-2" width="40" height="32"><use xlink:href="#bootstrap"></use></svg>
+        <span class="fs-4">Barre latérale</span>
+    </a>
+    <hr>
+    {% set links = [
+        {'title': 'Compositeurs', 'path': 'admin_home'},
+        {'title': 'Oeuvres', 'path': 'admin_home'},
+        {'title': 'Instruments', 'path': 'admin_home'},
+        {'title': 'Musiciens', 'path': 'admin_home'},
+        {'title': 'Evénements', 'path': 'admin_home'},
+        {'title': 'Presse', 'path': 'admin_home'},
+        {'title': 'Galerie', 'path': 'admin_home'},
+        {'title': 'Photos', 'path': 'admin_home'},
+        {'title': 'Déconnection', 'path': 'admin_home'},
+    ] %}
+    <ul class="nav nav-pills flex-column mb-auto">
+        {% for link in links %}
+            <li class="nav-item">
+                <a href="{{ path(link.path) }}"
+                   class="nav-link {{ app.request.pathinfo == path(link.path) ? 'active' }}"
+                        {{ app.request.pathinfo == path(link.path) ? 'aria-current="page"' }}>
+                    <svg class="bi me-2" width="16" height="16"><use xlink:href="#home"></use></svg>
+                    {{ link.title }}
+                </a>
+            </li>
+        {% endfor %}
+    </ul>
+</div>
