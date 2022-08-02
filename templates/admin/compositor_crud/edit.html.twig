@@ -1,0 +1,13 @@
+{% extends './admin/base.html.twig' %}
+
+{% block title %}Edit Compositor{% endblock %}
+
+{% block body %}
+    <h1 class="text-center">Éditer un compositeur</h1>
+
+    {{ include('admin/compositor_crud/_form.html.twig', {'button_label': 'Mettre à jour'}) }}
+
+    <a class="btn btn-secondary" href="{{ path('app_compositor_crud_index') }}">Revenir à la liste</a>
+
+    {{ include('admin/compositor_crud/_delete_form.html.twig') }}
+{% endblock %}

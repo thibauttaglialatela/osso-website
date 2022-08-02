@@ -1,0 +1,26 @@
+{% extends './admin/base.html.twig' %}
+
+{% block title %}{{ parent() }} - Compositeur{% endblock %}
+
+{% block body %}
+    <h1 class="text-center">Compositeur</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ compositor.id }}</td>
+            </tr>
+            <tr>
+                <th>Name</th>
+                <td>{{ compositor.name }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a class="btn btn-secondary" href="{{ path('app_compositor_crud_index') }}">Revenir à la liste des compositeurs</a>
+
+    <a class="btn btn-info" href="{{ path('app_compositor_crud_edit', {'id': compositor.id}) }}">Editer</a>
+
+    {{ include('admin/compositor_crud/_delete_form.html.twig') }}
+{% endblock %}

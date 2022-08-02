@@ -1,0 +1,11 @@
+{% extends './admin/base.html.twig' %}
+
+{% block title %}New Compositor{% endblock %}
+
+{% block body %}
+    <h1>Create new Compositor</h1>
+
+    {{ include('compositor_crud/_form.html.twig') }}
+
+    <a href="{{ path('app_compositor_crud_index') }}">back to list</a>
+{% endblock %}
