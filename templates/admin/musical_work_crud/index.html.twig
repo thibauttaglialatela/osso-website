@@ -1,0 +1,39 @@
+{% extends '/admin/base.html.twig' %}
+
+{% block title %}MusicalWork index{% endblock %}
+
+{% block body %}
+    <h1 class="text-center">Oeuvres musicales</h1>
+
+    <table class="table" id="datatables-index">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Titre</th>
+                <th>Compositeur</th>
+                <th>Status</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for musical_work in musical_works %}
+            <tr>
+                <td>{{ musical_work.id }}</td>
+                <td>{{ musical_work.title }}</td>
+                <td>{{ musical_work.compositor }}</td>
+                <td>{{ musical_work.status }}</td>
+                <td>
+                    <a href="{{ path('app_musical_work_crud_show', {'id': musical_work.id}) }}">Montrer</a>
+                    <a href="{{ path('app_musical_work_crud_edit', {'id': musical_work.id}) }}">Editer</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="4">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a class="btn btn-outline-success" href="{{ path('app_musical_work_crud_new') }}">Créer un nouveau</a>
+{% endblock %}
