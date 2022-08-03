@@ -22,7 +22,6 @@ class Instrument
     private string $name;
 
     #[ORM\Column(type: 'string', length: 10, unique: true)]
-    #[Assert\Unique]
     private string $fct_id;
 
     #[ORM\ManyToMany(targetEntity: Musician::class, mappedBy: 'instruments')]
