@@ -6,8 +6,9 @@
     <h1 class="text-center">Éditer un compositeur</h1>
 
     {{ include('admin/compositor_crud/_form.html.twig', {'button_label': 'Mettre à jour'}) }}
-
-    <a class="btn btn-secondary" href="{{ path('app_compositor_crud_index') }}">Revenir à la liste</a>
-
+<div class="btn-group" role="group" aria-label="edit compositor">
+    <a class="btn btn-outline-secondary" href="{{ path('app_compositor_crud_index') }}">Revenir à la liste</a>
     {{ include('admin/compositor_crud/_delete_form.html.twig') }}
+</div>
+
 {% endblock %}

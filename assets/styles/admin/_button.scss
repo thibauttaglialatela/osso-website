@@ -1,55 +1,14 @@
-/*
-.btn-toggle[aria-expanded="true"]::before {
-  transform: rotate(90deg);
+.btn-outline-info {
+  color: #054F94;
+  border-color: #054F94;
 }
 
-.btn-toggle::before {
-  width: 1.25em;
-  line-height: 0;
-  content: "➡";
-  transition: transform .35s ease;
-  transform-origin: .5em 50%;
+.btn-outline-secondary {
+  color: #51575D;
+  border-color: #51575D;
 }
 
-.btn-info {
-  background-color: $blue-800;
-  color: $white;
-  border: none;
+.btn-outline-success {
+  color: #115F39;
+  border-color: #115F39;
 }
-
-.btn-primary {
-  text-transform: uppercase;
-  color: $white;
-  background-color: $primary;
-
-  &:active {
-    background-color: $white;
-    color: $dark;
-  }
-}
-
-.btn-primary.active {
-  background-color: $white;
-  color: $dark;
-}
-.sort-btn {
-  float: right;
-  font-size: 1rem;
-  background-color: $secondary;
-  color: $white;
-  border: none;
-}
-.btn-group .fc-prev-button {
-  background-color: $secondary;
-  border-color: white;
-  border-width: 1px 0 1px 1px;
-}
-.btn-group .fc-next-button {
-  background-color: $secondary;
-  border-color: white;
-  border-width: 1px 1px 1px 0;
-}
-.btn-group .fc-today-button {
-  color: $white;
-  background-color: $secondary;
-}*/

@@ -17,7 +17,7 @@ class CompositorCrudController extends AbstractController
     public function index(CompositorRepository $compositorRepository): Response
     {
         return $this->render('admin/compositor_crud/index.html.twig', [
-            'compositors' => $compositorRepository->findAll(),
+            'compositors' => $compositorRepository->findBy([], ['name' => 'ASC']),
         ]);
     }
 
