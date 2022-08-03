@@ -1,9 +1,9 @@
 {% extends '/admin/base.html.twig' %}
 
-{% block title %}Edit Instrument{% endblock %}
+{% block title %}{{ parent() }} - Éditer un instrument{% endblock %}
 
 {% block body %}
-    <h1>Edit Instrument</h1>
+    <h1 class="text-center">Éditer un instrument</h1>
 
     {{ include('/admin/instrument_crud/_form.html.twig', {'button_label': 'Mettre à jour'}) }}
     <div class="btn-group" role="group" aria-label="edit instrument">

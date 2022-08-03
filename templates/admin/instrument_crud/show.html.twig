@@ -1,9 +1,9 @@
 {% extends '/admin/base.html.twig' %}
 
-{% block title %}Instrument{% endblock %}
+{% block title %}{{ parent() }} - {{ instrument.name }}{% endblock %}
 
 {% block body %}
-    <h1>Instrument</h1>
+    <h1 class="text-center">{{ instrument.name }}</h1>
 
     <table class="table">
         <tbody>
