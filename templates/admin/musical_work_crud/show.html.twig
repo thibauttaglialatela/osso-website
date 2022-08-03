@@ -1,6 +1,6 @@
-{% extends '../../base.html.twig' %}
+{% extends '/admin/base.html.twig' %}
 
-{% block title %}MusicalWork{% endblock %}
+{% block title %}{{ parent() }} - Montrer une oeuvre{% endblock %}
 
 {% block body %}
     <h1 class="text-center">{{ musical_work.title }}</h1>
@@ -12,8 +12,8 @@
                 <td>{{ musical_work.id }}</td>
             </tr>
             <tr>
-                <th>Titre</th>
-                <td>{{ musical_work.title }}</td>
+                <th>compositeur</th>
+                <td>{{ musical_work.compositor }}</td>
             </tr>
             <tr>
                 <th>Status</th>
@@ -26,5 +26,5 @@
 
     <a class="btn btn-outline-info" href="{{ path('app_musical_work_crud_edit', {'id': musical_work.id}) }}">Editer</a>
 
-    {{ include('musical_work_crud/_delete_form.html.twig') }}
+    {{ include('/admin/musical_work_crud/_delete_form.html.twig') }}
 {% endblock %}
