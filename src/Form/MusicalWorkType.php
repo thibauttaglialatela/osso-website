@@ -29,7 +29,8 @@ class MusicalWorkType extends AbstractType
             ])
             ->add('compositor', EntityType::class, [
                 'class' => Compositor::class,
-                'choice_label' => 'name'
+                'choice_label' => 'name',
+                'label' => 'Compositeur',
             ])
 
         ;
