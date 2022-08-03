@@ -1,0 +1,34 @@
+{% extends '../../base.html.twig' %}
+
+{% block title %}Musician{% endblock %}
+
+{% block body %}
+    <h1>Musician</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ musician.id }}</td>
+            </tr>
+            <tr>
+                <th>Lastname</th>
+                <td>{{ musician.lastname }}</td>
+            </tr>
+            <tr>
+                <th>Firstname</th>
+                <td>{{ musician.firstname }}</td>
+            </tr>
+            <tr>
+                <th>Status</th>
+                <td>{{ musician.status }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_musician_crud_index') }}">back to list</a>
+
+    <a href="{{ path('app_musician_crud_edit', {'id': musician.id}) }}">edit</a>
+
+    {{ include('musician_crud/_delete_form.html.twig') }}
+{% endblock %}
