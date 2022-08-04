@@ -1,0 +1,55 @@
+{% extends 'admin/base.html.twig' %}
+
+{% block title %}{{ parent() }} - {{ event.title }}{% endblock %}
+
+{% block body %}
+    <h1 class="text-center">{{ event.title }}</h1>
+
+    <table class="table">
+        <tbody>
+        <tr>
+            <th>Id</th>
+            <td>{{ event.id }}</td>
+        </tr>
+        <tr>
+            <th>Titre</th>
+            <td>{{ event.title }}</td>
+        </tr>
+        <tr>
+            <th>Résumé</th>
+            <td>{{ event.summary }}</td>
+        </tr>
+        <tr>
+            <th>Contenu</th>
+            <td>{{ event.body }}</td>
+        </tr>
+        <tr>
+            <th>Categorie</th>
+            <td>{{ event.category }}</td>
+        </tr>
+        <tr>
+            <th>Poster</th>
+            <td>{{ event.poster }}</td>
+        </tr>
+        <tr>
+            <th>Début</th>
+            <td>{{ event.startAt ? event.startAt|date('d-m-Y H:i:s') : '' }}</td>
+        </tr>
+        <tr>
+            <th>Fin</th>
+            <td>{{ event.endAt ? event.endAt|date('d-m-Y H:i:s') : '' }}</td>
+        </tr>
+        <tr>
+            <th>Localisation</th>
+            <td>{{ event.localisation }}</td>
+        </tr>
+        </tbody>
+    </table>
+
+    <a class="btn btn-outline-secondary" href="{{ path('app_event_crud_index') }}">Revenir à la liste</a>
+    <div class="btn-group" role="group" aria-label="show event">
+        <a class="btn btn-outline-success" href="{{ path('app_event_crud_edit', {'id': event.id}) }}">Éditer</a>
+        {{ include('event_crud/_delete_form.html.twig') }}
+    </div>
+
+{% endblock %}
