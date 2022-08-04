@@ -1,16 +1,16 @@
-{% extends '../../base.html.twig' %}
+{% extends './admin/base.html.twig' %}
 
-{% block title %}Musician index{% endblock %}
+{% block title %}{{ parent() }} - Liste des musiciens{% endblock %}
 
 {% block body %}
-    <h1>Musician index</h1>
+    <h1 class="text-center">Liste des musiciens</h1>
 
-    <table class="table">
+    <table class="table" id="datatables-index">
         <thead>
             <tr>
                 <th>Id</th>
-                <th>Lastname</th>
-                <th>Firstname</th>
+                <th>Nom</th>
+                <th>Prénom</th>
                 <th>Status</th>
                 <th>actions</th>
             </tr>
@@ -23,17 +23,17 @@
                 <td>{{ musician.firstname }}</td>
                 <td>{{ musician.status }}</td>
                 <td>
-                    <a href="{{ path('app_musician_crud_show', {'id': musician.id}) }}">show</a>
-                    <a href="{{ path('app_musician_crud_edit', {'id': musician.id}) }}">edit</a>
+                    <a href="{{ path('app_musician_crud_show', {'id': musician.id}) }}">Montrer</a>
+                    <a href="{{ path('app_musician_crud_edit', {'id': musician.id}) }}">Éditer</a>
                 </td>
             </tr>
         {% else %}
             <tr>
-                <td colspan="5">no records found</td>
+                <td colspan="5">Aucun enregistrement trouvé</td>
             </tr>
         {% endfor %}
         </tbody>
     </table>
 
-    <a href="{{ path('app_musician_crud_new') }}">Create new</a>
+    <a class="btn btn-outline-success" href="{{ path('app_musician_crud_new') }}">Créer un nouveau</a>
 {% endblock %}

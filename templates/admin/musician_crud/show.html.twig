@@ -1,9 +1,9 @@
-{% extends '../../base.html.twig' %}
+{% extends './admin/base.html.twig' %}
 
-{% block title %}Musician{% endblock %}
+{% block title %}{{ parent() }} - Musicien{% endblock %}
 
 {% block body %}
-    <h1>Musician</h1>
+    <h1 class="text-center">Fiche de {{ musician.firstname }} {{ musician.lastname }}</h1>
 
     <table class="table">
         <tbody>
@@ -12,11 +12,11 @@
                 <td>{{ musician.id }}</td>
             </tr>
             <tr>
-                <th>Lastname</th>
+                <th>Nom</th>
                 <td>{{ musician.lastname }}</td>
             </tr>
             <tr>
-                <th>Firstname</th>
+                <th>Prénom</th>
                 <td>{{ musician.firstname }}</td>
             </tr>
             <tr>
@@ -26,9 +26,9 @@
         </tbody>
     </table>
 
-    <a href="{{ path('app_musician_crud_index') }}">back to list</a>
+    <a class="btn btn-outline-secondary" href="{{ path('app_musician_crud_index') }}">Revenir à la liste</a>
 
-    <a href="{{ path('app_musician_crud_edit', {'id': musician.id}) }}">edit</a>
+    <a class="btn btn-outline-success" href="{{ path('app_musician_crud_edit', {'id': musician.id}) }}">Éditer</a>
 
-    {{ include('musician_crud/_delete_form.html.twig') }}
+    {{ include('admin/musician_crud/_delete_form.html.twig') }}
 {% endblock %}

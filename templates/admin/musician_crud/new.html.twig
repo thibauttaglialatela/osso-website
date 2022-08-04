@@ -1,11 +1,11 @@
-{% extends '../../base.html.twig' %}
+{% extends './admin/base.html.twig' %}
 
-{% block title %}New Musician{% endblock %}
+{% block title %}{{ parent() }} - Nouveau musicien{% endblock %}
 
 {% block body %}
-    <h1>Create new Musician</h1>
+    <h1 class="text-center">Créer un nouveau musicien</h1>
 
-    {{ include('musician_crud/_form.html.twig') }}
+    {{ include('admin/musician_crud/_form.html.twig') }}
 
-    <a href="{{ path('app_musician_crud_index') }}">back to list</a>
+    <a class="btn btn-outline-secondary" href="{{ path('app_musician_crud_index') }}">Revenir à la liste</a>
 {% endblock %}
