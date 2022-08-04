@@ -3,6 +3,7 @@
 namespace App\Form;
 
 use App\Entity\Event;
+use FOS\CKEditorBundle\Form\Type\CKEditorType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\DateTimeType;
@@ -20,7 +21,7 @@ class EventType extends AbstractType
             ->add('title', TextType::class, [
                 'label' => 'Titre'
             ])
-            ->add('summary', TextareaType::class, [
+            ->add('summary', CKEditorType::class, [
                 'label' => 'Résumé',
                 'sanitize_html' => true,
                 'attr' => [
@@ -28,7 +29,7 @@ class EventType extends AbstractType
                     'row' => 10
                 ],
             ])
-            ->add('body', TextareaType::class, [
+            ->add('body', CKEditorType::class, [
                 'label' => 'Contenu',
                 'attr' => [
                     'col' => 10,
