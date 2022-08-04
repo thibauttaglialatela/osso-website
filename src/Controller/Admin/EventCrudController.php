@@ -10,7 +10,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
-#[Route('/event/crud', name: 'app_event_crud_')]
+#[Route('/admin/event/crud', name: 'app_event_crud_')]
 class EventCrudController extends AbstractController
 {
     #[Route('/', name: 'index', methods: ['GET'])]

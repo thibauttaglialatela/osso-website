@@ -10,7 +10,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
-#[Route('/compositor/crud', name: 'app_compositor_crud_')]
+#[Route('/admin/compositor/crud', name: 'app_compositor_crud_')]
 class CompositorCrudController extends AbstractController
 {
     #[Route('/', name: 'index', methods: ['GET'])]

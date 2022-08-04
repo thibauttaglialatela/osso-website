@@ -22,6 +22,7 @@ class EventType extends AbstractType
             ])
             ->add('summary', TextareaType::class, [
                 'label' => 'Résumé',
+                'sanitize_html' => true,
                 'attr' => [
                     'col' => 10,
                     'row' => 10
@@ -33,6 +34,7 @@ class EventType extends AbstractType
                     'col' => 10,
                     'row' => 30
                 ],
+                'sanitize_html' => true,
             ])
             ->add('category', ChoiceType::class, [
                 'label' => 'Catégorie',

@@ -10,7 +10,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
-#[Route('/instrument/crud', name: 'app_instrument_crud_')]
+#[Route('/admin/instrument/crud', name: 'app_instrument_crud_')]
 class InstrumentCrudController extends AbstractController
 {
     #[Route('/', name: 'index', methods: ['GET'])]
