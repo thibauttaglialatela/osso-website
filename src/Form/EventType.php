@@ -22,17 +22,11 @@ class EventType extends AbstractType
             ])
             ->add('summary', CKEditorType::class, [
                 'label' => 'Résumé',
-                'attr' => [
-                    'col' => 10,
-                    'row' => 10
-                ],
+                'attr' => ['row' => 10],
             ])
             ->add('body', CKEditorType::class, [
                 'label' => 'Contenu',
-                'attr' => [
-                    'col' => 10,
-                    'row' => 30
-                ],
+                'attr' => ['row' => 30],
             ])
             ->add('category', ChoiceType::class, [
                 'label' => 'Catégorie',
@@ -62,6 +56,7 @@ class EventType extends AbstractType
     {
         $resolver->setDefaults([
             'data_class' => Event::class,
+            'sanitize_html' => true,
         ]);
     }
 }

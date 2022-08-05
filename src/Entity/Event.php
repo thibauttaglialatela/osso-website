@@ -42,6 +42,7 @@ class Event
     #[ORM\Column(type: 'string', length: 100)]
     private $localisation;
 
+
     public function __construct()
     {
         $this->musical_work = new ArrayCollection();
@@ -177,4 +178,5 @@ class Event
 
         return $this;
     }
+
 }

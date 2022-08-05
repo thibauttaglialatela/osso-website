@@ -10,6 +10,14 @@ Encore
     // directory where compiled assets will be stored
     .setOutputPath('public/build/')
 
+
+// Uncomment the following line if you are using Webpack Encore <= 0.24
+// .addLoader({test: /\.json$/i, include: [require('path').resolve(__dirname, 'node_modules/ckeditor')], loader: 'raw-loader', type: 'javascript/auto'})
+
+
+    .copyFiles({
+        from: './assets/images',
+    })
     .copyFiles([
         {from: './node_modules/ckeditor4/', to: 'ckeditor/[path][name].[ext]', pattern: /\.(js|css)$/, includeSubdirectories: false},
         {from: './node_modules/ckeditor4/adapters', to: 'ckeditor/adapters/[path][name].[ext]'},
@@ -18,13 +26,6 @@ Encore
         {from: './node_modules/ckeditor4/skins', to: 'ckeditor/skins/[path][name].[ext]'},
         {from: './node_modules/ckeditor4/vendor', to: 'ckeditor/vendor/[path][name].[ext]'}
     ])
-// Uncomment the following line if you are using Webpack Encore <= 0.24
-// .addLoader({test: /\.json$/i, include: [require('path').resolve(__dirname, 'node_modules/ckeditor')], loader: 'raw-loader', type: 'javascript/auto'})
-
-
-    .copyFiles({
-        from: './assets/images',
-    })
     // public path used by the web server to access the output path
     .setPublicPath('/build')
     // only needed for CDN's or sub-directory deploy
