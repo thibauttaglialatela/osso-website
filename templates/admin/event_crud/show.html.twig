@@ -49,6 +49,7 @@
     <a class="btn btn-outline-secondary" href="{{ path('app_event_crud_index') }}">Revenir à la liste</a>
     <div class="btn-group" role="group" aria-label="show event">
         <a class="btn btn-outline-success" href="{{ path('app_event_crud_edit', {'id': event.id}) }}">Éditer</a>
+        <a href="{{ path('app_event_crud_copy', {'id': event.id}) }}" class="btn btn-outline-info">Copier</a>
         {{ include('/admin/event_crud/_delete_form.html.twig') }}
     </div>
 

@@ -65,6 +65,13 @@ class EventCrudController extends AbstractController
             'form' => $form,
         ]);
     }
+    #[Route('/{id}/copy', name: 'copy', methods: ['GET', 'POST'])]
+    public function duplicate(EventRepository $eventRepository, Event $event): Response
+    {
+        $duplicatedEvent = clone $event;
+        $eventRepository->add($duplicatedEvent, true);
+        return $this->redirectToRoute('app_event_crud_index',[], Response::HTTP_CREATED);
+    }
 
     #[Route('/{id}', name: 'delete', methods: ['POST'])]
     public function delete(Request $request, Event $event, EventRepository $eventRepository): Response

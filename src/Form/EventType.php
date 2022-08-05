@@ -7,7 +7,6 @@ use FOS\CKEditorBundle\Form\Type\CKEditorType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\DateTimeType;
-use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\UrlType;
 use Symfony\Component\Form\FormBuilderInterface;
@@ -23,7 +22,6 @@ class EventType extends AbstractType
             ])
             ->add('summary', CKEditorType::class, [
                 'label' => 'Résumé',
-                'sanitize_html' => true,
                 'attr' => [
                     'col' => 10,
                     'row' => 10
@@ -35,12 +33,10 @@ class EventType extends AbstractType
                     'col' => 10,
                     'row' => 30
                 ],
-                'sanitize_html' => true,
             ])
             ->add('category', ChoiceType::class, [
                 'label' => 'Catégorie',
                 'choices' => [
-                    'placeholder' => false,
                     'Concert' => 'Concert',
                     'Répétition' => 'Répétition'
                 ],
