@@ -23,7 +23,7 @@ class MusicalWorkFixtures extends Fixture implements DependentFixtureInterface
             $musicalWork->setTitle($record['title']);
             $musicalWork->setStatus($record['status']);
             $musicalWork->setCompositor($this->getReference('compositor_Mozart'));
-            $musicalWork->setEvent($this->getReference('event_2'));
+//            $musicalWork->setEvent($this->getReference('event_2'));
 
             $manager->persist($musicalWork);
         }

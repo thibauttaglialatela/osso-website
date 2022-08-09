@@ -22,8 +22,6 @@ class MusicalWork
     #[ORM\ManyToOne(targetEntity: Compositor::class, inversedBy: 'musicalWorks')]
     private $compositor;
 
-    #[ORM\ManyToOne(targetEntity: Event::class, inversedBy: 'musical_work')]
-    private $event;
 
     public function getId(): ?int
     {
@@ -66,15 +64,4 @@ class MusicalWork
         return $this;
     }
 
-    public function getEvent(): ?Event
-    {
-        return $this->event;
-    }
-
-    public function setEvent(?Event $event): self
-    {
-        $this->event = $event;
-
-        return $this;
-    }
 }

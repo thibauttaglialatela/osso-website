@@ -24,9 +24,6 @@ class Event
     #[ORM\Column(type: 'text')]
     private $body;
 
-    #[ORM\OneToMany(mappedBy: 'event', targetEntity: MusicalWork::class)]
-    private $musical_work;
-
     #[ORM\Column(type: 'string', length: 50)]
     private $category;
 
@@ -85,36 +82,6 @@ class Event
     public function setBody(string $body): self
     {
         $this->body = $body;
-
-        return $this;
-    }
-
-    /**
-     * @return Collection<int, MusicalWork>
-     */
-    public function getMusicalWork(): Collection
-    {
-        return $this->musical_work;
-    }
-
-    public function addMusicalWork(MusicalWork $musicalWork): self
-    {
-        if (!$this->musical_work->contains($musicalWork)) {
-            $this->musical_work[] = $musicalWork;
-            $musicalWork->setEvent($this);
-        }
-
-        return $this;
-    }
-
-    public function removeMusicalWork(MusicalWork $musicalWork): self
-    {
-        if ($this->musical_work->removeElement($musicalWork)) {
-            // set the owning side to null (unless already changed)
-            if ($musicalWork->getEvent() === $this) {
-                $musicalWork->setEvent(null);
-            }
-        }
 
         return $this;
     }
