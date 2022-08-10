@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}{% endblock %}
+{% block title %}{{ parent() }} - {{ posters[0].gallery.title }}{% endblock %}
 
 {% block body %}
     <h1 class="text-center text-light mt-2">{{ posters[0].gallery.title }}</h1>
