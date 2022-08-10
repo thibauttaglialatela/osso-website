@@ -1,0 +1,38 @@
+{% extends 'admin/base.html.twig' %}
+
+{% block title %}{{ parent() }} - Un article{% endblock %}
+
+{% block body %}
+    <h1>{{ press.newspaper }} : {{ press.title }}</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ press.id }}</td>
+            </tr>
+            <tr>
+                <th>Journal</th>
+                <td>{{ press.newspaper }}</td>
+            </tr>
+            <tr>
+                <th>Titre de l'article</th>
+                <td>{{ press.title }}</td>
+            </tr>
+            <tr>
+                <th>date de l'article</th>
+                <td>{{ press.articleDate ? press.articleDate|date('d-m-Y') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Lien vers l'article</th>
+                <td>{{ press.articleLink }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a class="btn btn-outline-secondary" href="{{ path('app_press_crud_index') }}">Revenir à la liste</a>
+
+    <a class="btn btn-outline-success" href="{{ path('app_press_crud_edit', {'id': press.id}) }}">Éditer</a>
+
+    {{ include('admin/press_crud/_delete_form.html.twig') }}
+{% endblock %}

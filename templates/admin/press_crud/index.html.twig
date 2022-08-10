@@ -1,0 +1,41 @@
+{% extends 'admin/base.html.twig' %}
+
+{% block title %}{{ parent() }} - La presse{% endblock %}
+
+{% block body %}
+    <h1 class="text-center">La presse</h1>
+
+    <table class="table" id="datatables-index">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Journal</th>
+                <th>Titre de l'article</th>
+                <th>Date</th>
+                <th>lien vers l'article</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for press in presses %}
+            <tr>
+                <td>{{ press.id }}</td>
+                <td>{{ press.newspaper }}</td>
+                <td>{{ press.title }}</td>
+                <td>{{ press.articleDate ? press.articleDate|date('d-m-Y') : '' }}</td>
+                <td>{{ press.articleLink }}</td>
+                <td>
+                    <a href="{{ path('app_press_crud_show', {'id': press.id}) }}">Montrer</a>
+                    <a href="{{ path('app_press_crud_edit', {'id': press.id}) }}">Éditer</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="6">Aucun article trouvé</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a class="btn btn-outline-success" href="{{ path('app_press_crud_new') }}">Ajouter un article</a>
+{% endblock %}
