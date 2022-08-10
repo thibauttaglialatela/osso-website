@@ -8,6 +8,7 @@ use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\HttpFoundation\File\File;
 use Vich\UploaderBundle\Mapping\Annotation as Vich;
+use Symfony\Component\Validator\Constraints as Assert;
 
 #[ORM\Entity(repositoryClass: EventRepository::class)]
 #[Vich\Uploadable]
@@ -22,6 +23,10 @@ class Event
     private $title;
 
     #[ORM\Column(type: 'string', length: 400)]
+    #[Assert\Length(
+        max:400,
+        maxMessage: 'Le résume ne peut pas faire plus de {{ limit }} de caractéres de long'
+    )]
     private $summary;
 
     #[ORM\Column(type: 'text')]
@@ -31,6 +36,16 @@ class Event
     private $category;
 
     #[Vich\UploadableField(mapping: 'poster_file', fileNameProperty: 'posterFilename')]
+    #[Assert\File(
+        maxSize: '2M',
+        maxSizeMessage: 'Le fichier est trop grand ({{ size }} {{ suffix }}. La taille maximale autorisée est {{ limit }} {{ suffix }}',
+        mimeTypes: [
+            'image/jpeg',
+            'image/png',
+            'image/webp'
+        ],
+        mimeTypesMessage: 'Veuillez télécharger un fichier de type {{ types }}'
+    )]
     private ?File $poster = null;
 
     #[ORM\Column(type: 'string', nullable: true)]

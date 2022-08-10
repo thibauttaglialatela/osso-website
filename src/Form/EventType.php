@@ -8,9 +8,9 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\DateTimeType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
-use Symfony\Component\Form\Extension\Core\Type\UrlType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Vich\UploaderBundle\Form\Type\VichFileType;
 
 class EventType extends AbstractType
 {
@@ -35,8 +35,9 @@ class EventType extends AbstractType
                     'Répétition' => 'Répétition'
                 ],
             ])
-            ->add('poster', UrlType::class, [
-                'label' => 'Illustration'
+            ->add('poster', VichFileType::class, [
+                'label' => 'Illustration',
+                'required' => false
             ])
             ->add('start_at', DateTimeType::class, [
                 'date_label' => 'Débute à',
