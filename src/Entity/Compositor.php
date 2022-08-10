@@ -19,6 +19,7 @@ class Compositor
     private int $id;
 
     #[ORM\Column(type: 'string', length: 255, unique: true)]
+    #[Assert\NotBlank]
     private string $name;
 
     #[ORM\OneToMany(mappedBy: 'compositor', targetEntity: MusicalWork::class)]

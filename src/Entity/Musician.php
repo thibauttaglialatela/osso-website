@@ -18,6 +18,7 @@ class Musician
     private int $id;
 
     #[ORM\Column(type: 'string', length: 255)]
+    #[Assert\NotBlank]
     #[Assert\Length(
         min: 2,
         max: 255,
@@ -28,6 +29,7 @@ class Musician
     private string $lastname;
 
     #[ORM\Column(type: 'string', length: 255)]
+    #[Assert\NotBlank]
     #[Assert\Length(
         min: 2,
         max: 255,

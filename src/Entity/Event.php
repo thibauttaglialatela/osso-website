@@ -17,23 +17,27 @@ class Event
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column(type: 'integer')]
-    private $id;
+    private int $id;
 
     #[ORM\Column(type: 'string', length: 255)]
-    private $title;
+    #[Assert\NotBlank]
+    private string $title;
 
     #[ORM\Column(type: 'string', length: 400)]
+    #[Assert\NotBlank]
     #[Assert\Length(
         max:400,
         maxMessage: 'Le résume ne peut pas faire plus de {{ limit }} de caractéres de long'
     )]
-    private $summary;
+    private string $summary;
 
     #[ORM\Column(type: 'text')]
-    private $body;
+    #[Assert\NotBlank]
+    private string $body;
 
     #[ORM\Column(type: 'string', length: 50)]
-    private $category;
+    #[Assert\NotBlank]
+    private string $category;
 
     #[Vich\UploadableField(mapping: 'poster_file', fileNameProperty: 'posterFilename')]
     #[Assert\File(

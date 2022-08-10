@@ -4,6 +4,7 @@ namespace App\Entity;
 
 use App\Repository\MusicalWorkRepository;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 #[ORM\Entity(repositoryClass: MusicalWorkRepository::class)]
 class MusicalWork
@@ -14,13 +15,14 @@ class MusicalWork
     private int $id;
 
     #[ORM\Column(type: 'string', length: 255)]
+    #[Assert\NotBlank]
     private string $title;
 
     #[ORM\Column(type: 'string', length: 255)]
     private string $status;
 
     #[ORM\ManyToOne(targetEntity: Compositor::class, inversedBy: 'musicalWorks')]
-    private $compositor;
+    private Compositor $compositor;
 
 
     public function getId(): ?int
