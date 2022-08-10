@@ -6,8 +6,11 @@ use App\Repository\EventRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\HttpFoundation\File\File;
+use Vich\UploaderBundle\Mapping\Annotation as Vich;
 
 #[ORM\Entity(repositoryClass: EventRepository::class)]
+#[Vich\Uploadable]
 class Event
 {
     #[ORM\Id]
@@ -27,8 +30,14 @@ class Event
     #[ORM\Column(type: 'string', length: 50)]
     private $category;
 
-    #[ORM\Column(type: 'string', length: 255, nullable: true)]
-    private $poster;
+    #[Vich\UploadableField(mapping: 'poster_file', fileNameProperty: 'posterFilename')]
+    private ?File $poster = null;
+
+    #[ORM\Column(type: 'string', nullable: true)]
+    private ?string $posterFilename = null;
+
+    #[ORM\Column(type: 'datetime', nullable: true)]
+    private ?\DateTimeInterface $updatedAt = null;
 
     #[ORM\Column(type: 'datetime')]
     private $start_at;
@@ -98,16 +107,27 @@ class Event
         return $this;
     }
 
-    public function getPoster(): ?string
+    public function getPoster(): ?File
     {
         return $this->poster;
     }
 
-    public function setPoster(?string $poster): self
+    public function setPoster(?File $poster = null): void
     {
         $this->poster = $poster;
+        if (null !== $poster) {
+            $this->updatedAt = new \DateTimeImmutable();
+        }
+    }
 
-        return $this;
+    public function setPosterFilename(?string $posterFilename): void
+    {
+        $this->posterFilename = $posterFilename;
+    }
+
+    public function getPosterFilename(): ?string
+    {
+        return $this->posterFilename;
     }
 
     public function getStartAt(): ?\DateTimeInterface
