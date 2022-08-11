@@ -9,7 +9,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
-use Symfony\Component\String\Slugger\AsciiSlugger;
+use Symfony\Component\String\Slugger\SluggerInterface;
 
 #[Route('admin/gallery/crud', name: 'app_gallery_crud_')]
 class GalleryCrudController extends AbstractController
@@ -23,14 +23,15 @@ class GalleryCrudController extends AbstractController
     }
 
     #[Route('/new', name: 'new', methods: ['GET', 'POST'])]
-    public function new(Request $request, GalleryRepository $galleryRepository, AsciiSlugger $slugger): Response
+    public function new(Request $request, GalleryRepository $galleryRepository, SluggerInterface $slugger): Response
     {
         $gallery = new Gallery();
-        $gallery->setSlug($slugger->slug($gallery->getTitle()));
+
         $form = $this->createForm(GalleryType::class, $gallery);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+            $gallery->setSlug($slugger->slug($gallery->getTitle()));
             $galleryRepository->add($gallery, true);
 
             return $this->redirectToRoute('app_gallery_crud_index', [], Response::HTTP_SEE_OTHER);

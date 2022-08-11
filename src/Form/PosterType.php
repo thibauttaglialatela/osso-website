@@ -13,7 +13,10 @@ class PosterType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-            ->add('imageFile', VichFileType::class)
+            ->add('imageFile', VichFileType::class, [
+                'label' => 'image',
+                'required' => false,
+            ])
         ;
     }
 
@@ -21,7 +24,6 @@ class PosterType extends AbstractType
     {
         $resolver->setDefaults([
             'data_class' => Poster::class,
-            'allow_extra_fields' => true,
         ]);
     }
 }
