@@ -22,7 +22,6 @@ class Gallery
 
     #[ORM\Column(type: 'date')]
     #[Assert\NotBlank]
-    #[Assert\Date]
     private $date;
 
     #[ORM\OneToMany(mappedBy: 'gallery', targetEntity: Poster::class)]

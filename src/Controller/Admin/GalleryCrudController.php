@@ -3,8 +3,10 @@
 namespace App\Controller\Admin;
 
 use App\Entity\Gallery;
+use App\Entity\Poster;
 use App\Form\GalleryType;
 use App\Repository\GalleryRepository;
+use App\Repository\PosterRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -23,7 +25,7 @@ class GalleryCrudController extends AbstractController
     }
 
     #[Route('/new', name: 'new', methods: ['GET', 'POST'])]
-    public function new(Request $request, GalleryRepository $galleryRepository, SluggerInterface $slugger): Response
+    public function new(Request $request, GalleryRepository $galleryRepository, SluggerInterface $slugger, PosterRepository $posterRepository): Response
     {
         $gallery = new Gallery();
 
@@ -31,12 +33,11 @@ class GalleryCrudController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            $gallery->setSlug($slugger->slug($gallery->getTitle()));
+            $gallery = $form->getData();
             $galleryRepository->add($gallery, true);
 
             return $this->redirectToRoute('app_gallery_crud_index', [], Response::HTTP_SEE_OTHER);
         }
-
         return $this->renderForm('admin/gallery_crud/new.html.twig', [
             'gallery' => $gallery,
             'form' => $form,
@@ -52,12 +53,13 @@ class GalleryCrudController extends AbstractController
     }
 
     #[Route('/{id}/edit', name: 'edit', methods: ['GET', 'POST'])]
-    public function edit(Request $request, Gallery $gallery, GalleryRepository $galleryRepository): Response
+    public function edit(Request $request, Gallery $gallery, GalleryRepository $galleryRepository, SluggerInterface $slugger): Response
     {
         $form = $this->createForm(GalleryType::class, $gallery);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+            $gallery->setSlug($slugger->slug($gallery->getTitle()));
             $galleryRepository->add($gallery, true);
 
             return $this->redirectToRoute('app_gallery_crud_index', [], Response::HTTP_SEE_OTHER);

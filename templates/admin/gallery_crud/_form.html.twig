@@ -1,4 +1,12 @@
 {{ form_start(form) }}
-    {{ form_widget(form) }}
-    <button class="btn btn-outline-success add-another-collection">{{ button_label|default('Sauver') }}</button>
+    {{ form_row(form.title) }}
+    {{ form_row(form.date) }}
+<h3>Posters</h3>
+<ul class="posters">
+    {% for poster in form.posters %}
+        <li>{{ form_row(poster.imageFile) }}</li>
+        <li>{{ form_row(poster.author) }}</li>
+    {% endfor %}
+</ul>
+    <button class="btn btn-outline-success">{{ button_label|default('Sauver') }}</button>
 {{ form_end(form) }}

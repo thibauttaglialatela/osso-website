@@ -18,19 +18,16 @@ class GalleryType extends AbstractType
             ->add('title', TextType::class, [
                 'label' => 'Titre de la galerie',
             ])
+            ->add('posters', CollectionType::class, [
+                'entry_type' => PosterType::class,
+                'entry_options' => ['label'=>false],
+                'allow_add' => true,
+            ])
             ->add('date', DateType::class, [
                 'label' => 'date de la galerie',
                 'widget' => 'single_text',
             ])
-            ->add('posters', CollectionType::class, [
-                'entry_type' => PosterType::class,
-                'allow_add' => true,
-                'allow_delete' => true,
-                'required' => false,
-                'entry_options' => ['label' => false],
-                'by_reference' => false,
-                'disabled' => false,
-            ])
+
         ;
     }
 

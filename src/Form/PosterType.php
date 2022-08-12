@@ -4,6 +4,7 @@ namespace App\Form;
 
 use App\Entity\Poster;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Vich\UploaderBundle\Form\Type\VichFileType;
@@ -16,6 +17,9 @@ class PosterType extends AbstractType
             ->add('imageFile', VichFileType::class, [
                 'label' => 'image',
                 'required' => false,
+            ])
+            ->add('author', TextType::class, [
+                'label' => 'auteur de la photo',
             ])
         ;
     }
