@@ -33,7 +33,7 @@ class GalleryCrudController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            $gallery = $form->getData();
+            $gallery->setSlug($slugger->slug($gallery->getTitle()));
             $galleryRepository->add($gallery, true);
 
             return $this->redirectToRoute('app_gallery_crud_index', [], Response::HTTP_SEE_OTHER);
