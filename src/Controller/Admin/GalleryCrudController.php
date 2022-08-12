@@ -6,7 +6,7 @@ use App\Entity\Gallery;
 use App\Entity\Poster;
 use App\Form\GalleryType;
 use App\Repository\GalleryRepository;
-use App\Repository\PosterRepository;
+use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -25,14 +25,20 @@ class GalleryCrudController extends AbstractController
     }
 
     #[Route('/new', name: 'new', methods: ['GET', 'POST'])]
-    public function new(Request $request, GalleryRepository $galleryRepository, SluggerInterface $slugger, PosterRepository $posterRepository): Response
+    public function new(Request $request,
+                        GalleryRepository $galleryRepository,
+                        SluggerInterface $slugger,
+                        EntityManagerInterface $doctrine): Response
     {
         $gallery = new Gallery();
 
         $form = $this->createForm(GalleryType::class, $gallery);
         $form->handleRequest($request);
-
         if ($form->isSubmitted() && $form->isValid()) {
+            foreach ($form->getData()->getPosters() as $poster) {
+                $doctrine->persist($poster);
+                $gallery->addPoster($poster);
+            }
             $gallery->setSlug($slugger->slug($gallery->getTitle()));
             $galleryRepository->add($gallery, true);
 
@@ -53,12 +59,16 @@ class GalleryCrudController extends AbstractController
     }
 
     #[Route('/{id}/edit', name: 'edit', methods: ['GET', 'POST'])]
-    public function edit(Request $request, Gallery $gallery, GalleryRepository $galleryRepository, SluggerInterface $slugger): Response
+    public function edit(Request $request, Gallery $gallery, GalleryRepository $galleryRepository, SluggerInterface $slugger, EntityManagerInterface $doctrine): Response
     {
         $form = $this->createForm(GalleryType::class, $gallery);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+            foreach ($form->getData()->getPosters() as $poster) {
+                $doctrine->persist($poster);
+                $gallery->addPoster($poster);
+            }
             $gallery->setSlug($slugger->slug($gallery->getTitle()));
             $galleryRepository->add($gallery, true);
 
@@ -80,4 +90,5 @@ class GalleryCrudController extends AbstractController
 
         return $this->redirectToRoute('app_gallery_crud_index', [], Response::HTTP_SEE_OTHER);
     }
+
 }

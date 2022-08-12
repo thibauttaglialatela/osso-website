@@ -20,8 +20,12 @@ class GalleryType extends AbstractType
             ])
             ->add('posters', CollectionType::class, [
                 'entry_type' => PosterType::class,
-                'entry_options' => ['label'=>false],
                 'allow_add' => true,
+                'allow_delete' => true,
+                'required' => false,
+                'label' => false,
+                'by_reference' => false,
+                'disabled' => false,
             ])
             ->add('date', DateType::class, [
                 'label' => 'date de la galerie',

@@ -18,6 +18,9 @@ class PosterType extends AbstractType
                 'label' => 'image',
                 'required' => false,
             ])
+            ->add('alt', TextType::class,[
+                'label' => 'Texte alternatif de l\'image',
+            ])
             ->add('author', TextType::class, [
                 'label' => 'auteur de la photo',
             ])
@@ -28,6 +31,7 @@ class PosterType extends AbstractType
     {
         $resolver->setDefaults([
             'data_class' => Poster::class,
+            "allow_extra_fields" => true,
         ]);
     }
 }

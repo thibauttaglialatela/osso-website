@@ -2,11 +2,22 @@
     {{ form_row(form.title) }}
     {{ form_row(form.date) }}
 <h3>Posters</h3>
-<ul class="posters">
-    {% for poster in form.posters %}
-        <li>{{ form_row(poster.imageFile) }}</li>
-        <li>{{ form_row(poster.author) }}</li>
+{{ form_label(form.posters) }}
+{{ form_errors(form.posters) }}
+<ul id="posters-fields-list"
+    data-prototype="{{ form_widget(form.posters.vars.prototype)|e }}"
+    data-widget-tags="{{ '<li></li>'|e }}"
+    data-widget-counter="{{ form.posters|length }}">
+    {% for posterField in form.posters %}
+        <li>
+            {{ form_errors(posterField) }}
+            {{ form_widget(posterField) }}
+        </li>
     {% endfor %}
 </ul>
-    <button class="btn btn-outline-success">{{ button_label|default('Sauver') }}</button>
+<button type="button"
+        class="add-another-collection btn btn-outline-info"
+        data-list-selector="#posters-fields-list">Ajouter une photo
+</button>
+<button class="btn btn-outline-success">{{ button_label|default('Sauvegarder') }}</button>
 {{ form_end(form) }}
