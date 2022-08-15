@@ -5,10 +5,9 @@
 {% block body %}
     <h1 class="text-center">La presse</h1>
 
-    <table class="table" id="datatables-index">
+    <table class="table table-striped" id="datatables-index">
         <thead>
             <tr>
-                <th>Id</th>
                 <th>Journal</th>
                 <th>Titre de l'article</th>
                 <th>Date</th>
@@ -19,7 +18,6 @@
         <tbody>
         {% for press in presses %}
             <tr>
-                <td>{{ press.id }}</td>
                 <td>{{ press.newspaper }}</td>
                 <td>{{ press.title }}</td>
                 <td>{{ press.articleDate ? press.articleDate|date('d-m-Y') : '' }}</td>
@@ -31,7 +29,7 @@
             </tr>
         {% else %}
             <tr>
-                <td colspan="6">Aucun article trouvé</td>
+                <td colspan="5">Aucun article trouvé</td>
             </tr>
         {% endfor %}
         </tbody>

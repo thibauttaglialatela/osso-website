@@ -6,7 +6,7 @@
     <h1 class="text-center">Éditer un événement</h1>
 
     {{ include('/admin/event_crud/_form.html.twig', {'button_label': 'Mettre à jour'}) }}
-<div class="btn-group">
+<div class="btn-group" role="group" aria-label="edit event">
     <a class="btn btn-outline-secondary" href="{{ path('app_event_crud_index') }}">Revenir à la liste</a>
 
     {{ include('/admin/event_crud/_delete_form.html.twig') }}

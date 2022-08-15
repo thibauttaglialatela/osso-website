@@ -5,10 +5,9 @@
 {% block body %}
     <h1 class="text-center">Oeuvres musicales</h1>
 
-    <table class="table" id="datatables-index">
+    <table class="table table-striped" id="datatables-index">
         <thead>
             <tr>
-                <th>Id</th>
                 <th>Titre</th>
                 <th>Compositeur</th>
                 <th>Status</th>
@@ -18,7 +17,6 @@
         <tbody>
         {% for musical_work in musical_works %}
             <tr>
-                <td>{{ musical_work.id }}</td>
                 <td>{{ musical_work.title }}</td>
                 <td>{{ musical_work.compositor }}</td>
                 <td>{{ musical_work.status }}</td>
@@ -29,11 +27,11 @@
             </tr>
         {% else %}
             <tr>
-                <td colspan="4">no records found</td>
+                <td colspan="4">Aucun enregistrement trouvé</td>
             </tr>
         {% endfor %}
         </tbody>
     </table>
 
-    <a class="btn btn-outline-success" href="{{ path('app_musical_work_crud_new') }}">Créer un nouveau</a>
+    <a class="btn btn-outline-success" href="{{ path('app_musical_work_crud_new') }}">Créer une nouvelle oeuvre</a>
 {% endblock %}

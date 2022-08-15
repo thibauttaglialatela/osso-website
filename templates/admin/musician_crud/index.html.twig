@@ -5,10 +5,9 @@
 {% block body %}
     <h1 class="text-center">Liste des musiciens</h1>
 
-    <table class="table" id="datatables-index">
+    <table class="table table-striped" id="datatables-index">
         <thead>
             <tr>
-                <th>Id</th>
                 <th>Nom</th>
                 <th>Prénom</th>
                 <th>Status</th>
@@ -18,7 +17,6 @@
         <tbody>
         {% for musician in musicians %}
             <tr>
-                <td>{{ musician.id }}</td>
                 <td>{{ musician.lastname }}</td>
                 <td>{{ musician.firstname }}</td>
                 <td>{{ musician.status }}</td>
@@ -29,7 +27,7 @@
             </tr>
         {% else %}
             <tr>
-                <td colspan="5">Aucun enregistrement trouvé</td>
+                <td colspan="4">Aucun enregistrement trouvé</td>
             </tr>
         {% endfor %}
         </tbody>

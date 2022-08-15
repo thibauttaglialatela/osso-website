@@ -5,10 +5,9 @@
 {% block body %}
     <h1 class="text-center">Liste des instruments</h1>
 
-    <table class="table" id="datatables-index">
+    <table class="table table-striped" id="datatables-index">
         <thead>
             <tr>
-                <th>Id</th>
                 <th>Name</th>
                 <th>actions</th>
             </tr>
@@ -16,7 +15,6 @@
         <tbody>
         {% for instrument in instruments %}
             <tr>
-                <td>{{ instrument.id }}</td>
                 <td>{{ instrument.name }}</td>
                 <td>
                     <a href="{{ path('app_instrument_crud_show', {'id': instrument.id}) }}">Montrer</a>
@@ -25,7 +23,7 @@
             </tr>
         {% else %}
             <tr>
-                <td colspan="3">Aucun enregistrement trouvé</td>
+                <td colspan="2">Aucun enregistrement trouvé</td>
             </tr>
         {% endfor %}
         </tbody>
