@@ -46,7 +46,7 @@ jQuery(document).ready(function () {
 
         var newElem = jQuery(list.attr('data-widget-tags')).html(newWidget);
         newElem.appendTo(list);
-        newElem.append('<a href="#" class="remove-tag" style="color: orange">Enlever</a>');
+        newElem.append('<a href="#" class="remove-tag" style="color: hsl(36deg, 92%, 46%)">Enlever</a>');
         $('.remove-tag').click(function(e) {
             e.preventDefault();
 
