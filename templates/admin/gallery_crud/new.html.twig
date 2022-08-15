@@ -1,10 +1,10 @@
 {% extends 'admin/base.html.twig' %}
 
-{% block title %}New Gallery{% endblock %}
+{% block title %}{{ parent() }} Nouvelle galerie{% endblock %}
 
 {% block body %}
-    <h1>Create new Gallery</h1>
+    <h1 class="text-center">Création d'une nouvelle galerie de photos</h1>
     {{ include('admin/gallery_crud/_form.html.twig') }}
 
-    <a href="{{ path('app_gallery_crud_index') }}">back to list</a>
+    <a class="btn btn-outline-secondary" href="{{ path('app_gallery_crud_index') }}">Revenir à la liste</a>
 {% endblock %}

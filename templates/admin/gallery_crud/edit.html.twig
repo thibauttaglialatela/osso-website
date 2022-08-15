@@ -1,13 +1,13 @@
 {% extends 'admin/base.html.twig' %}
 
-{% block title %}Edit Gallery{% endblock %}
+{% block title %}{{ parent() }} - Éditer une galerie{% endblock %}
 
 {% block body %}
-    <h1>Edit Gallery</h1>
+    <h1 class="text-center">Éditer une galerie</h1>
 
-    {{ include('admin/gallery_crud/_form.html.twig', {'button_label': 'Update'}) }}
+    {{ include('admin/gallery_crud/_form.html.twig', {'button_label': 'Mettre à jour'}) }}
 
-    <a href="{{ path('app_gallery_crud_index') }}">back to list</a>
+    <a class="btn btn-outline-secondary" href="{{ path('app_gallery_crud_index') }}">Revenir à la liste</a>
 
     {{ include('admin/gallery_crud/_delete_form.html.twig') }}
 {% endblock %}

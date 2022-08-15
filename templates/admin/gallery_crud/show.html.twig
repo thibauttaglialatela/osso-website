@@ -1,9 +1,9 @@
 {% extends 'admin/base.html.twig' %}
 
-{% block title %}Gallery{% endblock %}
+{% block title %}{{ parent() }} - {{ gallery.title }}{% endblock %}
 
 {% block body %}
-    <h1>Gallery</h1>
+    <h1 class="text-center">{{ gallery.title }}</h1>
 
     <table class="table">
         <tbody>
@@ -17,18 +17,15 @@
             </tr>
             <tr>
                 <th>Date</th>
-                <td>{{ gallery.date ? gallery.date|date('Y-m-d') : '' }}</td>
-            </tr>
-            <tr>
-                <th>Slug</th>
-                <td>{{ gallery.slug }}</td>
+                <td>{{ gallery.date ? gallery.date|date('d-m-Y') : '' }}</td>
             </tr>
         </tbody>
     </table>
 
-    <a href="{{ path('app_gallery_crud_index') }}">back to list</a>
-
-    <a href="{{ path('app_gallery_crud_edit', {'id': gallery.id}) }}">edit</a>
-
+    <a class="btn btn-outline-secondary" href="{{ path('app_gallery_crud_index') }}">Revenir à la liste</a>
+<div class="btn-group" role="group" aria-label="show gallery">
+    <a class="btn btn-outline-success" href="{{ path('app_gallery_crud_edit', {'id': gallery.id}) }}">Éditer</a>
     {{ include('admin/gallery_crud/_delete_form.html.twig') }}
+</div>
+
 {% endblock %}

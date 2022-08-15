@@ -1,16 +1,15 @@
 {% extends 'admin/base.html.twig' %}
 
-{% block title %}Gallery index{% endblock %}
+{% block title %}{{ parent() }} - Liste des galeries photos{% endblock %}
 
 {% block body %}
-    <h1>Gallery index</h1>
-    <table class="table">
+    <h1 class="text-center">Liste des galeries photos</h1>
+    <table class="table" id="datatables-index">
         <thead>
             <tr>
                 <th>Id</th>
-                <th>Title</th>
+                <th>Titre</th>
                 <th>Date</th>
-                <th>Slug</th>
                 <th>actions</th>
             </tr>
         </thead>
@@ -19,20 +18,19 @@
             <tr>
                 <td>{{ gallery.id }}</td>
                 <td>{{ gallery.title }}</td>
-                <td>{{ gallery.date ? gallery.date|date('Y-m-d') : '' }}</td>
-                <td>{{ gallery.slug }}</td>
+                <td>{{ gallery.date ? gallery.date|date('d-m-Y') : '' }}</td>
                 <td>
-                    <a href="{{ path('app_gallery_crud_show', {'id': gallery.id}) }}">show</a>
-                    <a href="{{ path('app_gallery_crud_edit', {'id': gallery.id}) }}">edit</a>
+                    <a href="{{ path('app_gallery_crud_show', {'id': gallery.id}) }}">Montrer</a>
+                    <a href="{{ path('app_gallery_crud_edit', {'id': gallery.id}) }}">Éditer</a>
                 </td>
             </tr>
         {% else %}
             <tr>
-                <td colspan="5">no records found</td>
+                <td colspan="5">Aucun enregistrement trouvé</td>
             </tr>
         {% endfor %}
         </tbody>
     </table>
 
-    <a href="{{ path('app_gallery_crud_new') }}">Create new</a>
+    <a class="btn btn-outline-success" href="{{ path('app_gallery_crud_new') }}">Créer une nouvelle galerie</a>
 {% endblock %}
