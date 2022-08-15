@@ -24,7 +24,7 @@ class Gallery
     #[Assert\NotBlank]
     private $date;
 
-    #[ORM\OneToMany(mappedBy: 'gallery', targetEntity: Poster::class)]
+    #[ORM\OneToMany(mappedBy: 'gallery', targetEntity: Poster::class, orphanRemoval: true)]
     private $posters;
 
     #[ORM\Column(type: 'string', length: 255)]
