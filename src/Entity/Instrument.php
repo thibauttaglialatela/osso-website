@@ -11,6 +11,7 @@ use Symfony\Component\Validator\Constraints as Assert;
 
 #[ORM\Entity(repositoryClass: InstrumentRepository::class)]
 #[UniqueEntity('fct_id')]
+#[UniqueEntity('name')]
 class Instrument
 {
     #[ORM\Id]
@@ -18,11 +19,17 @@ class Instrument
     #[ORM\Column(type: 'integer')]
     private int $id;
 
-    #[ORM\Column(type: 'string', length: 255)]
+    #[ORM\Column(type: 'string', length: 255, unique: true)]
+    #[Assert\NotBlank]
     private string $name;
 
-    #[ORM\Column(type: 'string', length: 10, unique: true)]
-    #[Assert\Unique]
+    #[ORM\Column(type: 'string', length: 5, unique: true)]
+    #[Assert\NotBlank]
+    #[Assert\Length(
+        min: 2,
+        max: 5,
+        maxMessage: 'Cette valeur est trop longue. Elle ne peut dépasser {{ limit }}'
+    )]
     private string $fct_id;
 
     #[ORM\ManyToMany(targetEntity: Musician::class, mappedBy: 'instruments')]
@@ -34,6 +41,8 @@ class Instrument
         $this->instruments = new ArrayCollection();
         $this->musicians = new ArrayCollection();
     }
+
+
 
     public function getId(): ?int
     {

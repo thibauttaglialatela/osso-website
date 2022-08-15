@@ -1,0 +1,47 @@
+{% extends './admin/base.html.twig' %}
+
+{% block title %}{{ parent() }} - Liste des événements{% endblock %}
+
+{% block body %}
+    <h1 class="text-center">Liste des événements</h1>
+
+    <table class="table table-striped" id="datatables-index">
+        <thead>
+            <tr>
+                <th>Titre</th>
+                <th>Résumé</th>
+                <th>Contenu</th>
+                <th>Categorie</th>
+                <th>Illustration</th>
+                <th>Début</th>
+                <th>Fin</th>
+                <th>Lieu</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for event in events %}
+            <tr>
+                <td>{{ event.title }}</td>
+                <td>{{ event.summary }}</td>
+                <td>{{ event.body }}</td>
+                <td>{{ event.category }}</td>
+                <td>{{ event.posterFilename }}</td>
+                <td>{{ event.startAt ? event.startAt|date('d-m-Y H:i') : '' }}</td>
+                <td>{{ event.endAt ? event.endAt|date('d-m-Y H:i') : '' }}</td>
+                <td>{{ event.localisation }}</td>
+                <td>
+                    <a href="{{ path('app_event_crud_show', {'id': event.id}) }}">Montrer</a>
+                    <a href="{{ path('app_event_crud_edit', {'id': event.id}) }}">Éditer</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="9">Aucun enregistrement trouvé</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a class="btn btn-outline-success" href="{{ path('app_event_crud_new') }}">Créer un nouvel événement</a>
+{% endblock %}

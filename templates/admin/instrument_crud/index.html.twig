@@ -1,0 +1,33 @@
+{% extends '/admin/base.html.twig' %}
+
+{% block title %}{{ parent() }} - Liste des instruments{% endblock %}
+
+{% block body %}
+    <h1 class="text-center">Liste des instruments</h1>
+
+    <table class="table table-striped" id="datatables-index">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for instrument in instruments %}
+            <tr>
+                <td>{{ instrument.name }}</td>
+                <td>
+                    <a href="{{ path('app_instrument_crud_show', {'id': instrument.id}) }}">Montrer</a>
+                    <a href="{{ path('app_instrument_crud_edit', {'id': instrument.id}) }}">Editer</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="2">Aucun enregistrement trouvé</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a class="btn btn-outline-success" href="{{ path('app_instrument_crud_new') }}">Ajouter un instrument</a>
+{% endblock %}

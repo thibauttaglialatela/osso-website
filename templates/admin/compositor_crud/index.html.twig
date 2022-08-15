@@ -1,0 +1,32 @@
+{% extends './admin/base.html.twig' %}
+
+{% block title %}{{ parent() }} - Liste des compositeurs{% endblock %}
+{% block body %}
+    <h1 class="text-center">Liste des compositeurs</h1>
+
+    <table class="table table-sm table-striped" id="datatables-index">
+        <thead>
+            <tr>
+                <th>Nom</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for compositor in compositors %}
+            <tr>
+                <td>{{ compositor.name }}</td>
+                <td>
+                    <a href="{{ path('app_compositor_crud_show', {'id': compositor.id}) }}">Montrer</a>
+                    <a href="{{ path('app_compositor_crud_edit', {'id': compositor.id}) }}">Editer</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="2">Aucun enregistrement trouvé</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a class="btn btn-outline-success" href="{{ path('app_compositor_crud_new') }}">Rajouter un compositeur</a>
+{% endblock %}

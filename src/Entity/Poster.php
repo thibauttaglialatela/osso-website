@@ -5,8 +5,12 @@ namespace App\Entity;
 use App\Repository\PosterRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\HttpFoundation\File\File;
+use Vich\UploaderBundle\Mapping\Annotation as Vich;
+use Symfony\Component\Validator\Constraints as Assert;
 
 #[ORM\Entity(repositoryClass: PosterRepository::class)]
+#[Vich\Uploadable]
 class Poster
 {
     #[ORM\Id]
@@ -14,8 +18,21 @@ class Poster
     #[ORM\Column(type: 'integer')]
     private $id;
 
-    #[ORM\Column(type: 'string', length: 255)]
-    private $image;
+    #[Vich\UploadableField(mapping: 'poster_file', fileNameProperty: 'imageFilename')]
+    #[Assert\File(
+        maxSize: '2M',
+        maxSizeMessage: 'Le fichier est trop grand ({{ size }} {{ suffix }}. La taille maximale autorisée est {{ limit }} {{ suffix }}',
+        mimeTypes: [
+            'image/jpeg',
+            'image/png',
+            'image/webp'
+        ],
+        mimeTypesMessage: 'Veuillez télécharger un fichier de type {{ types }}'
+    )]
+    private ?File $imageFile = null;
+
+    #[ORM\Column(type: 'string', nullable: true, length: 255)]
+    private ?string $imageFilename = null;
 
     #[ORM\Column(type: 'date')]
     private $updated_at;
@@ -26,7 +43,7 @@ class Poster
     #[ORM\Column(type: 'string', length: 255)]
     private $alt;
 
-    #[ORM\ManyToOne(targetEntity: Gallery::class, inversedBy: 'posters')]
+    #[ORM\ManyToOne(targetEntity: Gallery::class, inversedBy: 'posters', cascade: ["persist", "remove"])]
     #[ORM\JoinColumn(nullable: false)]
     private $gallery;
 
@@ -40,17 +57,35 @@ class Poster
         return $this->id;
     }
 
-    public function getImage(): ?string
+    public function getImageFile(): ?File
     {
-        return $this->image;
+        return $this->imageFile;
     }
 
-    public function setImage(string $image): self
+    public function setImageFile(File $imageFile = null): void
     {
-        $this->image = $image;
-
-        return $this;
+        $this->imageFile = $imageFile;
+        if (null !== $imageFile) {
+            $this->updated_at = new \DateTimeImmutable();
+        }
     }
+
+    /**
+     * @return string|null
+     */
+    public function getImageFilename(): ?string
+    {
+        return $this->imageFilename;
+    }
+
+    /**
+     * @param string|null $imageFilename
+     */
+    public function setImageFilename(?string $imageFilename): void
+    {
+        $this->imageFilename = $imageFilename;
+    }
+
 
     public function getUpdatedAt(): ?\DateTimeInterface
     {

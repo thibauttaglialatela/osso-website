@@ -1,0 +1,37 @@
+{% extends './admin/base.html.twig' %}
+
+{% block title %}{{ parent() }} - Liste des musiciens{% endblock %}
+
+{% block body %}
+    <h1 class="text-center">Liste des musiciens</h1>
+
+    <table class="table table-striped" id="datatables-index">
+        <thead>
+            <tr>
+                <th>Nom</th>
+                <th>Prénom</th>
+                <th>Status</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for musician in musicians %}
+            <tr>
+                <td>{{ musician.lastname }}</td>
+                <td>{{ musician.firstname }}</td>
+                <td>{{ musician.status }}</td>
+                <td>
+                    <a href="{{ path('app_musician_crud_show', {'id': musician.id}) }}">Montrer</a>
+                    <a href="{{ path('app_musician_crud_edit', {'id': musician.id}) }}">Éditer</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="4">Aucun enregistrement trouvé</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a class="btn btn-outline-success" href="{{ path('app_musician_crud_new') }}">Créer un nouveau</a>
+{% endblock %}

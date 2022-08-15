@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}{% endblock %}
+{% block title %}{{ parent() }} - {{ posters[0].gallery.title }}{% endblock %}
 
 {% block body %}
     <h1 class="text-center text-light mt-2">{{ posters[0].gallery.title }}</h1>
@@ -8,7 +8,7 @@
         <div class="row" id="gallery" data-bs-toggle="modal" data-bs-target="#exampleModal">
             {% for poster in posters %}
                 <div class="col-12 col-sm-6 col-lg-3">
-                    <img src="{{ poster.image }}" alt="{{ poster.alt }}" class="w-100" data-bs-target="#carouselExample" data-slide-to="{{ poster.id }}">
+                    <img src="{{ vich_uploader_asset(poster, 'imageFile', 'App\\Entity\\Poster') }}" alt="{{ poster.alt }}" class="w-100" data-bs-target="#carouselExample" data-slide-to="{{ poster.id }}">
                 </div>
             {% endfor %}
         </div>
@@ -30,7 +30,7 @@
                             {% for poster in posters %}
                                 <div data-slide-to="{{ loop.index0 }}"
                                 class="carousel-item {{ loop.index0 == 0 ? 'active' }}">
-                                    <img src="{{ poster.image }}" alt="{{ poster.alt }}" class="d-block w-100">
+                                    <img src="{{ vich_uploader_asset(poster, 'imageFile', 'App\\Entity\\Poster') }}" alt="{{ poster.alt }}" class="d-block w-100">
                                 </div>
                             {% endfor %}
                         </div>
@@ -55,7 +55,7 @@
     </div>
     <div class="row">
         <div class="col-12 d-flex flex-row justify-content-center">
-            <a href="{{ path('gallery_index') }}" class="btn btn-info">Retour</a>
+            <a href="{{ path('gallery_index') }}" class="btn btn-success">Retour</a>
         </div>
     </div>
 

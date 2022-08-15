@@ -1,0 +1,13 @@
+{% extends '/admin/base.html.twig' %}
+
+{% block title %}{{ parent() }} - Editer une oeuvre musicale{% endblock %}
+
+{% block body %}
+    <h1 class="text-center">Editer une oeuvre musicale</h1>
+
+    {{ include('/admin/musical_work_crud/_form.html.twig', {'button_label': 'Mettre à jour'}) }}
+
+    <a class="btn btn-outline-secondary my-lg-2" href="{{ path('app_musical_work_crud_index') }}">Revenir à la liste</a>
+
+    {{ include('/admin/musical_work_crud/_delete_form.html.twig') }}
+{% endblock %}

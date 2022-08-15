@@ -1,0 +1,11 @@
+{% extends '/admin/base.html.twig' %}
+
+{% block title %}{{ parent() }} - Nouvel instrument{% endblock %}
+
+{% block body %}
+    <h1 class="text-center">Créer un nouvel instrument</h1>
+
+    {{ include('/admin/instrument_crud/_form.html.twig') }}
+
+    <a class="btn btn-outline-secondary" href="{{ path('app_instrument_crud_index') }}">Revenir à la liste</a>
+{% endblock %}
