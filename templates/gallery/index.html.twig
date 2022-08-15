@@ -8,6 +8,9 @@
         <div class="row">
             <div class="col-10 mx-auto">
                 <ul>
+                    {% if galleries is empty %}
+                        <h2 class="text-light text-center">Aucune galerie de photos pour le moment. Revenez plus tard</h2>
+                    {% endif %}
                     {% for gallery in galleries %}
                         <a href="{{ path('gallery_show', {'gallerySlug': gallery.slug}) }}"><h2 class="text-light text-center">{{ gallery.title }}</h2></a>
                     {% endfor %}
@@ -17,7 +20,7 @@
     </div>
 <div class="row">
     <div class="col-12 d-flex flex-row justify-content-center">
-        <a href="{{ path('press_index') }}" class="btn btn-success">Retour</a>
+        <a href="{{ path('press_index') }}" class="btn btn-success mt-lg-5">Retour</a>
     </div>
 </div>
 
