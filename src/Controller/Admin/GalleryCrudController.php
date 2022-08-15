@@ -3,7 +3,6 @@
 namespace App\Controller\Admin;
 
 use App\Entity\Gallery;
-use App\Entity\Poster;
 use App\Form\GalleryType;
 use App\Repository\GalleryRepository;
 use Doctrine\ORM\EntityManagerInterface;
