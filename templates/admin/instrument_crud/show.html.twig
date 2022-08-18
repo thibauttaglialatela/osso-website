@@ -1,0 +1,26 @@
+{% extends '/admin/base.html.twig' %}
+
+{% block title %}{{ parent() }} - {{ instrument.name }}{% endblock %}
+
+{% block body %}
+    <h1 class="text-center">{{ instrument.name }}</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Nom</th>
+                <td>{{ instrument.name }}</td>
+            </tr>
+            <tr>
+                <th>Fct_id</th>
+                <td>{{ instrument.fctId }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a class="btn btn-outline-secondary" href="{{ path('app_instrument_crud_index') }}">Revenir à la liste</a>
+
+    <a class="btn btn-outline-success" href="{{ path('app_instrument_crud_edit', {'id': instrument.id}) }}">Éditer</a>
+
+    {{ include('admin/instrument_crud/_delete_form.html.twig') }}
+{% endblock %}

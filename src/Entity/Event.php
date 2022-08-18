@@ -6,32 +6,57 @@ use App\Repository\EventRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\HttpFoundation\File\File;
+use Vich\UploaderBundle\Mapping\Annotation as Vich;
+use Symfony\Component\Validator\Constraints as Assert;
 
 #[ORM\Entity(repositoryClass: EventRepository::class)]
+#[Vich\Uploadable]
 class Event
 {
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column(type: 'integer')]
-    private $id;
+    private int $id;
 
     #[ORM\Column(type: 'string', length: 255)]
-    private $title;
+    #[Assert\NotBlank]
+    private string $title;
 
     #[ORM\Column(type: 'string', length: 400)]
-    private $summary;
+    #[Assert\NotBlank]
+    #[Assert\Length(
+        max:400,
+        maxMessage: 'Le résume ne peut pas faire plus de {{ limit }} de caractéres de long'
+    )]
+    private string $summary;
 
     #[ORM\Column(type: 'text')]
-    private $body;
-
-    #[ORM\OneToMany(mappedBy: 'event', targetEntity: MusicalWork::class)]
-    private $musical_work;
+    #[Assert\NotBlank]
+    private string $body;
 
     #[ORM\Column(type: 'string', length: 50)]
-    private $category;
+    #[Assert\NotBlank]
+    private string $category;
 
-    #[ORM\Column(type: 'string', length: 255, nullable: true)]
-    private $poster;
+    #[Vich\UploadableField(mapping: 'poster_file', fileNameProperty: 'posterFilename')]
+    #[Assert\File(
+        maxSize: '2M',
+        maxSizeMessage: 'Le fichier est trop grand ({{ size }} {{ suffix }}. La taille maximale autorisée est {{ limit }} {{ suffix }}',
+        mimeTypes: [
+            'image/jpeg',
+            'image/png',
+            'image/webp'
+        ],
+        mimeTypesMessage: 'Veuillez télécharger un fichier de type {{ types }}'
+    )]
+    private ?File $poster = null;
+
+    #[ORM\Column(type: 'string', nullable: true)]
+    private ?string $posterFilename = null;
+
+    #[ORM\Column(type: 'datetime', nullable: true)]
+    private ?\DateTimeInterface $updatedAt = null;
 
     #[ORM\Column(type: 'datetime')]
     private $start_at;
@@ -41,6 +66,7 @@ class Event
 
     #[ORM\Column(type: 'string', length: 100)]
     private $localisation;
+
 
     public function __construct()
     {
@@ -88,36 +114,6 @@ class Event
         return $this;
     }
 
-    /**
-     * @return Collection<int, MusicalWork>
-     */
-    public function getMusicalWork(): Collection
-    {
-        return $this->musical_work;
-    }
-
-    public function addMusicalWork(MusicalWork $musicalWork): self
-    {
-        if (!$this->musical_work->contains($musicalWork)) {
-            $this->musical_work[] = $musicalWork;
-            $musicalWork->setEvent($this);
-        }
-
-        return $this;
-    }
-
-    public function removeMusicalWork(MusicalWork $musicalWork): self
-    {
-        if ($this->musical_work->removeElement($musicalWork)) {
-            // set the owning side to null (unless already changed)
-            if ($musicalWork->getEvent() === $this) {
-                $musicalWork->setEvent(null);
-            }
-        }
-
-        return $this;
-    }
-
     public function getCategory(): ?string
     {
         return $this->category;
@@ -130,16 +126,27 @@ class Event
         return $this;
     }
 
-    public function getPoster(): ?string
+    public function getPoster(): ?File
     {
         return $this->poster;
     }
 
-    public function setPoster(?string $poster): self
+    public function setPoster(?File $poster = null): void
     {
         $this->poster = $poster;
+        if (null !== $poster) {
+            $this->updatedAt = new \DateTimeImmutable();
+        }
+    }
 
-        return $this;
+    public function setPosterFilename(?string $posterFilename): void
+    {
+        $this->posterFilename = $posterFilename;
+    }
+
+    public function getPosterFilename(): ?string
+    {
+        return $this->posterFilename;
     }
 
     public function getStartAt(): ?\DateTimeInterface
@@ -177,4 +184,5 @@ class Event
 
         return $this;
     }
+
 }

@@ -1,0 +1,27 @@
+<div class="d-flex flex-column flex-shrink-0 p-3 bg-light sidebar">
+    <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-dark text-decoration-none">
+        <span class="fs-4">Accueil OSSO</span>
+    </a>
+    <hr>
+    {% set links = [
+        {'title': 'Compositeurs', 'path': 'app_compositor_crud_index'},
+        {'title': 'Oeuvres', 'path': 'app_musical_work_crud_index'},
+        {'title': 'Instruments', 'path': 'app_instrument_crud_index'},
+        {'title': 'Musiciens', 'path': 'app_musician_crud_index'},
+        {'title': 'Evénements', 'path': 'app_event_crud_index'},
+        {'title': 'Presse', 'path': 'app_press_crud_index'},
+        {'title': 'Galerie', 'path': 'app_gallery_crud_index'},
+        {'title': 'Déconnection', 'path': 'app_logout'},
+    ] %}
+    <ul class="nav nav-pills flex-column mb-auto">
+        {% for link in links %}
+            <li class="nav-item">
+                <a href="{{ path(link.path) }}"
+                   class="nav-link {{ app.request.pathinfo == path(link.path) ? 'active' }}"
+                        {{ app.request.pathinfo == path(link.path) ? 'aria-current="page"' }}>
+                    {{ link.title }}
+                </a>
+            </li>
+        {% endfor %}
+    </ul>
+</div>

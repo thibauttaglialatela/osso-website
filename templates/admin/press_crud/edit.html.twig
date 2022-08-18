@@ -1,0 +1,14 @@
+{% extends 'admin/base.html.twig' %}
+
+{% block title %}{{ parent() }} Éditer un article de presse{% endblock %}
+
+{% block body %}
+    <h1 class="text-center">Éditer un article de presse</h1>
+
+    {{ include('admin/press_crud/_form.html.twig', {'button_label': 'Mettre à jour'}) }}
+    <div class="btn-group" role="group" aria-label="edit press">
+        <a class="btn btn-outline-secondary" href="{{ path('app_press_crud_index') }}">Retour à la liste</a>
+        {{ include('admin/press_crud/_delete_form.html.twig') }}
+    </div>
+
+{% endblock %}

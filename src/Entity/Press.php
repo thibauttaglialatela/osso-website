@@ -4,6 +4,7 @@ namespace App\Entity;
 
 use App\Repository\PressRepository;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 #[ORM\Entity(repositoryClass: PressRepository::class)]
 class Press
@@ -23,6 +24,9 @@ class Press
     private $article_date;
 
     #[ORM\Column(type: 'string', length: 255)]
+    #[Assert\Url(
+        protocols: ['https']
+    )]
     private $article_link;
 
     public function getId(): ?int

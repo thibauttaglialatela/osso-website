@@ -1,0 +1,26 @@
+{% extends '/admin/base.html.twig' %}
+
+{% block title %}{{ parent() }} - Montrer une oeuvre{% endblock %}
+
+{% block body %}
+    <h1 class="text-center">{{ musical_work.title }}</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>compositeur</th>
+                <td>{{ musical_work.compositor }}</td>
+            </tr>
+            <tr>
+                <th>Status</th>
+                <td>{{ musical_work.status }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a class="btn btn-outline-secondary" href="{{ path('app_musical_work_crud_index') }}">Revenir à la liste</a>
+
+    <a class="btn btn-outline-info" href="{{ path('app_musical_work_crud_edit', {'id': musical_work.id}) }}">Editer</a>
+
+    {{ include('/admin/musical_work_crud/_delete_form.html.twig') }}
+{% endblock %}

@@ -4,6 +4,7 @@ namespace App\Entity;
 
 use App\Repository\MusicalWorkRepository;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 #[ORM\Entity(repositoryClass: MusicalWorkRepository::class)]
 class MusicalWork
@@ -14,16 +15,15 @@ class MusicalWork
     private int $id;
 
     #[ORM\Column(type: 'string', length: 255)]
+    #[Assert\NotBlank]
     private string $title;
 
     #[ORM\Column(type: 'string', length: 255)]
     private string $status;
 
     #[ORM\ManyToOne(targetEntity: Compositor::class, inversedBy: 'musicalWorks')]
-    private $compositor;
+    private Compositor $compositor;
 
-    #[ORM\ManyToOne(targetEntity: Event::class, inversedBy: 'musical_work')]
-    private $event;
 
     public function getId(): ?int
     {
@@ -66,15 +66,4 @@ class MusicalWork
         return $this;
     }
 
-    public function getEvent(): ?Event
-    {
-        return $this->event;
-    }
-
-    public function setEvent(?Event $event): self
-    {
-        $this->event = $event;
-
-        return $this;
-    }
 }

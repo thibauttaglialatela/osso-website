@@ -24,7 +24,6 @@ class EventFixtures extends Fixture
             $event->setEndAt($faker->dateTimeBetween('-6 months', '+6 months'));
             $event->setLocalisation($faker->city());
             $event->setCategory('concert');
-            $event->setPoster('https://picsum.photos/200/300');
             $manager->persist($event);
             $this->addReference('event_'.$i, $event);
         }

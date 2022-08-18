@@ -172,3 +172,5 @@ fabric.properties
 /phpunit.xml
 .phpunit.result.cache
 ###< phpunit/phpunit ###
+/public/uploads/
+/public/images/

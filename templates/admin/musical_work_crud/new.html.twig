@@ -1,0 +1,11 @@
+{% extends '/admin/base.html.twig' %}
+
+{% block title %}{{ parent() }} - Nouvelle oeuvre musicale{% endblock %}
+
+{% block body %}
+    <h1 class="text-center">Ajouter une oeuvre musicale</h1>
+
+    {{ include('/admin/musical_work_crud/_form.html.twig') }}
+
+    <a class="btn btn-outline-secondary" href="{{ path('app_musical_work_crud_index') }}">Revenir à la liste</a>
+{% endblock %}

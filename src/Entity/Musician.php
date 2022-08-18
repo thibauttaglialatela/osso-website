@@ -6,6 +6,7 @@ use App\Repository\MusicianRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 #[ORM\Entity(repositoryClass: MusicianRepository::class)]
 #[ORM\Table(name: 'musician')]
@@ -17,9 +18,25 @@ class Musician
     private int $id;
 
     #[ORM\Column(type: 'string', length: 255)]
+    #[Assert\NotBlank]
+    #[Assert\Length(
+        min: 2,
+        max: 255,
+        normalizer: 'trim',
+        minMessage: 'Le nom de famille doit avoir au moins {{ limit }} caractéres de long',
+        maxMessage: 'Le nom de famille ne peut pas dépasser {{ limit }} caractéres'
+    )]
     private string $lastname;
 
     #[ORM\Column(type: 'string', length: 255)]
+    #[Assert\NotBlank]
+    #[Assert\Length(
+        min: 2,
+        max: 255,
+        minMessage: 'Le prénom doit avoir au moins {{ limit }} caractéres de long',
+        maxMessage: 'Le prénom ne peut pas dépasser {{ limit }} caractéres',
+        normalizer: 'trim'
+    )]
     private string $firstname;
 
     #[ORM\Column(type: 'string', length: 45, nullable: true)]
