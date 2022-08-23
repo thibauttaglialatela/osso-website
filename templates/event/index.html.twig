@@ -19,7 +19,7 @@
                             <h5 class="card-text">Le {{ event.start_at|date("d/m/Y") }} à {{ event.start_at|date("H:i") }}</h5>
                         </div>
                         <h5 class="card-title">{{ event.title }}</h5>
-                        <p class="card-text">{{ event.summary }}</p>
+                        <p class="card-text">{{ event.summary|raw }}</p>
                         <div class="d-flex justify-content-between flex-column flex-md-row">
                             <p class="card-text">Type : {{ event.category }}</p>
                             <button type="button" class="btn btn-primary btn-show-modal" data-event-data="{{ event|json_encode }}" >
@@ -49,7 +49,7 @@
                     <h5 class="card-text">Le {{ event.start_at|date("d/m/Y") }} à {{ event.start_at|date("H:i") }}</h5>
                 </div>
                 <h5 class="card-title">{{ event.title }}</h5>
-                <p class="card-text">{{ event.summary }}</p>
+                <p class="card-text">{{ event.summary|raw }}</p>
                 <div class="d-flex justify-content-between flex-column flex-md-row">
                     <p class="card-text">Type : {{ event.category }}</p>
                     <button type="button" class="btn btn-primary btn-show-modal" data-event-data="{{ event|json_encode }}" >
