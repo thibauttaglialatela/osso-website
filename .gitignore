@@ -174,3 +174,4 @@ fabric.properties
 ###< phpunit/phpunit ###
 /public/uploads/
 /public/images/
+/assets/images/
