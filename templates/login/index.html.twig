@@ -4,15 +4,15 @@
 
 {% block body %}
     {% if error %}
-        <div><h4 class="text-light mt-5">{{ error.messageKey|trans(error.messageData, 'security') }}</h4></div>
+        <div><h4 class="text-light text-center mt-5">{{ error.messageKey|trans(error.messageData, 'security') }}</h4></div>
     {% endif %}
    <div class="container-fluid">
        <div class="row">
-           <div class="col-12 col-sm-5 mx-auto mt-5">
+           <div class="col-12 col-sm-8 col-lg-5 mx-auto mt-5">
                <form action="{{ path('app_login') }}" method="post">
                    <h1 class="h3 mb-3 fw-normal text-light">Veuillez vous connecter</h1>
 
-                   <div class="form-floating">
+                   <div class="form-floating mb-sm-3 mb-lg-5">
                        <input type="email" class="form-control" id="username" placeholder="name@example.com" name="_username" value="{{ last_username }}">
                        <label class="text-dark" for="username">Adresse e-mail</label>
                    </div>
@@ -21,7 +21,7 @@
                        <label class="text-dark" for="password">Mot de passe</label>
                    </div>
 
-                   <div class="checkbox mb-3">
+                   <div class="checkbox mb-sm-3 mb-lg-5">
                        <label>
                            <input type="checkbox" value="remember_me"> Se souvenir de moi
                        </label>
