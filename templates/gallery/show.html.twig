@@ -9,7 +9,6 @@
             <div id="carouselExample" class="carousel slide col-lg-10 mx-lg-auto" data-bs-ride="true">
                 <div class="carousel-inner">
                     {% for poster in posters %}
-
                         <div data-slide-to="{{ loop.index0 }}"
                              class="carousel-item {{ loop.index0 == 0 ? 'active' }}">
                             <img src="{{ vich_uploader_asset(poster, 'imageFile', 'App\\Entity\\Poster') | imagine_filter('image_resized') }}" alt="{{ poster.alt }}" class="d-block w-100">
@@ -31,7 +30,7 @@
         <div class="row" id="gallery" data-bs-toggle="modal" data-bs-target="#exampleModal">
             {% for poster in posters %}
                 <div class="col-6 col-sm-2 col-lg-1 mx-auto">
-                    <img src="{{ vich_uploader_asset(poster, 'imageFile', 'App\\Entity\\Poster') | imagine_filter('my_thumb') }}" alt="{{ poster.alt }}" class="w-100" data-bs-target="#carouselExample" data-slide-to="{{ poster.id }}">
+                    <img src="{{ vich_uploader_asset(poster, 'imageFile', 'App\\Entity\\Poster') | imagine_filter('my_thumb') }}" alt="{{ poster.alt }}" class="w-100 img-thumbnail" data-bs-target="#carouselExample" data-slide-to="{{ poster.id }}">
                 </div>
             {% endfor %}
         </div>
