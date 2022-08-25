@@ -175,3 +175,7 @@ fabric.properties
 /public/uploads/
 /public/images/
 /assets/images/
+
+###> liip/imagine-bundle ###
+/public/media/cache/
+###< liip/imagine-bundle ###
