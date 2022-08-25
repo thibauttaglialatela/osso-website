@@ -29,8 +29,8 @@
         </div>
         <div class="row" id="gallery" data-bs-toggle="modal" data-bs-target="#exampleModal">
             {% for poster in posters %}
-                <div class="col-6 col-sm-2 col-lg-1 mx-auto">
-                    <img src="{{ vich_uploader_asset(poster, 'imageFile', 'App\\Entity\\Poster') | imagine_filter('my_thumb') }}" alt="{{ poster.alt }}" class="w-100 img-thumbnail" data-bs-target="#carouselExample" data-slide-to="{{ poster.id }}">
+                <div class="col-1 mx-auto">
+                    <img src="{{ vich_uploader_asset(poster, 'imageFile', 'App\\Entity\\Poster') | imagine_filter('my_thumb') }}" alt="{{ poster.alt }}" class="w-100" data-bs-target="#carouselExample" data-slide-to="{{ poster.id }}">
                 </div>
             {% endfor %}
         </div>
