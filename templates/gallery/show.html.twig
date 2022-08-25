@@ -6,7 +6,7 @@
     <h1 class="text-center text-light mt-5">{{ posters[0].gallery.title }}</h1>
     <div class="container-fluid">
         <div class="row">
-            <div id="carouselExample" class="carousel slide col-lg-10 mx-lg-auto" data-bs-ride="true">
+            <div id="carouselExample" class="carousel slide col-lg-6 mx-lg-auto" data-bs-ride="true">
                 <div class="carousel-inner">
                     {% for poster in posters %}
                         <div data-slide-to="{{ loop.index0 }}"
