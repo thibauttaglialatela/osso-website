@@ -17,8 +17,9 @@ liip_imagine:
         image_resized:
             quality: 75
             filters:
-                scale:
-                    to: 0.5
+                auto_rotate: ~
+                relative_resize:
+                    widen: 1024
 
         my_thumb:
             quality: 75
