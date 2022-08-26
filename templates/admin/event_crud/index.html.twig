@@ -23,8 +23,8 @@
         {% for event in events %}
             <tr>
                 <td>{{ event.title }}</td>
-                <td>{{ event.summary }}</td>
-                <td>{{ event.body }}</td>
+                <td>{{ event.summary|raw }}</td>
+                <td>{{ event.body|raw }}</td>
                 <td>{{ event.category }}</td>
                 <td>{{ event.posterFilename }}</td>
                 <td>{{ event.startAt ? event.startAt|date('d-m-Y H:i') : '' }}</td>

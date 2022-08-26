@@ -3,19 +3,41 @@
 {% block title %}{{ parent() }} - {{ posters[0].gallery.title }}{% endblock %}
 
 {% block body %}
-    <h1 class="text-center text-light mt-2">{{ posters[0].gallery.title }}</h1>
+    <h1 class="text-center text-light mt-5">{{ posters[0].gallery.title }}</h1>
     <div class="container-fluid">
+        <div class="row">
+            <div id="carouselExample" class="carousel slide col-lg-6 mx-lg-auto" data-bs-ride="true">
+                <div class="carousel-inner">
+                    {% for poster in posters %}
+                        <div data-slide-to="{{ loop.index0 }}"
+                             class="carousel-item {{ loop.index0 == 0 ? 'active' }}">
+                            <img src="{{ vich_uploader_asset(poster, 'imageFile', 'App\\Entity\\Poster') | imagine_filter('image_resized') }}" alt="{{ poster.alt }}" class="d-block w-100">
+                        </div>
+                    {% endfor %}
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample"
+                        data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselExample"
+                        data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
+            </div>
+        </div>
         <div class="row" id="gallery" data-bs-toggle="modal" data-bs-target="#exampleModal">
             {% for poster in posters %}
-                <div class="col-12 col-sm-6 col-lg-3">
-                    <img src="{{ vich_uploader_asset(poster, 'imageFile', 'App\\Entity\\Poster') }}" alt="{{ poster.alt }}" class="w-100" data-bs-target="#carouselExample" data-slide-to="{{ poster.id }}">
+                <div class="col-1 mx-auto">
+                    <img src="{{ vich_uploader_asset(poster, 'imageFile', 'App\\Entity\\Poster') | imagine_filter('my_thumb') }}" alt="{{ poster.alt }}" class="w-100" data-bs-target="#carouselExample" data-slide-to="{{ poster.id }}">
                 </div>
             {% endfor %}
         </div>
     </div>
 
 {#    Modal#}
-    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    {#<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
@@ -30,7 +52,7 @@
                             {% for poster in posters %}
                                 <div data-slide-to="{{ loop.index0 }}"
                                 class="carousel-item {{ loop.index0 == 0 ? 'active' }}">
-                                    <img src="{{ vich_uploader_asset(poster, 'imageFile', 'App\\Entity\\Poster') }}" alt="{{ poster.alt }}" class="d-block w-100">
+                                    <img src="{{ vich_uploader_asset(poster, 'imageFile', 'App\\Entity\\Poster') | imagine_filter('image_resized') }}" alt="{{ poster.alt }}" class="d-block w-100">
                                 </div>
                             {% endfor %}
                         </div>
@@ -52,10 +74,10 @@
             </div>
         </div>
 
-    </div>
+    </div>#}
     <div class="row">
         <div class="col-12 d-flex flex-row justify-content-center">
-            <a href="{{ path('gallery_index') }}" class="btn btn-success">Retour</a>
+            <a href="{{ path('gallery_index') }}" class="btn btn-success mt-lg-5">Retour</a>
         </div>
     </div>
 

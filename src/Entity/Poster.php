@@ -20,7 +20,7 @@ class Poster
 
     #[Vich\UploadableField(mapping: 'poster_file', fileNameProperty: 'imageFilename')]
     #[Assert\File(
-        maxSize: '2M',
+        maxSize: '5M',
         maxSizeMessage: 'Le fichier est trop grand ({{ size }} {{ suffix }}. La taille maximale autorisée est {{ limit }} {{ suffix }}',
         mimeTypes: [
             'image/jpeg',
