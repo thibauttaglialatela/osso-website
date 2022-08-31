@@ -1,6 +1,6 @@
 #!/usr/bin/bash
 rm -Rf vendor/
-#composer install --ignore-platform-reqs
+composer install --ignore-platform-reqs
 composer install --no-dev --optimize-autoloader
 yarn install
 composer dump-env prod
