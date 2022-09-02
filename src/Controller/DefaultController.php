@@ -16,4 +16,10 @@ class DefaultController extends AbstractController
             'website' => 'OSSO',
         ]);
     }
+
+    #[Route('rgpd', name: 'rgpd')]
+    public function showRGPD(): Response
+    {
+        return $this->render('rgpd.html.twig');
+    }
 }
