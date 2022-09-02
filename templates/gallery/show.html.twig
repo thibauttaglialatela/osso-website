@@ -10,8 +10,11 @@
                 <div class="carousel-inner">
                     {% for poster in posters %}
                         <div data-slide-to="{{ loop.index0 }}"
-                             class="carousel-item {{ loop.index0 == 0 ? 'active' }}">
+                             class="carousel-item {{ loop.index0 == 0 ? 'active' }} card text-bg-secondary">
                             <img src="{{ vich_uploader_asset(poster, 'imageFile', 'App\\Entity\\Poster') | imagine_filter('image_resized') }}" alt="{{ poster.alt }}" class="d-block w-100">
+                            <div class="card-img-overlay">
+                                <h4 class="card-text position-absolute bottom-0 end-0">Auteur : {{ poster.author }}</h4>
+                            </div>
                         </div>
                     {% endfor %}
                 </div>
