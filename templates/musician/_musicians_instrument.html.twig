@@ -8,7 +8,7 @@
             <div class="modal-body text-center">
                 <ul>
                     {% if instrument.musicians is empty %}
-                    {{ "Aucun musicien actuellement" }}
+                    <p class="text-center text-light fs-4">{{ "Aucun musicien actuellement" }}</p>
                     {% endif %}
                     {% for musician in instrument.musicians %}
                         <li>{{ musician }}</li>
