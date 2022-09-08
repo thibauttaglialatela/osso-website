@@ -21,7 +21,7 @@ security:
                 target: app_index
             remember_me:
                 secret: '%kernel.secret%' # required
-                lifetime: 604800 # 1 week in seconds
+                lifetime: 7200 # 2 hours
         dev:
             pattern: ^/(_(profiler|wdt)|css|images|js)/
             security: false
