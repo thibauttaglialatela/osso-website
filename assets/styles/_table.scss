@@ -1,40 +1,61 @@
 .table {
   width: 100%;
   border-radius: 20px;
-  border-bottom: hidden!important;
+  border-bottom: hidden !important;
   margin: 0 auto;
 }
+
 .bg-blue {
   background-color: $secondary;
   color: #FFFFFF;
 }
-label, .dataTables_info {
+
+//mise en forme de simple-datatables format mobile
+.dataTable-top {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  label {
+    color: $white;
+    font-family: $font-family-sans-serif;
+  }
+}
+
+a {
   color: $white;
 }
 
-table.dataTable thead .sorting,
-table.dataTable thead .sorting_asc,
-table.dataTable thead .sorting_desc {
-  background: none;
-}
-
-div.dataTables_wrapper {
-  margin: 0 auto;
-  width: 80%;
-}
-
-.dataTables_filter, .dataTables_length {
+.dataTable-bottom {
   display: flex;
-  justify-content: center;
-  text-align: center;
-}
-.dataTables_info {
-  text-align: center;
+  flex-direction: column;
+  align-items: center;
+
+  .dataTable-info {
+    color: $white;
+    font-family: $font-family-sans-serif;
+  }
+
+  .dataTable-pagination-list {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: unset;
+  }
 }
 
-.pagination {
-  display: flex;
-  padding-left: 0;
-  list-style: none;
-  justify-content: center;
+.dataTable-pagination a {
+  border: 1px solid transparent;
+  float: left;
+  margin-left: 2px;
+  padding: 3px 6px;
+  position: relative;
+  text-decoration: none;
+  color: $dark;
+  background-color: $white;
+}
+
+.dataTable-pagination .active a {
+  background-color: $green;
+  cursor: default;
 }
