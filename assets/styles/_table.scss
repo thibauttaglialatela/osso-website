@@ -22,7 +22,43 @@
 }
 
 a {
-  color: $white;
+  color: inherit;
+}
+
+.asc .dataTable-sorter::after, .desc .dataTable-sorter::before {
+  opacity: 0.6;
+}
+
+.dataTable-sorter {
+  display: inline-block;
+  height: 100%;
+  position: relative;
+  width: 100%;
+  &::before {
+    border-top: 4px solid $green;
+    bottom: 0;
+    content: "";
+    height: 0;
+    width: 0;
+    position: absolute;
+    right: 4px;
+    border-left: 4px solid transparent;
+    border-right: 4px solid transparent;
+    opacity: 0.6;
+  }
+  &::after {
+    border-bottom: 4px solid $green;
+    border-top: 4px solid transparent;
+    top: 0;
+    content: "";
+    height: 0;
+    width: 0;
+    position: absolute;
+    right: 4px;
+    border-left: 4px solid transparent;
+    border-right: 4px solid transparent;
+    opacity: 0.6;
+  }
 }
 
 .dataTable-bottom {
@@ -33,6 +69,13 @@ a {
   .dataTable-info {
     color: $white;
     font-family: $font-family-sans-serif;
+  }
+
+  .dataTable-sorter {
+    display: inline-block;
+    height: 100%;
+    position: relative;
+    width: 100%;
   }
 
   .dataTable-pagination-list {
