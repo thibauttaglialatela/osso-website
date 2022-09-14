@@ -19,12 +19,17 @@
                            <input type="password" class="form-control" id="password" placeholder="Password" name="_password">
                            <label class="text-dark" for="password">Mot de passe</label>
                        </div>
+                        <section class="d-flex flex-column flex-lg-row justify-content-lg-between align-items-center">
+                            <div class="checkbox my-3 my-lg-4">
+                                <label class="text-light fs-3">
+                                    <input type="checkbox" value="remember_me"> Se souvenir de moi
+                                </label>
+                            </div>
+                            <div>
+                                <a class="btn btn-warning my-3 my-lg-4 text-uppercase" href="{{ path('app_forgot_password_request') }}">Mot de passe oublié</a>
+                            </div>
+                        </section>
 
-                       <div class="checkbox my-3 my-lg-4">
-                           <label class="text-light fs-3">
-                               <input type="checkbox" value="remember_me"> Se souvenir de moi
-                           </label>
-                       </div>
                        <input type="hidden" name="admin_home" value="/admin/"/>
                        <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
                        <button class="w-100 btn btn-lg btn-success" type="submit">Se connecter</button>
