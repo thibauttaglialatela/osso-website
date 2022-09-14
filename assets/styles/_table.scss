@@ -26,7 +26,7 @@ a {
 }
 
 .asc .dataTable-sorter::after, .desc .dataTable-sorter::before {
-  opacity: 0.6;
+  opacity: 0.8;
 }
 
 .dataTable-sorter {
@@ -44,7 +44,7 @@ a {
     right: 4px;
     border-left: 4px solid transparent;
     border-right: 4px solid transparent;
-    opacity: 0.6;
+    opacity: 0.2;
   }
   &::after {
     border-bottom: 4px solid $green;
@@ -57,7 +57,7 @@ a {
     right: 4px;
     border-left: 4px solid transparent;
     border-right: 4px solid transparent;
-    opacity: 0.6;
+    opacity: 0.2;
   }
 }
 
