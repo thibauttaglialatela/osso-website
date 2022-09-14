@@ -6,9 +6,6 @@ import './styles/app.scss';
 // start the Stimulus application
 import 'bootstrap';
 import {DataTable} from "simple-datatables"
-
-
-
 import {Calendar} from '@fullcalendar/core';
 import frLocale from '@fullcalendar/core/locales/fr';
 import dayGridPlugin from '@fullcalendar/daygrid';

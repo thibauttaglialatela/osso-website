@@ -10,30 +10,26 @@ import './styles/admin/admin.scss';
 
 // start the Stimulus application
 import './bootstrap';
-import 'datatables.net-bs5';
+import {DataTable} from "simple-datatables"
 
-$(document).ready(function () {
-    $('#datatables-index').DataTable({
-        pagingType: 'full_numbers',
-        search: {
-            return: true,
+document.addEventListener('DOMContentLoaded', () => {
+    const dataTable = new DataTable('#datatables-index', {
+        firstLast: true,
+        footer: true,
+        labels: {
+            placeholder: "Rechercher",
+            perPage: "{select} entrées par page",
+            noRows: "Aucune entrées trouvées",
+            info: "Afficher {start} à {end} sur {rows} entrées",
         },
-        language: {
-            "search": "Rechercher:",
-            "emptyTable": "Aucune donnée disponible dans le tableau",
-            "info": "Affichage de _START_ à _END_ sur _TOTAL_ entrées",
-            "infoEmpty": "Affichage de 0 à 0 sur 0 entrées",
-            "infoFiltered": "(filtrées depuis un total de _MAX_ entrées)",
-            "lengthMenu": "Afficher _MENU_ entrées",
-            "paginate": {
-                "first": "Première",
-                "last": "Dernière",
-                "next": "&raquo;",
-                "previous": "&laquo;"
-            },
+        layout: {
+            top: "{select}{search}",
+            bottom: "{info}{pager}"
         },
+        hiddenHeader: true,
     });
-});
+})
+
 // add-collection-widget.js
 jQuery(document).ready(function () {
     jQuery('.add-another-collection').click(function () {
