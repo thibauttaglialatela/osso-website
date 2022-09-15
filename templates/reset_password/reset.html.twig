@@ -3,10 +3,16 @@
 {% block title %}{{ parent() }} - réinitialisez votre mot de passe{% endblock %}
 
 {% block body %}
-    <h1 class="text-center text-light">réinitialisez votre mot de passe</h1>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-12 col-md-8 col-lg-6">
+                <h1 class="text-center text-light">réinitialisez votre mot de passe</h1>
+                {{ form_start(resetForm) }}
+                {{ form_row(resetForm.plainPassword) }}
+                <button class="btn btn-info text-uppercase">Réinitialisation de mot de passe</button>
+                {{ form_end(resetForm) }}
+            </div>
+        </div>
+    </div>
 
-    {{ form_start(resetForm) }}
-        {{ form_row(resetForm.plainPassword) }}
-        <button class="btn btn-info text-uppercase">Réinitialisation de mot de passe</button>
-    {{ form_end(resetForm) }}
 {% endblock %}
