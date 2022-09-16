@@ -17,9 +17,9 @@ class DefaultController extends AbstractController
         ]);
     }
 
-    #[Route('rgpd', name: 'rgpd')]
+    #[Route('legal', name: 'legal')]
     public function showRGPD(): Response
     {
-        return $this->render('rgpd.html.twig');
+        return $this->render('legal.html.twig');
     }
 }
