@@ -18,8 +18,14 @@ class DefaultController extends AbstractController
     }
 
     #[Route('legal', name: 'legal')]
-    public function showRGPD(): Response
+    public function showLegal(): Response
     {
         return $this->render('legal.html.twig');
+    }
+
+    #[Route('privacy', name: 'privacy')]
+    public function showPrivacy(): Response
+    {
+        return $this->render('privacy.html.twig');
     }
 }
