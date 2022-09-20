@@ -21,6 +21,9 @@ hr {
   color: rgba($white, var(--bs-text-opacity)) !important;
 }
 
-/*li {
+li {
   list-style-type: none;
-}*/
+  &.rgpd {
+    list-style-type: disc;
+  }
+}
