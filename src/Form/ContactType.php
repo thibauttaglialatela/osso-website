@@ -22,22 +22,25 @@ class ContactType extends AbstractType
             ->add('fullName', TextType::class, [
                 'required' => false,
                 'label' => 'Nom',
-                'label_attr' => ['class' => 'fs-4 text-light'],
+                'label_attr' => ['class' => 'fs-5 text-light'],
             ])
             ->add('email', EmailType::class, [
                 'label' => 'e-mail',
-                'label_attr' => ['class' => 'fs-4 text-light'],
-                'help' => 'Obligatoire'
+                'label_attr' => ['class' => 'fs-5 text-light'],
+                'help' => 'Obligatoire. Votre adresse e-mail ne nous servira que pour répondre à votre demande et ne sera pas partagé à des tiers.',
+                'help_attr' => ['class' => 'text-warning'],
             ])
             ->add('subject', TextType::class, [
                 'label' => 'sujet',
                 'help' => 'Obligatoire',
-                'label_attr' => ['class' => 'fs-4 text-light'],
+                'help_attr' => ['class' => 'text-warning'],
+                'label_attr' => ['class' => 'fs-5 text-light'],
             ])
             ->add('message', TextareaType::class, [
                 'label' => 'Votre message',
                 'help' => 'Obligatoire',
-                'label_attr' => ['class' => 'fs-4 text-light'],
+                'help_attr' => ['class' => 'text-warning'],
+                'label_attr' => ['class' => 'fs-5 text-light'],
                 'attr' => [
                     'cols' => '5',
                     'rows' => '5',
@@ -45,7 +48,10 @@ class ContactType extends AbstractType
             ])
             ->add('hasAcceptedPrivacy', CheckboxType::class, [
                 'required' => true,
-                'label' => "En cochant cette case, j'accepte que mon nom et mon e-mail soient utilisés par l'Orchestre Symphonique du Sud Ouest afin d'apporter une réponse à ma demande. Conformément à notre politique de confidentialité, les données transmises ne seront pas conservées dans notre base de données et seront effacées après traitement du formulaire.",
+                'label' => "En cochant cette case et après avoir pris connaissance de notre politique de 
+                confidentialité, j'accepte que mon nom et mon adresse e-mail soient utilisés par l'OSSO afin d'apporter
+                 une réponse à ma demande. Aucune information n'est enregistrée en base de données. Les données entrées
+                  dans ce formulaire ne servent qu'au traitement de celui-ci.",
                 'label_attr' => ['class' => 'fs-6 text-light'],
             ])
             ->add('save', SubmitType::class, [
