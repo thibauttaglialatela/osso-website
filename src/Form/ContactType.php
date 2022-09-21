@@ -27,13 +27,16 @@ class ContactType extends AbstractType
             ->add('email', EmailType::class, [
                 'label' => 'e-mail',
                 'label_attr' => ['class' => 'fs-4 text-light'],
+                'help' => 'Obligatoire'
             ])
             ->add('subject', TextType::class, [
                 'label' => 'sujet',
+                'help' => 'Obligatoire',
                 'label_attr' => ['class' => 'fs-4 text-light'],
             ])
             ->add('message', TextareaType::class, [
                 'label' => 'Votre message',
+                'help' => 'Obligatoire',
                 'label_attr' => ['class' => 'fs-4 text-light'],
                 'attr' => [
                     'cols' => '5',
@@ -42,7 +45,7 @@ class ContactType extends AbstractType
             ])
             ->add('hasAcceptedPrivacy', CheckboxType::class, [
                 'required' => true,
-                'label' => "En cochant cette case, j'accepte que les données collectées, nom et e-mail, soient utilisés par l'Orchestre Symphonique du Sud Ouest afin d'apporter une réponse à ma demande. Conformément à notre politique de confidentialité, les données transmises ne seront pas conservées dans notre base de données et seront effacées après traitement du formulaire.",
+                'label' => "En cochant cette case, j'accepte que mon nom et mon e-mail soient utilisés par l'Orchestre Symphonique du Sud Ouest afin d'apporter une réponse à ma demande. Conformément à notre politique de confidentialité, les données transmises ne seront pas conservées dans notre base de données et seront effacées après traitement du formulaire.",
                 'label_attr' => ['class' => 'fs-6 text-light'],
             ])
             ->add('save', SubmitType::class, [
