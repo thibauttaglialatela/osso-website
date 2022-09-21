@@ -26,8 +26,9 @@ class Contact
     )]
     private string $email;
 
-    #[ORM\Column(type: 'string', length: 100, nullable: true)]
+    #[ORM\Column(type: 'string', length: 100)]
     #[Assert\Length(min: 2, max: 100)]
+    #[Assert\NotBlank]
     private ?string $subject = null;
 
     #[ORM\Column(type: 'text')]
@@ -37,6 +38,10 @@ class Contact
     #[ORM\Column(type: 'datetime_immutable')]
     #[Assert\NotBlank]
     private \DateTimeImmutable $createdAt;
+
+    #[ORM\Column(type: 'string', length: 255)]
+    #[Assert\NotBlank]
+    private $hasAcceptedPrivacy;
 
     public function __construct()
     {
@@ -104,6 +109,18 @@ class Contact
     public function setCreatedAt(\DateTimeImmutable $created_at): self
     {
         $this->created_at = $created_at;
+
+        return $this;
+    }
+
+    public function isHasAcceptedPrivacy(): ?bool
+    {
+        return $this->hasAcceptedPrivacy;
+    }
+
+    public function setHasAcceptedPrivacy(bool $hasAcceptedPrivacy): self
+    {
+        $this->hasAcceptedPrivacy = $hasAcceptedPrivacy;
 
         return $this;
     }
