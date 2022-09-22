@@ -13,3 +13,37 @@
   vertical-align: top;
   border-color: #dee2e6;
 }
+
+.dataTable-top {
+  display: flex;
+  justify-content: space-between;
+  label {
+    font-size: 1.25rem;
+  }
+}
+
+.dataTable-bottom {
+  display: flex;
+  justify-content: space-between;
+  .dataTable-pagination-list {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: unset;
+  }
+}
+.dataTable-pagination a {
+  border: 1px solid transparent;
+  float: left;
+  margin-left: 2px;
+  padding: 3px 6px;
+  position: relative;
+  text-decoration: none;
+  color: $white;
+  background-color: $dark;
+}
+
+.dataTable-pagination .active a {
+  background-color: $green;
+  cursor: default;
+}

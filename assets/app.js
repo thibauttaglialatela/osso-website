@@ -1,64 +1,21 @@
 import {auto} from "@popperjs/core";
-
 const $ = require('jquery');
 global.$ = global.jQuery = $;
 // any CSS you import will output into a single css file (app.scss in this case)
 import './styles/app.scss';
 
-
 // start the Stimulus application
 import 'bootstrap';
-
 import 'datatables.net-bs5';
-
-
-
-$(document).ready(function () {
-    $('#osso-repertory').DataTable({
-            responsive: true,
-            pagingType: 'full_numbers',
-            search: {
-                return: true,
-            },
-            language: {
-                "search": "Rechercher:",
-                "emptyTable": "Aucune donnée disponible dans le tableau",
-                "info": "Affichage de _START_ à _END_ sur _TOTAL_ entrées",
-                "infoEmpty": "Affichage de 0 à 0 sur 0 entrées",
-                "infoFiltered": "(filtrées depuis un total de _MAX_ entrées)",
-                "lengthMenu": "Afficher _MENU_ entrées",
-                "paginate": {
-                    "first": "Première",
-                    "last": "Dernière",
-                    "next": "&raquo;",
-                    "previous": "&laquo;"
-                },
-            },
-            autofill: true,
-        }
-    );
-});
-$('#osso-repertory th').each(function (index, th) {
-    $(th).unbind('click');
-    $(th).append('<button class="sort-btn btn-asc">&#9650;</button>');
-    $(th).append('<button class="sort-btn btn-desc">&#9660;</button>');
-
-    $(th).find('.btn-asc').click(function () {
-        table.column(index).order('asc').draw();
-    });
-    $(th).find('.btn-desc').click(function () {
-        table.column(index).order('desc').draw();
-    });
-
-});
-
+import {DataTable} from "simple-datatables"
 import {Calendar} from '@fullcalendar/core';
 import frLocale from '@fullcalendar/core/locales/fr';
 import dayGridPlugin from '@fullcalendar/daygrid';
 import timeGridPlugin from '@fullcalendar/timegrid';
 import bootstrap5Plugin from '@fullcalendar/bootstrap5';
 
-document.addEventListener('DOMContentLoaded', () => {
+ document.addEventListener('DOMContentLoaded', () => {
+    //ajout de fullcalendar
     let calendarEL = document.querySelector('#calendar');
     let calendar = new Calendar(calendarEL, {
         aspectRatio: 2,
@@ -100,7 +57,6 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
     calendar.render();
-
     function dispatchModal (data) {
         window.bootstrap = require('bootstrap/dist/js/bootstrap.bundle.js');
         const modalContent = document.getElementById('eventModalContent');
@@ -109,10 +65,23 @@ document.addEventListener('DOMContentLoaded', () => {
         modalContent.querySelector('.modal-body').innerHTML = data.body;
         return myModal.show();
     }
-
     document.querySelectorAll('.btn-show-modal').forEach(button => {
         button.addEventListener('click', (event) => dispatchModal(JSON.parse(event.target.dataset.eventData)));
     });
-
-
-})
+ })
+// Ajout de simple-datatable
+let dataTable = new DataTable('#osso-repertory', {
+    firstLast: true,
+    footer: true,
+    labels: {
+        placeholder: "Rechercher",
+        perPage: "{select} entrées par page",
+        noRows: "Aucune entrées trouvées",
+        info: "Afficher {start} à {end} sur {rows} entrées",
+    },
+    layout: {
+        top: "{select}{search}",
+        bottom: "{info}{pager}"
+    },
+    hiddenHeader: true,
+});

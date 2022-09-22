@@ -15,8 +15,10 @@
   color: $white;
   border: none;
 }
+
 .btn-success {
   text-transform: uppercase;
+  text-align: left;
   color: #383838;
   background-color: #7EE879;
   border-color: #7EE879;
@@ -27,7 +29,6 @@
   text-transform: uppercase;
   color: $white;
   background-color: $primary;
-
   &:active {
     background-color: $white;
     color: $dark;

@@ -5,12 +5,12 @@ namespace App\Controller\Admin;
 use App\Entity\Gallery;
 use App\Form\GalleryType;
 use App\Repository\GalleryRepository;
+use App\Service\Slugify;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
-use Symfony\Component\String\Slugger\SluggerInterface;
 
 #[Route('admin/gallery/crud', name: 'app_gallery_crud_')]
 class GalleryCrudController extends AbstractController
@@ -26,7 +26,7 @@ class GalleryCrudController extends AbstractController
     #[Route('/new', name: 'new', methods: ['GET', 'POST'])]
     public function new(Request $request,
                         GalleryRepository $galleryRepository,
-                        SluggerInterface $slugger,
+                        Slugify $slugify,
                         EntityManagerInterface $doctrine): Response
     {
         $gallery = new Gallery();
@@ -38,7 +38,7 @@ class GalleryCrudController extends AbstractController
                 $doctrine->persist($poster);
                 $gallery->addPoster($poster);
             }
-            $gallery->setSlug($slugger->slug($gallery->getTitle()));
+            $gallery->setSlug($slugify->generate($gallery->getTitle()));
             $galleryRepository->add($gallery, true);
 
             return $this->redirectToRoute('app_gallery_crud_index', [], Response::HTTP_SEE_OTHER);
@@ -58,7 +58,7 @@ class GalleryCrudController extends AbstractController
     }
 
     #[Route('/{id}/edit', name: 'edit', methods: ['GET', 'POST'])]
-    public function edit(Request $request, Gallery $gallery, GalleryRepository $galleryRepository, SluggerInterface $slugger, EntityManagerInterface $doctrine): Response
+    public function edit(Request $request, Gallery $gallery, GalleryRepository $galleryRepository, Slugify $slugify, EntityManagerInterface $doctrine): Response
     {
         $form = $this->createForm(GalleryType::class, $gallery);
         $form->handleRequest($request);
@@ -68,7 +68,7 @@ class GalleryCrudController extends AbstractController
                 $doctrine->persist($poster);
                 $gallery->addPoster($poster);
             }
-            $gallery->setSlug($slugger->slug($gallery->getTitle()));
+            $gallery->setSlug($slugify->generate($gallery->getTitle()));
             $galleryRepository->add($gallery, true);
 
             return $this->redirectToRoute('app_gallery_crud_index', [], Response::HTTP_SEE_OTHER);

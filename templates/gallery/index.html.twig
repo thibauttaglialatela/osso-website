@@ -12,7 +12,7 @@
                         <h2 class="text-light text-center">Aucune galerie de photos pour le moment. Revenez plus tard</h2>
                     {% endif %}
                     {% for gallery in galleries %}
-                        <a href="{{ path('gallery_show', {'gallerySlug': gallery.slug}) }}"><h2 class="text-light text-center">{{ gallery.title }}</h2></a>
+                        <a href="{{ path('gallery_show', {'gallerySlug': gallery.slug}) }}"><h2 class="text-light text-center text-decoration-underline">{{ gallery.title }}</h2></a>
                     {% endfor %}
                 </ul>
             </div>

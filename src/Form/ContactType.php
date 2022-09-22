@@ -6,6 +6,7 @@ use App\Entity\Contact;
 use Karser\Recaptcha3Bundle\Form\Recaptcha3Type;
 use Karser\Recaptcha3Bundle\Validator\Constraints\Recaptcha3;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
@@ -21,24 +22,37 @@ class ContactType extends AbstractType
             ->add('fullName', TextType::class, [
                 'required' => false,
                 'label' => 'Nom',
-                'label_attr' => ['class' => 'fs-4'],
+                'label_attr' => ['class' => 'fs-5 text-light'],
             ])
             ->add('email', EmailType::class, [
                 'label' => 'e-mail',
-                'label_attr' => ['class' => 'fs-4'],
+                'label_attr' => ['class' => 'fs-5 text-light'],
+                'help' => 'Obligatoire. Votre adresse e-mail ne nous servira que pour répondre à votre demande et ne sera pas partagé à des tiers.',
+                'help_attr' => ['class' => 'text-warning'],
             ])
             ->add('subject', TextType::class, [
-                'required' => false,
                 'label' => 'sujet',
-                'label_attr' => ['class' => 'fs-4'],
+                'help' => 'Obligatoire',
+                'help_attr' => ['class' => 'text-warning'],
+                'label_attr' => ['class' => 'fs-5 text-light'],
             ])
             ->add('message', TextareaType::class, [
                 'label' => 'Votre message',
-                'label_attr' => ['class' => 'fs-4'],
+                'help' => 'Obligatoire',
+                'help_attr' => ['class' => 'text-warning'],
+                'label_attr' => ['class' => 'fs-5 text-light'],
                 'attr' => [
                     'cols' => '5',
                     'rows' => '5',
                 ],
+            ])
+            ->add('hasAcceptedPrivacy', CheckboxType::class, [
+                'required' => true,
+                'label' => "En cochant cette case et après avoir pris connaissance de notre politique de 
+                confidentialité, j'accepte que mon nom et mon adresse e-mail soient utilisés par l'OSSO afin d'apporter
+                 une réponse à ma demande. Aucune information n'est enregistrée en base de données. Les données entrées
+                  dans ce formulaire ne servent qu'au traitement de celui-ci.",
+                'label_attr' => ['class' => 'fs-6 text-light'],
             ])
             ->add('save', SubmitType::class, [
                 'attr' => [
@@ -49,8 +63,7 @@ class ContactType extends AbstractType
             ->add('captcha', Recaptcha3Type::class, [
                 'constraints' => new Recaptcha3(),
                 'action_name' => 'Contact',
-            ])
-        ;
+            ]);
     }
 
     public function configureOptions(OptionsResolver $resolver): void
@@ -60,7 +73,7 @@ class ContactType extends AbstractType
             'sanitize_html' => true,
             'csrf_protection' => true,
             'csrf_field_name' => '_token',
-            'csrf_token_id'   => 'contact_item',
+            'csrf_token_id' => 'contact_item',
         ]);
     }
 }

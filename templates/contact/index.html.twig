@@ -3,11 +3,11 @@
 {% block title %}{{ parent() }} - Contact{% endblock %}
 
 {% block body %}
-    <h1 class="text-light text-center fs-1 text-uppercase fw-bold my-lg-4 mt-4">contacter l'OSSO</h1>
+    <h1 class="text-light text-center fs-1 text-uppercase fw-bold mt-4">contacter l'OSSO</h1>
 
     <div class="container-fluid">
         <div class="row">
-            <div class="col-12 col-lg-5 mx-auto">
+            <div class="col-12 col-lg-6 mx-auto">
                 {% for label, messages in app.flashes %}
                     {% for message in messages %}
                         <div class="alert alert-{{ label }}">
@@ -15,21 +15,46 @@
                         </div>
                     {% endfor %}
                 {% endfor %}
-                <p class="text-light text-start fs-3">
-                    Si vous désirez obtenir des renseignements sur nos futurs concerts ou bien nous rejoindre, vous
-                    pouvez
-                    prendre contact avec nous au moyen du formulaire ci-dessous.
+                <p class="text-light text-start fs-5">
+                    Si vous souhaitez prendre contact avec l'OSSO, vous pouvez nous transmettre un message par
+                    l'intermédiaire du formulaire ci-dessous.
                 </p>
                 <hr>
-                {{ form_start(form) }}
-                {{ form_errors(form) }}
+                <div class="card" id="contact-form">
+                    <div class="card-body">
+                        {{ form_start(form) }}
+                        <div class="mb-0">
+                            {{ form_label(form.fullName) }}
+                            {{ form_errors(form.fullName) }}
+                            {{ form_widget(form.fullName) }}
+                            {{ form_help(form.fullName) }}
+                        </div>
+                        <div class="mb-0">
+                            {{ form_label(form.email) }}
+                            {{ form_errors(form.email) }}
+                            {{ form_widget(form.email) }}
+                            {{ form_help(form.email) }}
+                        </div>
+                        <div class="mb-0">
+                            {{ form_label(form.subject) }}
+                            {{ form_errors(form.subject) }}
+                            {{ form_widget(form.subject) }}
+                            {{ form_help(form.subject) }}
+                        </div>
+                        <div class="mb-0">
+                            {{ form_label(form.message) }}
+                            {{ form_errors(form.message) }}
+                            {{ form_widget(form.message) }}
+                            {{ form_help(form.message) }}
+                        </div>
+                        <div class="d-flex flex-column justify-content-between">
+                            {{ form_row(form.hasAcceptedPrivacy) }}
+                            <a href="{{ path('app_privacy') }}" class="link-light">Politique de confidentialité</a>
+                        </div>
+                        {{ form_end(form) }}
+                    </div>
+                </div>
 
-                {{ form_row(form.fullName) }}
-                {{ form_row(form.email) }}
-                {{ form_row(form.subject) }}
-                {{ form_row(form.message) }}
-
-                {{ form_end(form) }}
             </div>
         </div>
 

@@ -1,0 +1,81 @@
+{% extends 'base.html.twig' %}
+{% block title %}{{ parent() }} - Mentions légales{% endblock %}
+
+{% block body %}
+    <h1 class="text-light text-center mt-5 mb-3">Mentions légales</h1>
+    <p class="text-light text-center">En vigueur au dd/MM/YYYY</p>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-12 col-lg-6 mx-lg-auto">
+                <p class="text-light">Conformément aux dispositions des Articles 6-III et 19 de la Loi n°2004-575 du 21
+                    juin 2004 pour la confiance dans l'économie numérique, dite L.C.E.N., il est porté à la connaissance
+                    des
+                    utilisateurs et visiteurs, ci-aprés l'"<strong>Utilisateur</strong>", du site
+                    http://127.0.0.1:8000/, ci-aprés le
+                    "<strong>Site</strong>", les présentes mentions légales.</p>
+                <p class="text-light">La connexion et la navigation sur le Site par l’Utilisateur implique acceptation
+                    intégrale et sans réserve des présentes mentions légales.</p>
+                <p class="text-light">Ces dernières sont accessibles sur le Site à la rubrique « Mentions légales ».</p>
+                <h2 class="text-light text-uppercase">Article 1 - l'association</h2>
+                <p class="text-light"><strong>Dénomination :</strong> ORCHESTRE SYMPHONIQUE DU SUD OUEST (O S S O)</p>
+                <p class="text-light"><strong>Numéro RNA : </strong>W643002505</p>
+                <p class="text-light"><strong>SIREN : </strong>527783526</p>
+                <p class="text-light"><strong>SIRET : </strong>52778352600017</p>
+                <h3 class="text-light">Adresse</h3>
+                <address class="text-light">
+                    6 avenue Dufau <br>
+                    64000 Pau <br>
+                    <strong>Tél : </strong>à compléter <br>
+                    <strong>Courriel : </strong>orchestreosso@gmail.com
+                </address>
+                <h2 class="text-light text-uppercase">Article 2 - l'éditeur</h2>
+                <p class="text-light">L’édition et la direction de la publication du Site est assurée par BAUDRAN
+                    Jean-Baptiste,
+                    domiciliée à Billiére, dont le numéro de téléphone est xxxxxxxxxx, et
+                    l'adresse e-mail baud_jb@yahoo.fr.</p>
+                <p class="text-light">ci-aprés l'"<strong>Editeur</strong>".</p>
+                <h2 class="text-light text-uppercase">article 3 - l'hébergeur</h2>
+                <p class="text-light">L'hébergeur du Site est la société O2switch, dont le siège social est situé à
+                    l'adresse indiquée ci-dessous , contactable par téléphone au 0444446040 et par e-mail à l'adresse
+                    commercial@o2switch.fr</p>
+                <p class="text-light"><strong>adresse O2switch : </strong></p>
+                <address class="text-light">
+                    222-224 Boulevard Gustave Flaubert <br>
+                    63000 Clermont-Ferrand <br>
+                    Siret : 510 909 807 00024 <br>
+                    RCS Clermont Ferrand <br>
+                    SARL au capital de 100 000€ <br>
+                    Opérateur Télécom déclaré ARCEP <br>
+                    09/2989 – AS50474 <br>
+                    Marque déposée INPI : 09 3 645 279 <br>
+                </address>
+                <h2 class="text-light text-uppercase">article 4 - accés au site</h2>
+                <p class="text-light">Le Site est accessible en tout endroit, 7j/7, 24h/24 sauf cas de force majeure,
+                    interruption programmée ou non et pouvant découlant d’une nécessité de maintenance.</p>
+                <p class="text-light">En cas de modification, interruption ou suspension du Site, l'Editeur ne saurait
+                    être tenu responsable.</p>
+                <h2 class="text-light text-uppercase">article 5 - collecte des données</h2>
+                <p class="text-light">Le Site assure à l'Utilisateur une collecte et un traitement d'informations
+                    personnelles dans le respect de la vie privée conformément à la loi n°78-17 du 6 janvier 1978
+                    relative à l'informatique, aux fichiers et aux libertés.</p>
+                <p class="text-light">En vertu de la loi informatique et Libertés, en date du 6 janvier 1978,
+                    l'Utilisateur
+                    dispose d'un droit d'accés, de rectification, de suppression et d'opposition de ses données
+                    personnelles.
+                    L'utilisateur exerce ce droit :</p>
+                <ul>
+                    <li class="text-light rgpd">par e-mail à l'adresse orchestreosso@gmail.com</li>
+                    <li class="text-light rgpd">via un formulaire de contact ;</li>
+                </ul>
+                <p class="text-light">Toute utilisation, reproduction, diffusion, commercialisation, modification de
+                    toute ou partie du Site, sans autorisation de l’Editeur est prohibée et pourra entraînée des
+                    actions et poursuites judiciaires telles que notamment prévues par le Code de la propriété
+                    intellectuelle et le Code civil.</p>
+                <p class="text-light">Pour plus d'informations en matière de protection des données à caractère
+                    personnel , se reporter à la Charte en matière de protection des données à caractère personnel du
+                    site http://127.0.0.1:8000/ accessible à la rubrique <a class="text-light" href="{{ path('app_privacy') }}">" Politique
+                        de confidentialité "</a></p>
+            </div>
+        </div>
+    </div>
+{% endblock %}

@@ -2075,6 +2075,11 @@ datatables.net@>=1.11.3:
   dependencies:
     jquery ">=1.7"
 
+dayjs@^1.11.4:
+  version "1.11.5"
+  resolved "https://registry.yarnpkg.com/dayjs/-/dayjs-1.11.5.tgz#00e8cc627f231f9499c19b38af49f56dc0ac5e93"
+  integrity sha512-CAdX5Q3YW3Gclyo5Vpqkgpj8fSdLQcRuzfX6mC6Phy0nfJ0eGYOeS7m4mt2plDWLAtA4TqTakvbboHvUxfe4iA==
+
 debug@2.6.9:
   version "2.6.9"
   resolved "https://registry.npmjs.org/debug/-/debug-2.6.9.tgz"
@@ -4093,6 +4098,13 @@ signal-exit@^3.0.3:
   version "3.0.7"
   resolved "https://registry.npmjs.org/signal-exit/-/signal-exit-3.0.7.tgz"
   integrity sha512-wnD2ZE+l+SPC/uoS0vXeE9L1+0wuaMqKlfz9AMUo38JsyLSBWSFcHR1Rri62LZc12vLr1gb3jl7iwQhgwpAbGQ==
+
+simple-datatables@^3.2.2:
+  version "3.2.2"
+  resolved "https://registry.yarnpkg.com/simple-datatables/-/simple-datatables-3.2.2.tgz#e5e3aa5ad48eef8da9958b7bc1550b411d693086"
+  integrity sha512-h/6qziHj7We7NzKJoP3n2JcUTmuxINygIZPLCibUGqqMZxRCtzJiDuBluCCwmSLo+aLi2qxUg2F3UAlIonsS5Q==
+  dependencies:
+    dayjs "^1.11.4"
 
 sockjs@^0.3.24:
   version "0.3.24"
