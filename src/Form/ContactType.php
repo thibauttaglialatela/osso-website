@@ -48,10 +48,6 @@ class ContactType extends AbstractType
             ])
             ->add('hasAcceptedPrivacy', CheckboxType::class, [
                 'required' => true,
-                'label' => "En cochant cette case et après avoir pris connaissance de notre politique de 
-                confidentialité, j'accepte que mon nom et mon adresse e-mail soient utilisés par l'OSSO afin d'apporter
-                 une réponse à ma demande. Aucune information n'est enregistrée en base de données. Les données entrées
-                  dans ce formulaire ne servent qu'au traitement de celui-ci.",
                 'label_attr' => ['class' => 'fs-6 text-light'],
             ])
             ->add('save', SubmitType::class, [

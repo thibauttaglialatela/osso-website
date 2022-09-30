@@ -48,8 +48,14 @@
                             {{ form_help(form.message) }}
                         </div>
                         <div class="d-flex flex-column justify-content-between">
-                            {{ form_row(form.hasAcceptedPrivacy) }}
-                            <a href="{{ path('app_privacy') }}" class="link-light">Politique de confidentialité</a>
+                            {{ form_widget(form.hasAcceptedPrivacy, {
+                                label: 'En cochant cette case j\'admet avoir consulté et accepté notre ' ~ '<a href="'
+                                ~ path('app_privacy') ~ '">' ~ "politique de confidentialité" ~ '<a>, j\'accepte que
+                                mon nom et mon adresse e-mail soient utilisés par l\'OSSO afin d\'apporter une réponse à
+                                 ma demande. Aucune information n\'est enregistrée en base de données. Les informations
+                                  fournies dans ce formulaire ne servent qu\'au traitement de celui-ci. ',
+                                label_html: true
+                            }) }}
                         </div>
                         {{ form_end(form) }}
                     </div>
