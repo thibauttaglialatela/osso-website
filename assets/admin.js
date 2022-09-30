@@ -13,6 +13,7 @@ import './bootstrap';
 import {DataTable} from "simple-datatables"
 
 document.addEventListener('DOMContentLoaded', () => {
+    console.log('page chargée');
     const dataTable = new DataTable('#datatables-index', {
         firstLast: true,
         footer: true,
@@ -31,6 +32,7 @@ document.addEventListener('DOMContentLoaded', () => {
 })
 
 // add-collection-widget.js
+
 jQuery(document).ready(function () {
     jQuery('.add-another-collection').click(function () {
         var list = $("#posters-fields-list");
@@ -39,11 +41,10 @@ jQuery(document).ready(function () {
         newWidget = newWidget.replace(/__name__/g, counter);
         counter++;
         list.data('widget-counter', counter);
-
         var newElem = jQuery(list.attr('data-widget-tags')).html(newWidget);
         newElem.appendTo(list);
-        newElem.append('<a href="#" class="remove-tag" style="color: hsl(36deg, 92%, 46%)">Enlever</a>');
-        $('.remove-tag').click(function(e) {
+        newElem.append('<a href="#" class="remove-tag btn btn-outline-danger">Supprimer le formulaire d\'ajout d\'une image</a>');
+        $('.remove-tag').click(function (e) {
             e.preventDefault();
 
             $(this).parent().remove();

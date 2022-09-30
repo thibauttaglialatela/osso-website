@@ -17,9 +17,12 @@ class PosterType extends AbstractType
             ->add('imageFile', VichFileType::class, [
                 'label' => 'image',
                 'required' => false,
+                'help' => 'Taille maximale autorisée : 5M'
             ])
             ->add('alt', TextType::class,[
                 'label' => 'Texte alternatif de l\'image',
+                'help' => 'petite description de la photo',
+                'required' => true,
             ])
             ->add('author', TextType::class, [
                 'label' => 'auteur de la photo',

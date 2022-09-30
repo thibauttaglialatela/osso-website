@@ -6,9 +6,7 @@
     {% block stylesheets %}
         {{ encore_entry_link_tags('admin') }}
     {% endblock %}
-    {% block javascript %}
-    {{ encore_entry_script_tags('admin') }}
-    {% endblock %}
+
 </head>
 <body class="d-flex flex-row">
 {{ include('/admin/_sidebar.html.twig') }}
@@ -16,6 +14,8 @@
     {% block body %}
     {% endblock %}
 </main>
-
+{% block javascript %}
+{{ encore_entry_script_tags('admin') }}
+{% endblock %}
 </body>
 </html>

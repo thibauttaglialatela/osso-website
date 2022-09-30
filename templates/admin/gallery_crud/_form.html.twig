@@ -2,12 +2,16 @@
     {{ form_row(form.title) }}
     {{ form_row(form.date) }}
 <h3>Photos</h3>
+<small>Pour ajouter une photo dans la galerie, cliquez sur le bouton "Nouveau formulaire d'ajout d'image". On peut
+    ajouter autant de photo que l'on veut. Si on désire supprimer un formulaire, il suffit de cliquer sur le bouton
+    "Supprimer le formulaire d'ajout "</small>
 {{ form_label(form.posters) }}
 {{ form_errors(form.posters) }}
 <ul id="posters-fields-list"
     data-prototype="{{ form_widget(form.posters.vars.prototype)|e }}"
     data-widget-tags="{{ '<li></li>'|e }}"
-    data-widget-counter="{{ form.posters|length }}">
+    data-widget-counter="{{ form.posters|length }}"
+>
     {% for posterField in form.posters %}
         <li>
             {{ form_errors(posterField) }}
@@ -15,9 +19,11 @@
         </li>
     {% endfor %}
 </ul>
+
 <button type="button"
         class="add-another-collection btn btn-outline-info"
-        data-list-selector="#posters-fields-list">Ajouter une photo
+        data-list-selector="#posters-fields-list">Nouveau formulaire d'ajout d'image
 </button>
+
 <button class="btn btn-outline-success">{{ button_label|default('Sauvegarder') }}</button>
 {{ form_end(form) }}

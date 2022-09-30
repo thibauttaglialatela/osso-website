@@ -41,6 +41,7 @@ class Poster
     private $author;
 
     #[ORM\Column(type: 'string', length: 255)]
+    #[Assert\NotBlank]
     private $alt;
 
     #[ORM\ManyToOne(targetEntity: Gallery::class, inversedBy: 'posters', cascade: ["persist", "remove"])]
