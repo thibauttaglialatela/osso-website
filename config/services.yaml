@@ -6,6 +6,7 @@
 parameters:
     upload_directory: '%kernel.project_dir%/public/images/posters'
     mailer_to: '%env(resolve:MAILER_TO_ADDRESS)%'
+    copy_to: '%env(resolve:COPY_TO_ADDRESS)'
 
 services:
     # default configuration for services in *this* file

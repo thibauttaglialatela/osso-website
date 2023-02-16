@@ -27,7 +27,7 @@ class ContactController extends AbstractController
             $email = (new TemplatedEmail())
                 ->from($contact->getEmail())
                 ->to($this->getParameter('mailer_to'))
-                ->cc('cc@example.com')
+                ->cc($this->getParameter('copy_to'))
                 ->subject($contact->getSubject())
                 ->htmlTemplate('emails/contact.html.twig')
                 ->context([
