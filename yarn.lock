@@ -2075,10 +2075,10 @@ datatables.net@>=1.11.3:
   dependencies:
     jquery ">=1.7"
 
-dayjs@^1.11.4:
-  version "1.11.5"
-  resolved "https://registry.yarnpkg.com/dayjs/-/dayjs-1.11.5.tgz#00e8cc627f231f9499c19b38af49f56dc0ac5e93"
-  integrity sha512-CAdX5Q3YW3Gclyo5Vpqkgpj8fSdLQcRuzfX6mC6Phy0nfJ0eGYOeS7m4mt2plDWLAtA4TqTakvbboHvUxfe4iA==
+dayjs@^1.11.7:
+  version "1.11.7"
+  resolved "https://registry.yarnpkg.com/dayjs/-/dayjs-1.11.7.tgz#4b296922642f70999544d1144a2c25730fce63e2"
+  integrity sha512-+Yw9U6YO5TQohxLcIkrXBeY73WP3ejHWVvx8XCk3gxvQDCTEmS48ZrSZCKciI7Bhl/uCMyxYtE9UqRILmFphkQ==
 
 debug@2.6.9:
   version "2.6.9"
@@ -2160,6 +2160,11 @@ dev-server@^0.2.0:
     prettier "^2.2.1"
     serve-index "^1.9.1"
     serve-static "^1.14.1"
+
+diff-dom@5.0.2:
+  version "5.0.2"
+  resolved "https://registry.yarnpkg.com/diff-dom/-/diff-dom-5.0.2.tgz#c891a32b201d806fa040d4c9ad5459ec70e36b54"
+  integrity sha512-aE3IBSwN6JnNrUskM/8EZAMLOdwaAyKD4k8MSYk00JBCTKeQjzT0t0p/4KZC92aqDJU86TauM2+x8Q7BxkhPOw==
 
 dns-equal@^1.0.0:
   version "1.0.0"
@@ -4099,12 +4104,13 @@ signal-exit@^3.0.3:
   resolved "https://registry.npmjs.org/signal-exit/-/signal-exit-3.0.7.tgz"
   integrity sha512-wnD2ZE+l+SPC/uoS0vXeE9L1+0wuaMqKlfz9AMUo38JsyLSBWSFcHR1Rri62LZc12vLr1gb3jl7iwQhgwpAbGQ==
 
-simple-datatables@5.0:
-  version "5.0.3"
-  resolved "https://registry.yarnpkg.com/simple-datatables/-/simple-datatables-5.0.3.tgz#60d8183dd0509cb433fe14bbf319fa5cde61b35b"
-  integrity sha512-aDUDD777KIXZBBnDdLE9q/wOa8Q0rOP96NTWKQ+cq6K6Qn1yIHoAsKxdSY4p+Zz5RvxcN1GbS7HTpSFBlHzWvw==
+simple-datatables@6.0:
+  version "6.0.8"
+  resolved "https://registry.yarnpkg.com/simple-datatables/-/simple-datatables-6.0.8.tgz#4d838612bdbf714e4825517ae4fcbde429fbfa45"
+  integrity sha512-ft0h2moPjlQ9fX6mK9wQ/Yln7SWEqaWnl7nS1AkUSl7+oAtaPDOdala4HccfTbptbpZ8pq4bn+8xe470/mcBgw==
   dependencies:
-    dayjs "^1.11.4"
+    dayjs "^1.11.7"
+    diff-dom "5.0.2"
 
 sockjs@^0.3.24:
   version "0.3.24"
