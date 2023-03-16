@@ -70,7 +70,7 @@ import bootstrap5Plugin from '@fullcalendar/bootstrap5';
     });
  })
 // Ajout de simple-datatable
-let dataTable = new DataTable('#osso-repertory', {
+const dataTable = new DataTable('#osso-repertory', {
     firstLast: true,
     footer: true,
     labels: {
