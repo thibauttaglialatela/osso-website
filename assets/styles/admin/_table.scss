@@ -14,7 +14,7 @@
   border-color: #dee2e6;
 }
 
-.dataTable-top {
+.datatable-top {
   display: flex;
   justify-content: space-between;
   label {
@@ -22,18 +22,19 @@
   }
 }
 
-.dataTable-bottom {
+.datatable-bottom {
   display: flex;
   justify-content: space-between;
-  .dataTable-pagination-list {
+  .datatable-pagination-list {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     padding: unset;
   }
 }
-.dataTable-pagination a {
+.datatable-pagination a {
   border: 1px solid transparent;
+  cursor: pointer;
   float: left;
   margin-left: 2px;
   padding: 3px 6px;
@@ -43,7 +44,6 @@
   background-color: $dark;
 }
 
-.dataTable-pagination .active a {
+.datatable-active a {
   background-color: $green;
-  cursor: default;
 }

@@ -79,7 +79,7 @@ const dataTable = new DataTable('#osso-repertory', {
         perPage: "entrées par page",
         info: "Afficher {start} à {end} sur {rows} entrées",
     },
-    hiddenHeader: true,
+    hiddenHeader: false,
 },
     (options, dom) => `<div class='${options.classes.top}'>
     ${
