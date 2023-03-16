@@ -3,9 +3,8 @@
 {% block title %}{{ parent() }} - médias{% endblock %}
 
 {% block body %}
-    <div class="banner-picture"
-         style="background-image: url('{{ asset('build/press-banner.jpg') }}')">
-    </div>
+
+    <div class="banner-press"></div>
     <h1 class="text-light text-center fs-1 fw-bold my-lg-4 text-uppercase">médias</h1>
     <a class="text-light text-center" href={{ path('gallery_index')}}><h2>Galerie photos</h2></a>
     <hr class="mx-5">

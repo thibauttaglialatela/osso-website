@@ -2,6 +2,14 @@ body {
   background-color: $primary;
 }
 
+.banner-home {
+  background-size: cover;
+  min-height: 30vh;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-image: url("/home/taglialatela/Documents/site Web OSSO/osso_website/assets/images/pic-du-midi-dossau.jpg");
+}
+
 .main-title h1 {
   font-family: $font-family-sans-serif;
   color: $white;
@@ -20,7 +28,6 @@ body {
 
 @media screen and (min-width: 1025px){
   .main-title h1 {
-    margin-top: 10rem;
     margin-right: 5rem;
     margin-left: 5rem;
   }
