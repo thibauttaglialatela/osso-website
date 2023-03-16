@@ -10,17 +10,20 @@
             <h2 class="text-light text-center fs-2">Nos prochains concerts</h2>
             {% for event in new_events %}
                 <div class="card mx-auto mb-4 event-modal col-12 col-sm-5 offset-sm-2">
-                    <img src="{{ vich_uploader_asset(event, 'poster', 'App\\Entity\\Event')| imagine_filter('image_resized') }}" class="card-img-top img-fluid" alt="{{ event.title }}">
+                    <img src="{{ vich_uploader_asset(event, 'poster', 'App\\Entity\\Event')| imagine_filter('image_resized') }}"
+                         class="img-fluid" alt="{{ event.title }}">
                     <div class="card-body">
                         <div class="d-flex justify-content-between flex-column flex-md-row">
                             <h5 class="card-text">Lieu du concert : {{ event.localisation }}</h5>
-                            <h5 class="card-text">Le {{ event.start_at|date("d/m/Y") }} à {{ event.start_at|date("H:i") }}</h5>
+                            <h5 class="card-text">Le {{ event.start_at|date("d/m/Y") }}
+                                à {{ event.start_at|date("H:i") }}</h5>
                         </div>
                         <h5 class="card-title">{{ event.title }}</h5>
                         <p class="card-text">{{ event.summary|raw }}</p>
                         <div class="d-flex justify-content-between flex-column flex-md-row">
                             <p class="card-text">Type : {{ event.category }}</p>
-                            <button type="button" class="btn btn-primary btn-show-modal" data-event-data="{{ event|json_encode }}" >
+                            <button type="button" class="btn btn-primary btn-show-modal"
+                                    data-event-data="{{ event|json_encode }}">
                                 En savoir plus.
                             </button>
                         </div>
@@ -36,29 +39,32 @@
     <h2 class="text-light text-center fs-2 mt-lg-4">Calendrier des répétitions et des concerts</h2>
 
     <section id="calendar"></section>
-<div class="row">
-    <h2 class="text-light text-center fs-2">Nos anciens concerts</h2>
-    {% for event in old_events %}
-        <div class="card mx-auto mb-4 event-modal col-12 col-sm-5 offset-sm-2">
-            <img src="{{ vich_uploader_asset(event, 'poster', 'App\\Entity\\Event') | imagine_filter('image_resized') }}" class="card-img-top img-fluid" alt="{{ event.title }}">
-            <div class="card-body">
-                <div class="d-flex justify-content-between flex-column flex-md-row">
-                    <h5 class="card-text">Lieu du concert : {{ event.localisation }}</h5>
-                    <h5 class="card-text">Le {{ event.start_at|date("d/m/Y") }} à {{ event.start_at|date("H:i") }}</h5>
+    <div class="row">
+        <h2 class="text-light text-center fs-2">Nos anciens concerts</h2>
+        {% for event in old_events %}
+            <div class="card mx-auto mb-4 event-modal col-12 col-sm-5 offset-sm-2">
+                <img src="{{ vich_uploader_asset(event, 'poster', 'App\\Entity\\Event') | imagine_filter('image_resized') }}"
+                     class="img-fluid" alt="{{ event.title }}">
+                <div class="card-body">
+                    <div class="d-flex justify-content-between flex-column flex-md-row">
+                        <h5 class="card-text">Lieu du concert : {{ event.localisation }}</h5>
+                        <h5 class="card-text">Le {{ event.start_at|date("d/m/Y") }}
+                            à {{ event.start_at|date("H:i") }}</h5>
+                    </div>
+                    <h5 class="card-title">{{ event.title }}</h5>
+                    <p class="card-text">{{ event.summary|raw }}</p>
+                    <div class="d-flex justify-content-between flex-column flex-md-row">
+                        <p class="card-text">Type : {{ event.category }}</p>
+                        <button type="button" class="btn btn-primary btn-show-modal"
+                                data-event-data="{{ event|json_encode }}">
+                            En savoir plus.
+                        </button>
+                    </div>
+                    {{ include('/event/_show_event.html.twig') }}
                 </div>
-                <h5 class="card-title">{{ event.title }}</h5>
-                <p class="card-text">{{ event.summary|raw }}</p>
-                <div class="d-flex justify-content-between flex-column flex-md-row">
-                    <p class="card-text">Type : {{ event.category }}</p>
-                    <button type="button" class="btn btn-primary btn-show-modal" data-event-data="{{ event|json_encode }}" >
-                        En savoir plus.
-                    </button>
-                </div>
-                {{ include('/event/_show_event.html.twig') }}
             </div>
-        </div>
-    {% endfor %}
+        {% endfor %}
 
-</div>
+    </div>
 
 {% endblock %}
