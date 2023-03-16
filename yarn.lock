@@ -4104,10 +4104,10 @@ signal-exit@^3.0.3:
   resolved "https://registry.npmjs.org/signal-exit/-/signal-exit-3.0.7.tgz"
   integrity sha512-wnD2ZE+l+SPC/uoS0vXeE9L1+0wuaMqKlfz9AMUo38JsyLSBWSFcHR1Rri62LZc12vLr1gb3jl7iwQhgwpAbGQ==
 
-simple-datatables@6.0:
-  version "6.0.8"
-  resolved "https://registry.yarnpkg.com/simple-datatables/-/simple-datatables-6.0.8.tgz#4d838612bdbf714e4825517ae4fcbde429fbfa45"
-  integrity sha512-ft0h2moPjlQ9fX6mK9wQ/Yln7SWEqaWnl7nS1AkUSl7+oAtaPDOdala4HccfTbptbpZ8pq4bn+8xe470/mcBgw==
+simple-datatables@7.0:
+  version "7.0.3"
+  resolved "https://registry.yarnpkg.com/simple-datatables/-/simple-datatables-7.0.3.tgz#2944a429de010a17e31b475f4aa547bb285ec4b4"
+  integrity sha512-XxUfXZy8Bv+/Pp0n1/gAWbWATPv9JqvGFLAxFztfZ5Oigx8OZkqkHhqax5glr/3gFZaUFmkT8URbcRO9aK7Thw==
   dependencies:
     dayjs "^1.11.7"
     diff-dom "5.0.2"

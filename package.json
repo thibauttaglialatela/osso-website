@@ -34,7 +34,7 @@
         "dev-server": "^0.2.0",
         "encore": "^0.0.30-beta",
         "jquery": "^3.6.0",
-        "simple-datatables": "6.0"
+        "simple-datatables": "7.0"
     },
     "browserslist": [
         "defaults"
