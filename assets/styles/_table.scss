@@ -11,7 +11,7 @@
 }
 
 //mise en forme de simple-datatables format mobile
-.dataTable-top {
+.datatable-top {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -26,11 +26,11 @@ a {
   color: inherit;
 }
 
-.asc .dataTable-sorter::after, .desc .dataTable-sorter::before {
+.asc .datatable-sorter::after, .desc .datatable-sorter::before {
   opacity: 0.8;
 }
 
-.dataTable-sorter {
+.datatable-sorter {
   display: inline-block;
   height: 100%;
   position: relative;
@@ -62,24 +62,24 @@ a {
   }
 }
 
-.dataTable-bottom {
+.datatable-bottom {
   display: flex;
   flex-direction: column;
   align-items: center;
 
-  .dataTable-info {
+  .datatable-info {
     color: $white;
     font-family: $font-family-sans-serif;
   }
 
-  .dataTable-sorter {
+  .datatable-sorter {
     display: inline-block;
     height: 100%;
     position: relative;
     width: 100%;
   }
 
-  .dataTable-pagination-list {
+  .datatable-pagination-list {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -87,7 +87,7 @@ a {
   }
 }
 
-.dataTable-pagination a {
+.datatable-pagination a {
   border: 1px solid transparent;
   float: left;
   margin-left: 2px;
@@ -96,30 +96,29 @@ a {
   text-decoration: none;
   color: $dark;
   background-color: $white;
+  cursor: pointer;
 }
-
-.dataTable-pagination .active a {
+.datatable-active a {
   background-color: $green;
-  cursor: default;
 }
 
 //version desktop
 @media screen and (min-width: 426px) {
-  .dataTable-top {
+  .datatable-top {
     flex-direction: row;
     justify-content: space-between;
     label {
       font-size: 1.25rem;
     }
   }
-  .dataTable-bottom {
+  .datatable-bottom {
     flex-direction: row;
     justify-content: space-between;
   }
-  .dataTable-info {
+  .datatable-info {
     font-size: 1.25rem;
   }
-  .dataTable-pagination a {
+  .datatable-pagination a {
     font-size: 1.25rem;
   }
 }
