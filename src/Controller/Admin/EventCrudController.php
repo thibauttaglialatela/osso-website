@@ -34,7 +34,7 @@ class EventCrudController extends AbstractController
             return $this->redirectToRoute('app_event_crud_index', [], Response::HTTP_SEE_OTHER);
         }
 
-        return $this->renderForm('/admin/event_crud/new.html.twig', [
+        return $this->render('/admin/event_crud/new.html.twig', [
             'event' => $event,
             'form' => $form,
         ]);
@@ -60,7 +60,7 @@ class EventCrudController extends AbstractController
             return $this->redirectToRoute('app_event_crud_index', [], Response::HTTP_SEE_OTHER);
         }
 
-        return $this->renderForm('/admin/event_crud/edit.html.twig', [
+        return $this->render('/admin/event_crud/edit.html.twig', [
             'event' => $event,
             'form' => $form,
         ]);
