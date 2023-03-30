@@ -4,9 +4,6 @@
 
 {% block body %}
 
-    {#<div class="banner-picture"
-         style="background-image: url('{{ asset('build/osso-picture.jpg') }}')">
-    </div>#}
     <div class="banner-presentation"></div>
     <h1 class="text-light text-center fs-1 text-uppercase fw-bold my-lg-4">Présentation de l'OSSO</h1>
 
@@ -14,51 +11,25 @@
         <div class="row g-3 d-flex flex-row align-items-lg-baseline">
             <div class=" col-12 col-lg-4 mb-lg-5">
                 <div class="card shadow">
-                    <h4 class="card-header card-title">A propos de l'Orchestre Symphonique du Sud Ouest</h4>
+                    <h4 class="card-header card-title">{{ osso_history.0.title }}</h4>
                     <div class="card-body text-bg-secondary">
-                        <p class="card-text">L’Orchestre Symphonique du Sud-ouest a été créé en 2007 par Bernard SALLES
-                            afin
-                            de faire rayonner la musique classique en l’amenant dans les lieux et les territoires les
-                            plus
-                            divers de la région de PAU et du grand Sud-ouest.</p>
-                        <p class="card-text">Il réunit dans ce même objectif d’ouverture et de partage une soixantaine
-                            de
-                            musiciens passionnés, amateurs pour la plupart, élèves ou anciens élèves des écoles de
-                            musique
-                            de la région, encadrés dans un but pédagogique, par des musiciens professionnels.</p>
-                        <p class="card-text">Il est dirigé par Alain Perpétue depuis le mois de septembre 2021</p>
+                        <p class="card-text">{{ osso_history.0.body }}</p>
                     </div>
                 </div>
             </div>
             <div class=" col-12 col-lg-4 mb-lg-5">
                 <div class="card">
-                    <h4 class="card-title card-header">Biographie d'Alain Perpétue</h4>
+                    <h4 class="card-title card-header">{{ director_biography.0.title }}</h4>
                     <div class="card-body text-bg-secondary">
-                        <p class="card-text">Alain PERPETUE s’est intéressé dès ses 19/20 ans à promouvoir l’éducation
-                            artistique dans le piémont pyrénéen à la fin de sa formation au Conservatoire de Pau (orgue,
-                            basson, flûte à bec, écriture et chant choral) puis de Saint Maur des Fossés, Paris et enfin
-                            à Chalon sur Saône. Une dizaine d’années en Soule et Basse-Navarre dans les années 80 lui
-                            ont permis de tisser des liens entre traditions orales et chant choral en créant les
-                            Rencontres de traditions orales, la Fédération des chœurs du Pays Basque et en présentant un
-                            DEA d’ethnomusicologie du domaine basque. La direction d’orchestre et de chœur (Angoulême,
-                            la Région Centre) et l’obtention du CA de directeur des établissements contrôlés par l’Etat
-                            (Strasbourg, Tarn et Tarbes) lui permettront de contribuer au rapprochement de la formation
-                            professionnelle et des pratiques amateurs. La direction de l’OSSO, à l’invitation de son
-                            fondateur Bernard SALLES, constitue un des faits marquants de cette démarche.</p>
+                        <p class="card-text">{{ director_biography.0.body }}</p>
                     </div>
                 </div>
             </div>
             <div class=" col-12 col-lg-4 mb-4">
                 <div class="card">
-                    <h4 class="card-title card-header">Les membres du bureau</h4>
+                    <h4 class="card-title card-header">{{ administration_council.0.title }}</h4>
                     <div class="card-body text-bg-secondary">
-                        <ul class="list-unstyled d-flex flex-column justify-content-evenly">
-                            <li class="text-center"><strong>Président : </strong><br>Jean-Baptiste BAUDRAN</li>
-                            <li class="text-center"><strong>Vice-président : </strong><br>Guillaume RENAUD</li>
-                            <li class="text-center"><strong>Trésoriére : </strong><br>Lise LAYEILLON</li>
-                            <li class="text-center"><strong>Secrétaire : </strong><br>Anne TERRIERE</li>
-                        </ul>
-
+                        <p class="card-text">{{ administration_council.0.body }}</p>
                     </div>
                 </div>
             </div>
