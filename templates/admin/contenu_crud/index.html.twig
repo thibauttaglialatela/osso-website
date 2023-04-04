@@ -8,11 +8,10 @@
     <table class="table table-striped" id="datatables-index">
         <thead>
             <tr>
-                <th>Poster</th>
-                <th>Alt</th>
-                <th>Identifier</th>
-                <th>Title</th>
-                <th>Body</th>
+                <th>Image</th>
+                <th>Texte alternatif</th>
+                <th>Identifiant</th>
+                <th>Titre</th>
                 <th>actions</th>
             </tr>
         </thead>
@@ -23,15 +22,14 @@
                 <td>{{ contenu.alt }}</td>
                 <td>{{ contenu.identifier }}</td>
                 <td>{{ contenu.title }}</td>
-                <td>{{ contenu.body }}</td>
                 <td>
-                    <a href="{{ path('app_contenu_crud_show', {'id': contenu.id}) }}">show</a>
-                    <a href="{{ path('app_contenu_crud_edit', {'id': contenu.id}) }}">edit</a>
+                    <a href="{{ path('app_contenu_crud_show', {'id': contenu.id}) }}">Montrer</a>
+                    <a href="{{ path('app_contenu_crud_edit', {'id': contenu.id}) }}">éditer</a>
                 </td>
             </tr>
         {% else %}
             <tr>
-                <td colspan="7">no records found</td>
+                <td colspan="7">Aucun enregistrement trouvé</td>
             </tr>
         {% endfor %}
         </tbody>

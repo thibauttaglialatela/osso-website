@@ -13,7 +13,7 @@
                 <div class="card shadow">
                     <h4 class="card-header card-title">{{ osso_history.0.title }}</h4>
                     <div class="card-body text-bg-secondary">
-                        <p class="card-text">{{ osso_history.0.body }}</p>
+                        <p class="card-text">{{ osso_history.0.body|raw }}</p>
                     </div>
                 </div>
             </div>
@@ -21,7 +21,7 @@
                 <div class="card">
                     <h4 class="card-title card-header">{{ director_biography.0.title }}</h4>
                     <div class="card-body text-bg-secondary">
-                        <p class="card-text">{{ director_biography.0.body }}</p>
+                        <p class="card-text">{{ director_biography.0.body|raw }}</p>
                     </div>
                 </div>
             </div>
@@ -29,7 +29,7 @@
                 <div class="card">
                     <h4 class="card-title card-header">{{ administration_council.0.title }}</h4>
                     <div class="card-body text-bg-secondary">
-                        <p class="card-text">{{ administration_council.0.body }}</p>
+                        <p class="card-text">{{ administration_council.0.body|raw }}</p>
                     </div>
                 </div>
             </div>
