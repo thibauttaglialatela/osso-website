@@ -1,0 +1,11 @@
+{% extends 'admin/base.html.twig' %}
+
+{% block title %}{{ parent() }} - Nouveau contenu{% endblock %}
+
+{% block body %}
+    <h1 class="text-center">Ajouter du contenu</h1>
+
+    {{ include('admin/contenu_crud/_form.html.twig') }}
+
+    <a class="btn btn-outline-info mb-2" href="{{ path('app_contenu_crud_index') }}">Revenir à la liste</a>
+{% endblock %}

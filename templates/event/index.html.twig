@@ -10,8 +10,13 @@
             <h2 class="text-light text-center fs-2">Nos prochains concerts</h2>
             {% for event in new_events %}
                 <div class="card mx-auto mb-4 event-modal col-12 col-sm-5 offset-sm-2">
-                    <img src="{{ vich_uploader_asset(event, 'poster', 'App\\Entity\\Event')| imagine_filter('image_resized') }}"
-                         class="img-fluid" alt="{{ event.title }}">
+                    {% if event.posterFilename %}
+                        <img src="{{ vich_uploader_asset(event, 'poster', 'App\\Entity\\Event')| imagine_filter('image_resized') }}"
+                             class="img-fluid" alt="{{ event.title }}">
+                        {% else %}
+                            <img src="{{ asset('build/osso-picture.webp')| imagine_filter('image_resized') }}" alt="osso picture" class="img-fluid">
+                    {% endif %}
+                    
                     <div class="card-body">
                         <div class="d-flex justify-content-between flex-column flex-md-row">
                             <h5 class="card-text">Lieu du concert : {{ event.localisation }}</h5>
@@ -36,15 +41,19 @@
     </div>
 
 
-    <h2 class="text-light text-center fs-2 mt-lg-4">Calendrier des répétitions et des concerts</h2>
+    <h2 class="text-light text-center fs-2 mt-lg-4">Calendrier des concerts de l'OSSO</h2>
 
     <section id="calendar"></section>
     <div class="row">
         <h2 class="text-light text-center fs-2">Nos anciens concerts</h2>
         {% for event in old_events %}
             <div class="card mx-auto mb-4 event-modal col-12 col-sm-5 offset-sm-2">
-                <img src="{{ vich_uploader_asset(event, 'poster', 'App\\Entity\\Event') | imagine_filter('image_resized') }}"
-                     class="img-fluid" alt="{{ event.title }}">
+                {% if event.posterFilename %}
+                    <img src="{{ vich_uploader_asset(event, 'poster', 'App\\Entity\\Event')| imagine_filter('image_resized') }}"
+                         class="img-fluid" alt="{{ event.title }}">
+                {% else %}
+                    <img src="{{ asset('build/osso-picture.webp')| imagine_filter('image_resized') }}" alt="osso picture" class="img-fluid">
+                {% endif %}
                 <div class="card-body">
                     <div class="d-flex justify-content-between flex-column flex-md-row">
                         <h5 class="card-text">Lieu du concert : {{ event.localisation }}</h5>

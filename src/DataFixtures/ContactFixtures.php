@@ -17,6 +17,7 @@ class ContactFixtures extends Fixture
             $contact->setFullName($faker->name)
                 ->setEmail($faker->email)
                 ->setSubject('Demande n° '.($i + 1))
+                ->setHasAcceptedPrivacy(true)
                 ->setMessage($faker->realText);
             $manager->persist($contact);
         }

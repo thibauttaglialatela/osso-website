@@ -12,7 +12,6 @@ body {
     -webkit-text-size-adjust: 100%;
     -ms-text-size-adjust: 100%;
     margin: 0;
-    Margin: 0;
     padding: 0;
     -moz-box-sizing: border-box;
     -webkit-box-sizing: border-box;
@@ -34,7 +33,6 @@ body {
 
 #backgroundTable {
     margin: 0;
-    Margin: 0;
     padding: 0;
     width: 100% !important;
     line-height: 100% !important;
@@ -95,7 +93,6 @@ table.container {
     background: #fefefe;
     width: 580px;
     margin: 0 auto;
-    Margin: 0 auto;
     text-align: inherit;
 }
 table.row {
@@ -119,7 +116,6 @@ td.column,
 th.columns,
 th.column {
     margin: 0 auto;
-    Margin: 0 auto;
     padding-left: 16px;
     padding-bottom: 16px;
 }
@@ -186,7 +182,7 @@ th.column table.button.expanded {
 
 td.large-1,
 th.large-1 {
-    width: 32.3333333333px;
+    width: 32px;
     padding-left: 8px;
     padding-right: 8px;
 }
@@ -205,13 +201,13 @@ th.large-1.last {
 .collapse > tbody > tr > th.large-1:not([class*=large-offset]) {
     padding-right: 0;
     padding-left: 0;
-    width: 48.3333333333px;
+    width: 48px;
 }
 .collapse > tbody > tr td.large-1.first,
 .collapse > tbody > tr th.large-1.first,
 .collapse > tbody > tr td.large-1.last,
 .collapse > tbody > tr th.large-1.last {
-    width: 56.3333333333px;
+    width: 56px;
 }
 
 .body .columns td.large-1,
@@ -223,7 +219,7 @@ th.large-1.last {
 
 td.large-2,
 th.large-2 {
-    width: 80.6666666667px;
+    width: 81px;
     padding-left: 8px;
     padding-right: 8px;
 }
@@ -242,13 +238,13 @@ th.large-2.last {
 .collapse > tbody > tr > th.large-2:not([class*=large-offset]) {
     padding-right: 0;
     padding-left: 0;
-    width: 96.6666666667px;
+    width: 97px;
 }
 .collapse > tbody > tr td.large-2.first,
 .collapse > tbody > tr th.large-2.first,
 .collapse > tbody > tr td.large-2.last,
 .collapse > tbody > tr th.large-2.last {
-    width: 104.6666666667px;
+    width: 105px;
 }
 
 .body .columns td.large-2,
@@ -297,7 +293,7 @@ th.large-3.last {
 
 td.large-4,
 th.large-4 {
-    width: 177.3333333333px;
+    width: 177px;
     padding-left: 8px;
     padding-right: 8px;
 }
@@ -316,13 +312,13 @@ th.large-4.last {
 .collapse > tbody > tr > th.large-4:not([class*=large-offset]) {
     padding-right: 0;
     padding-left: 0;
-    width: 193.3333333333px;
+    width: 193px;
 }
 .collapse > tbody > tr td.large-4.first,
 .collapse > tbody > tr th.large-4.first,
 .collapse > tbody > tr td.large-4.last,
 .collapse > tbody > tr th.large-4.last {
-    width: 201.3333333333px;
+    width: 201px;
 }
 
 .body .columns td.large-4,
@@ -334,7 +330,7 @@ th.large-4.last {
 
 td.large-5,
 th.large-5 {
-    width: 225.6666666667px;
+    width: 226px;
     padding-left: 8px;
     padding-right: 8px;
 }
@@ -353,13 +349,13 @@ th.large-5.last {
 .collapse > tbody > tr > th.large-5:not([class*=large-offset]) {
     padding-right: 0;
     padding-left: 0;
-    width: 241.6666666667px;
+    width: 242px;
 }
 .collapse > tbody > tr td.large-5.first,
 .collapse > tbody > tr th.large-5.first,
 .collapse > tbody > tr td.large-5.last,
 .collapse > tbody > tr th.large-5.last {
-    width: 249.6666666667px;
+    width: 250px;
 }
 
 .body .columns td.large-5,
@@ -408,7 +404,7 @@ th.large-6.last {
 
 td.large-7,
 th.large-7 {
-    width: 322.3333333333px;
+    width: 322px;
     padding-left: 8px;
     padding-right: 8px;
 }
@@ -427,13 +423,13 @@ th.large-7.last {
 .collapse > tbody > tr > th.large-7:not([class*=large-offset]) {
     padding-right: 0;
     padding-left: 0;
-    width: 338.3333333333px;
+    width: 338px;
 }
 .collapse > tbody > tr td.large-7.first,
 .collapse > tbody > tr th.large-7.first,
 .collapse > tbody > tr td.large-7.last,
 .collapse > tbody > tr th.large-7.last {
-    width: 346.3333333333px;
+    width: 346px;
 }
 
 .body .columns td.large-7,
@@ -445,7 +441,7 @@ th.large-7.last {
 
 td.large-8,
 th.large-8 {
-    width: 370.6666666667px;
+    width: 371px;
     padding-left: 8px;
     padding-right: 8px;
 }
@@ -464,13 +460,13 @@ th.large-8.last {
 .collapse > tbody > tr > th.large-8:not([class*=large-offset]) {
     padding-right: 0;
     padding-left: 0;
-    width: 386.6666666667px;
+    width: 387px;
 }
 .collapse > tbody > tr td.large-8.first,
 .collapse > tbody > tr th.large-8.first,
 .collapse > tbody > tr td.large-8.last,
 .collapse > tbody > tr th.large-8.last {
-    width: 394.6666666667px;
+    width: 395px;
 }
 
 .body .columns td.large-8,
@@ -519,7 +515,7 @@ th.large-9.last {
 
 td.large-10,
 th.large-10 {
-    width: 467.3333333333px;
+    width: 467px;
     padding-left: 8px;
     padding-right: 8px;
 }
@@ -538,13 +534,13 @@ th.large-10.last {
 .collapse > tbody > tr > th.large-10:not([class*=large-offset]) {
     padding-right: 0;
     padding-left: 0;
-    width: 483.3333333333px;
+    width: 483px;
 }
 .collapse > tbody > tr td.large-10.first,
 .collapse > tbody > tr th.large-10.first,
 .collapse > tbody > tr td.large-10.last,
 .collapse > tbody > tr th.large-10.last {
-    width: 491.3333333333px;
+    width: 491px;
 }
 
 .body .columns td.large-10,
@@ -556,7 +552,7 @@ th.large-10.last {
 
 td.large-11,
 th.large-11 {
-    width: 515.6666666667px;
+    width: 516px;
     padding-left: 8px;
     padding-right: 8px;
 }
@@ -575,13 +571,13 @@ th.large-11.last {
 .collapse > tbody > tr > th.large-11:not([class*=large-offset]) {
     padding-right: 0;
     padding-left: 0;
-    width: 531.6666666667px;
+    width: 532px;
 }
 .collapse > tbody > tr td.large-11.first,
 .collapse > tbody > tr th.large-11.first,
 .collapse > tbody > tr td.large-11.last,
 .collapse > tbody > tr th.large-11.last {
-    width: 539.6666666667px;
+    width: 540px;
 }
 
 .body .columns td.large-11,
@@ -634,7 +630,7 @@ td.large-offset-1.last,
 th.large-offset-1,
 th.large-offset-1.first,
 th.large-offset-1.last {
-    padding-left: 64.3333333333px;
+    padding-left: 64px;
 }
 
 td.large-offset-2,
@@ -643,7 +639,7 @@ td.large-offset-2.last,
 th.large-offset-2,
 th.large-offset-2.first,
 th.large-offset-2.last {
-    padding-left: 112.6666666667px;
+    padding-left: 113px;
 }
 
 td.large-offset-3,
@@ -661,7 +657,7 @@ td.large-offset-4.last,
 th.large-offset-4,
 th.large-offset-4.first,
 th.large-offset-4.last {
-    padding-left: 209.3333333333px;
+    padding-left: 209px;
 }
 
 td.large-offset-5,
@@ -670,7 +666,7 @@ td.large-offset-5.last,
 th.large-offset-5,
 th.large-offset-5.first,
 th.large-offset-5.last {
-    padding-left: 257.6666666667px;
+    padding-left: 258px;
 }
 
 td.large-offset-6,
@@ -688,7 +684,7 @@ td.large-offset-7.last,
 th.large-offset-7,
 th.large-offset-7.first,
 th.large-offset-7.last {
-    padding-left: 354.3333333333px;
+    padding-left: 354px;
 }
 
 td.large-offset-8,
@@ -697,7 +693,7 @@ td.large-offset-8.last,
 th.large-offset-8,
 th.large-offset-8.first,
 th.large-offset-8.last {
-    padding-left: 402.6666666667px;
+    padding-left: 403px;
 }
 
 td.large-offset-9,
@@ -715,7 +711,7 @@ td.large-offset-10.last,
 th.large-offset-10,
 th.large-offset-10.first,
 th.large-offset-10.last {
-    padding-left: 499.3333333333px;
+    padding-left: 499px;
 }
 
 td.large-offset-11,
@@ -724,7 +720,7 @@ td.large-offset-11.last,
 th.large-offset-11,
 th.large-offset-11.first,
 th.large-offset-11.last {
-    padding-left: 547.6666666667px;
+    padding-left: 548px;
 }
 
 td.expander,
@@ -854,7 +850,6 @@ img.float-right {
 img.float-center,
 img.text-center {
     margin: 0 auto;
-    Margin: 0 auto;
     float: none;
     text-align: center;
 }
@@ -863,7 +858,6 @@ table.float-center,
 td.float-center,
 th.float-center {
     margin: 0 auto;
-    Margin: 0 auto;
     float: none;
     text-align: center;
 }
@@ -946,7 +940,6 @@ th {
     font-weight: normal;
     padding: 0;
     margin: 0;
-    Margin: 0;
     text-align: left;
     line-height: 130%;
 }
@@ -962,7 +955,6 @@ h6 {
     font-family: Helvetica, Arial, sans-serif;
     font-weight: normal;
     margin-bottom: 10px;
-    Margin-bottom: 10px;
 }
 
 h1 {
@@ -1000,7 +992,6 @@ th {
 
 p {
     margin-bottom: 10px;
-    Margin-bottom: 10px;
 }
 p.lead {
     font-size: 20px;
@@ -1009,35 +1000,32 @@ p.lead {
 p.subheader {
     margin-top: 4px;
     margin-bottom: 8px;
-    Margin-top: 4px;
-    Margin-bottom: 8px;
     font-weight: normal;
     line-height: 1.4;
     color: #8a8a8a;
 }
 p a {
-    margin: default;
-    Margin: default;
+    margin: inherit;
 }
 
 .text-xs {
-    font-size: 11.1111111111px;
+    font-size: 11px;
 }
 
 .text-sm {
-    font-size: 13.3333333333px;
+    font-size: 13px;
 }
 
 .text-lg {
-    font-size: 19.2px;
+    font-size: 19px;
 }
 
 .text-xl {
-    font-size: 23.04px;
+    font-size: 23px;
 }
 
 .text-xxl {
-    font-size: 27.648px;
+    font-size: 28px;
 }
 
 small,
@@ -1083,7 +1071,6 @@ h6 a:visited {
 pre {
     background: #f3f3f3;
     margin: 30px 0;
-    Margin: 30px 0;
 }
 pre code {
     color: #cacaca;
@@ -1114,7 +1101,6 @@ table.hr table,
 table.h-line table {
     display: inline-block;
     margin: 0;
-    Margin: 0;
 }
 table.hr th,
 table.h-line th {
@@ -1136,7 +1122,6 @@ table.h-line th {
 }
 p + .stat {
     margin-top: -16px;
-    Margin-top: -16px;
 }
 
 span.preheader {
@@ -1146,8 +1131,8 @@ span.preheader {
     font-size: 1px;
     color: #f3f3f3;
     line-height: 1px;
-    max-height: 0px;
-    max-width: 0px;
+    max-height: 0;
+    max-width: 0;
     opacity: 0;
     overflow: hidden;
 }
@@ -1165,7 +1150,6 @@ span.preheader {
 table.button {
     width: auto;
     margin: 0 0 16px 0;
-    Margin: 0 0 16px 0;
 }
 table.button table td {
     text-align: left;
@@ -1269,7 +1253,7 @@ table.button:active table a {
 table.button.secondary table td {
     background: #777777;
     color: #fefefe;
-    border: 0px solid #777777;
+    border: 0 solid #777777;
 }
 table.button.secondary table a {
     color: #fefefe;
@@ -1298,7 +1282,7 @@ table.button.secondary table td a:visited {
 
 table.button.success table td {
     background: #3adb76;
-    border: 0px solid #3adb76;
+    border: 0 solid #3adb76;
 }
 table.button.success table a {
     border: 0 solid #3adb76;
@@ -1313,7 +1297,7 @@ table.button.success:hover table a {
 
 table.button.alert table td {
     background: #ec5840;
-    border: 0px solid #ec5840;
+    border: 0 solid #ec5840;
 }
 table.button.alert table a {
     border: 0 solid #ec5840;
@@ -1328,22 +1312,21 @@ table.button.alert:hover table a {
 
 table.button.warning table td {
     background: #ffae00;
-    border: 0px solid #ffae00;
+    border: 0 solid #ffae00;
 }
 table.button.warning table a {
-    border: 0px solid #ffae00;
+    border: 0 solid #ffae00;
 }
 
 table.button.warning:hover table td {
     background: #cc8b00;
 }
 table.button.warning:hover table a {
-    border: 0px solid #cc8b00;
+    border: 0 solid #cc8b00;
 }
 
 table.callout {
     margin-bottom: 16px;
-    Margin-bottom: 16px;
 }
 
 th.callout-inner {
@@ -1397,10 +1380,7 @@ table.menu {
 }
 table.menu td.menu-item,
 table.menu th.menu-item {
-    padding-top: 10px;
-    padding-right: 10px;
-    padding-bottom: 10px;
-    padding-left: 10px;
+    padding: 10px;
 }
 table.menu td.menu-item a,
 table.menu th.menu-item a {
@@ -1409,10 +1389,7 @@ table.menu th.menu-item a {
 
 table.menu.vertical td.menu-item,
 table.menu.vertical th.menu-item {
-    padding-top: 10px;
-    padding-right: 0;
-    padding-bottom: 10px;
-    padding-left: 10px;
+    padding: 10px 0 10px 10px;
     display: block;
 }
 table.menu.vertical td.menu-item a,
@@ -1572,67 +1549,56 @@ body.outlook p {
     table.body td.small-offset-1,
     table.body th.small-offset-1 {
         margin-left: 8.333333% !important;
-        Margin-left: 8.333333% !important;
     }
 
     table.body td.small-offset-2,
     table.body th.small-offset-2 {
         margin-left: 16.666666% !important;
-        Margin-left: 16.666666% !important;
     }
 
     table.body td.small-offset-3,
     table.body th.small-offset-3 {
         margin-left: 25% !important;
-        Margin-left: 25% !important;
     }
 
     table.body td.small-offset-4,
     table.body th.small-offset-4 {
         margin-left: 33.333333% !important;
-        Margin-left: 33.333333% !important;
     }
 
     table.body td.small-offset-5,
     table.body th.small-offset-5 {
         margin-left: 41.666666% !important;
-        Margin-left: 41.666666% !important;
     }
 
     table.body td.small-offset-6,
     table.body th.small-offset-6 {
         margin-left: 50% !important;
-        Margin-left: 50% !important;
     }
 
     table.body td.small-offset-7,
     table.body th.small-offset-7 {
         margin-left: 58.333333% !important;
-        Margin-left: 58.333333% !important;
     }
 
     table.body td.small-offset-8,
     table.body th.small-offset-8 {
         margin-left: 66.666666% !important;
-        Margin-left: 66.666666% !important;
     }
 
     table.body td.small-offset-9,
     table.body th.small-offset-9 {
         margin-left: 75% !important;
-        Margin-left: 75% !important;
     }
 
     table.body td.small-offset-10,
     table.body th.small-offset-10 {
         margin-left: 83.333333% !important;
-        Margin-left: 83.333333% !important;
     }
 
     table.body td.small-offset-11,
     table.body th.small-offset-11 {
         margin-left: 91.666666% !important;
-        Margin-left: 91.666666% !important;
     }
 
     table.body table.columns td.expander,

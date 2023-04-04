@@ -8,12 +8,11 @@
         </button>
 {#création du tableau twig regroupant les liens et le nom de la page#}
         {% set links = [
-            {'title':'présentation', 'path': "orchestra_presentation"},
+            {'title':'Qui sommes nous', 'path': "orchestra_presentation"},
             {'title':'Musiciens', 'path': "orchestra_instrument"},
-            {'title':'notre répertoire', 'path': "orchestra_musical_work"},
             {'title':'concerts passés et futurs', 'path': "event_index"},
             {'title':'médias', 'path': "press_index"},
-            {'title':"nous contactez", 'path': "contact_index"},
+            {'title':"nous contacter", 'path': "contact_index"},
         ] %}
         <div class="navbar-collapse collapse" id="navbarOSSO" style="">
             <ul class="navbar-nav ms-lg-auto mb-2 mb-lg-0 d-flex align-items-center">
