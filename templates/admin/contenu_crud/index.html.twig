@@ -1,14 +1,13 @@
 {% extends 'admin/base.html.twig' %}
 
-{% block title %}Contenu index{% endblock %}
+{% block title %}{{ parent() }} - Contenu{% endblock %}
 
 {% block body %}
-    <h1>Contenu index</h1>
+    <h1>Contenu</h1>
 
-    <table class="table">
+    <table class="table table-striped" id="datatables-index">
         <thead>
             <tr>
-                <th>Id</th>
                 <th>Poster</th>
                 <th>Alt</th>
                 <th>Identifier</th>
@@ -20,7 +19,6 @@
         <tbody>
         {% for contenu in contenus %}
             <tr>
-                <td>{{ contenu.id }}</td>
                 <td>{{ contenu.poster }}</td>
                 <td>{{ contenu.alt }}</td>
                 <td>{{ contenu.identifier }}</td>
@@ -39,5 +37,5 @@
         </tbody>
     </table>
 
-    <a href="{{ path('app_contenu_crud_new') }}">Create new</a>
+    <a class="btn btn-outline-success" href="{{ path('app_contenu_crud_new') }}">Créer du contenu</a>
 {% endblock %}

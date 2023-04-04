@@ -22,7 +22,8 @@ class PosterType extends AbstractType
             ->add('alt', TextType::class,[
                 'label' => 'Texte alternatif de l\'image',
                 'help' => 'petite description de la photo',
-                'required' => true,
+                'required' => false,
+                'empty_data' => 'a musician'
             ])
             ->add('author', TextType::class, [
                 'label' => 'auteur de la photo',
