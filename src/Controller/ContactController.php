@@ -19,26 +19,24 @@ class ContactController extends AbstractController
     #[Route('/', name: 'index')]
     public function index(Request $request, ContactRepository $contactRepository, MailerInterface $mailer, EntityManagerInterface $em): Response
     {
-        $contact = new Contact();
-        $form = $this->createForm(ContactType::class, $contact);
+
+        $form = $this->createForm(ContactType::class);
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {
-            $contactRepository->add($contact, true);
+            $contactData = $form->getData();
+
             $email = (new TemplatedEmail())
-                ->from($contact->getEmail())
+                ->from($contactData->getEmail())
                 ->to($this->getParameter('mailer_to'))
                 ->cc($this->getParameter('copy_to'))
-                ->subject($contact->getSubject())
+                ->subject($contactData->getSubject())
                 ->htmlTemplate('emails/contact.html.twig')
                 ->context([
-                    'contact' => $contact,
+                    'contact' => $contactData,
                 ]);
 
             $mailer->send($email);
             $this->addFlash('success', 'Votre message a bien été envoyé');
-            //suppression de l'email du contact de la base de données aprés envoie du mail
-            $em->remove($contact);
-            $em->flush();
             return $this->redirectToRoute('contact_index');
         }
 
