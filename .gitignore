@@ -9,6 +9,7 @@
 /var/
 /vendor/
 .php-cs-fixer.cache
+build
 ###< symfony/framework-bundle ###
 
 ###> symfony/webpack-encore-bundle ###
