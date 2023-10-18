@@ -176,3 +176,4 @@ fabric.properties
 ###> liip/imagine-bundle ###
 /public/media/cache/
 ###< liip/imagine-bundle ###
+/src/DataFixtures/AdminUserFixtures.php

@@ -31,6 +31,7 @@ class GalleryController extends AbstractController
             $posters = $posterRepository->findBy(['gallery' => $gallery]);
         }
 
+
         return $this->render('gallery/show.html.twig', [
             'posters' => $posters,
         ]);
