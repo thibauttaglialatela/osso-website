@@ -1,0 +1,22 @@
+---
+deployment:
+  tasks:
+    - copy_files:
+        source: /home/fhor9931/osso-website.portfolio-taglialatela.fr
+        destination: public_html
+    - run_commands:
+        - composer install --no-dev --optimize-autoloader
+        - yarn install
+        - yarn build
+        - php bin/console d:m:m
+        - php bin/console cache:clear --env=prod
+        - php bin/console cache:warmup
+
+  main_domain: portfolio-taglialatela.fr
+  on_start:
+    - create_subdomain:
+        name: www
+    - create_subdomain:
+        name: osso-website
+  sub_domains:
+    - osso-website.portfolio-taglialatela.fr
