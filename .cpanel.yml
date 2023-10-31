@@ -2,14 +2,14 @@
 deployment:
   tasks:
     - export DEPLOYPATH=/home/fhor9931/public_html
-      - /bin/cp -R /home/fhor9931/osso-website.portfolio-taglialatela.fr $DEPLOYPATH
-      - cd $DEPLOYPATH
-      - composer install --no-dev --optimize-autoloader
-      - yarn install
-      - yarn build
-      - php bin/console d:m:m
-      - php bin/console cache:clear --env=prod
-      - php bin/console cache:warmup
+    - /bin/cp -R /home/fhor9931/osso-website.portfolio-taglialatela.fr $DEPLOYPATH
+    - cd $DEPLOYPATH
+    - composer install --no-dev --optimize-autoloader
+    - yarn install
+    - yarn build
+    - php bin/console d:m:m
+    - php bin/console cache:clear --env=prod
+    - php bin/console cache:warmup
 
   main_domain: portfolio-taglialatela.fr
   on_start:
