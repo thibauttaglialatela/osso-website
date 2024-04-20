@@ -46,7 +46,8 @@ class CreateAdminCommand extends Command
 
         $user = $this->userRepository->findOneBy(['email' => $email]);
         if ($user) {
-            throw new \InvalidArgumentException('User already exists');
+            $io->error('The email ' . $email . ' already exists.');
+            return Command::FAILURE;
         }
 
         $user = new User();
