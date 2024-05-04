@@ -1,13 +1,10 @@
-#!/bin/bash
+#!/usr/bin/bash
 
+rm -Rf vendor/
+composer install --ignore-platform-reqs
+yarn install
 composer dump-env prod
-
-composer install --no-dev --optimize-autoloader
-
-APP_ENV=prod APP_DEBUG=0 php bin/console cache:clear
-
+php bin/console doctrine:schema:create
 php bin/console doctrine:migrations:migrate
-
-npm install
-
-npm run build
+APP_ENV=prod APP_DEBUG=0 php bin/console cache:clear
+yarn build
