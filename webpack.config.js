@@ -69,6 +69,16 @@ Encore
 
     // enables Sass/SCSS support
     .enableSassLoader()
+    .addLoader({
+        test: /\.(png|jpg|jpeg|gif|webp)$/,
+        use: [{
+            loader: 'file-loader',
+            options: {
+                name: '[name].[ext]',
+                outputPath: 'images/'
+            }
+        }]
+    })
 
     // uncomment if you use TypeScript
     //.enableTypeScriptLoader()
